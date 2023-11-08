@@ -15,36 +15,69 @@ import utils.XJdbc;
  *
  * @author Fixluck
  */
-public class EmployeeDAO extends EntityDAO<Employee, String>{
+public class EmployeeDAO extends EntityDAO<Employee, String> {
 
     @Override
-    public void insert(Employee entity) {
+    public void insert(Employee emp) {
+        String sql = """
+                     INSERT INTO [dbo].[Employee]
+                                ([EmpID]
+                                ,[Name]
+                                ,[Sexual]
+                                ,[PhoneNumber]
+                                ,[Email]
+                                ,[Password]
+                                ,[Role]
+                                ,[Salary]
+                                ,[DepID]
+                                ,[PosID])
+                          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""";
         
+        XJdbc.update(sql, emp.getEmail(), 
+                emp.getName(), 
+                emp.getSex(), 
+                emp.getPhoneNumber(), 
+                emp.getEmail(), 
+                emp.getPassword(), 
+                emp.getRole(), 
+                emp.getSalary(), 
+                emp.getDepartment().getDepID(), 
+                emp.getPosition().getPosID());
     }
 
     @Override
-    public void update(Employee entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void update(Employee emp) {
+        String sql = "";
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(String empID) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public List<Employee> selectAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "select * from Employee";
+        return selectBySql(sql);
     }
 
     @Override
-    public Employee selectByID(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Employee selectByID(String empID) {
+        String sql = "select * from Employee where EmpID = ? ";
+        List<Employee> list = selectBySql(sql, empID);
+        if (!list.isEmpty()) {
+            return list.get(0);
+        } else {
+            return null;
+        }
     }
 
     @Override
-    public List<Employee> selectBySql(String sql, Object...args) {
-         List<Employee> list = new ArrayList();
+    public List<Employee> selectBySql(String sql, Object... args) {
+        List<Employee> list = new ArrayList();
+        DepartmentDAO depDAO = new DepartmentDAO();
+        PositionDAO posDAO = new PositionDAO();
+
         try {
             ResultSet rs = null;
             try {
@@ -59,8 +92,10 @@ public class EmployeeDAO extends EntityDAO<Employee, String>{
                     emp.setPassword(rs.getString("Password"));
                     emp.setRole(rs.getString("Role"));
                     emp.setSalary(rs.getDouble("Salary"));
-                    
-                    
+                    emp.setDepartment(depDAO.selectByID(rs.getString("DepID")));
+                    emp.setPosition(posDAO.selectByID(rs.getString("PosID")));
+                    list.add(emp);
+
                 }
             } finally {
                 rs.getStatement().getConnection().close();
@@ -72,5 +107,10 @@ public class EmployeeDAO extends EntityDAO<Employee, String>{
         return list;
     }
     
-    
+    public static void main(String[] args) {
+        EmployeeDAO dao = new EmployeeDAO();
+        List<Employee> list = dao.selectAll();
+        System.out.println(list.get(0).getName());
+    }
+
 }
