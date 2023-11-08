@@ -24,6 +24,6 @@ abstract public class EntityDAO<E, Key> {
 
     abstract public E selectByID(Key id);
 
-    abstract public List<E> selectBySql(String sql, Object... args);
+    abstract public List<E> selectBySql(String sql, Object...args);
 
 }
