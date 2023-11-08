@@ -107,10 +107,10 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
         return list;
     }
     
-    public static void main(String[] args) {
-        EmployeeDAO dao = new EmployeeDAO();
-        List<Employee> list = dao.selectAll();
-        System.out.println(list.get(0).getName());
-    }
+//    public static void main(String[] args) {
+//        EmployeeDAO dao = new EmployeeDAO();
+//        List<Employee> list = dao.selectAll();
+//        System.out.println(list.get(0).getName());
+//    }
 
 }
