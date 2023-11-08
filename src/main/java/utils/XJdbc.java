@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class XJdbc {
     private static String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private static String dburl="jdbc:sqlserver://localhost;database=EduSys";
+    private static String dburl="jdbc:sqlserver://localhost;database=EduSys;encrypt=true;trustServerCertificate=true";
     private static String username="sa";
     private static String password="songlong";
     
@@ -74,7 +74,6 @@ public class XJdbc {
             return stmt.executeQuery();
         } 
         catch (SQLException e) {
-            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
@@ -83,11 +82,11 @@ public class XJdbc {
         try {
             ResultSet rs = XJdbc.query(sql, args);
             if(rs.next()){
-                return rs.getObject(0);
+                return rs.getObject(1);
             }
             rs.getStatement().getConnection().close();
             return null;
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
