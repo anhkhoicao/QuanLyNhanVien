@@ -11,4 +11,14 @@
         <maven.compiler.target>19</maven.compiler.target>
         <exec.mainClass>com.ps34827.quanlynhansu.QuanLyNhanSu</exec.mainClass>
     </properties>
+    
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>11.2.3.jre18</version>
+        </dependency>
+
+    </dependencies>
 </project>
