@@ -32,27 +32,41 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
                                 ,[DepID]
                                 ,[PosID])
                           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""";
-        
-        XJdbc.update(sql, emp.getEmail(), 
-                emp.getName(), 
-                emp.getSex(), 
-                emp.getPhoneNumber(), 
-                emp.getEmail(), 
-                emp.getPassword(), 
-                emp.getRole(), 
-                emp.getSalary(), 
-                emp.getDepartment().getDepID(), 
+
+        XJdbc.update(sql, emp.getEmail(),
+                emp.getName(),
+                emp.getSex(),
+                emp.getPhoneNumber(),
+                emp.getEmail(),
+                emp.getPassword(),
+                emp.getRole(),
+                emp.getSalary(),
+                emp.getDepartment().getDepID(),
                 emp.getPosition().getPosID());
     }
 
     @Override
     public void update(Employee emp) {
-        String sql = "";
+        String sql = "UPDATE Employee SET Name = ?, Sexual = ?, PhoneNumber = ?, "
+                + "Email = ?, Password = ?, Role = ?, Salary = ?, DepID = ?, PosID = ? "
+                + "WHERE EmpID = ?";
+
+        XJdbc.update(sql, emp.getName(),
+                emp.getSex(),
+                emp.getPhoneNumber(),
+                emp.getEmail(),
+                emp.getPassword(),
+                emp.getRole(),
+                emp.getSalary(),
+                emp.getDepartment().getDepID(),
+                emp.getPosition().getPosID(),
+                emp.getEmpID());
     }
 
     @Override
     public void delete(String empID) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql = "DELETE FROM Employee WHERE EmpID = ?";
+        XJdbc.update(sql, empID);
     }
 
     @Override
@@ -106,11 +120,10 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
 
         return list;
     }
-    
+
 //    public static void main(String[] args) {
 //        EmployeeDAO dao = new EmployeeDAO();
 //        List<Employee> list = dao.selectAll();
 //        System.out.println(list.get(0).getName());
 //    }
-
 }
