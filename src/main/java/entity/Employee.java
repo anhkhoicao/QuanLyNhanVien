@@ -4,6 +4,8 @@
  */
 package entity;
 
+import java.util.List;
+
 /**
  *
  * @author Fixluck
@@ -115,6 +117,35 @@ public class Employee {
     public void setPosition(Position position) {
         this.position = position;
     }
+    
+    private AdvancePayment monthlyAdvPayment;
+
+    public Employee(String EmpID, String name, String sex, String phoneNumber, String email, String password, String role, double salary, Department department, Position position, AdvancePayment monthlyAdvPayment) {
+        this.EmpID = EmpID;
+        this.name = name;
+        this.sex = sex;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.salary = salary;
+        this.department = department;
+        this.position = position;
+        this.monthlyAdvPayment = monthlyAdvPayment;
+    }
+
+    public AdvancePayment getMonthlyAdvPayment() {
+        return monthlyAdvPayment;
+    }
+
+    public void setMonthlyAdvPayment(AdvancePayment monthlyAdvPayment) {
+        this.monthlyAdvPayment = monthlyAdvPayment;
+    }
+    
+    
+    
+    
+    
     
           
 }

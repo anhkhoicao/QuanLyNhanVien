@@ -52,9 +52,9 @@ public class AdvPaymentDAO extends EntityDAO<AdvancePayment, String> {
     }
 
     @Override
-    public AdvancePayment selectByID(String empID) {
-        String sql = "select * from AdvancePayment where EmpID = ? ";
-        List<AdvancePayment> list = selectBySql(sql, empID);
+    public AdvancePayment selectByID(String ID) {
+        String sql = "select * from AdvancePayment where ID = ? ";
+        List<AdvancePayment> list = selectBySql(sql, ID);
         if (!list.isEmpty()) {
             return list.get(0);
         } else {

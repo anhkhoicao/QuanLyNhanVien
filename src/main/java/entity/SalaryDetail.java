@@ -43,6 +43,16 @@ public class SalaryDetail {
     }
 
     public double getTotalSalary() {
+        
+        double baseSalary = employee.getSalary();
+        double allowance = employee.getPosition().getAllowance();
+        
+        AdvancePayment monthlyAdvPayment = employee.getMonthlyAdvPayment();
+        
+        double advAmount = (monthlyAdvPayment != null) ? monthlyAdvPayment.getAdvAmount() : 0;
+        
+        totalSalary = baseSalary + allowance - advAmount;
+        
         return totalSalary;
     }
 
@@ -57,7 +67,9 @@ public class SalaryDetail {
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
-
+    
+    
+   
     
     
 }
