@@ -19,11 +19,12 @@ public class PositionDAO extends EntityDAO<Position, String> {
 
     @Override
     public void insert(Position pos) {
-        String sql = "INSERT INTO [dbo].[Positon]\n"
-                + "           ([PosID]\n"
-                + "           ,[PosName]\n"
-                + "           ,[Allowance])\n"
-                + "     VALUES (?, ?, ?)";
+        String sql = """
+                     INSERT INTO [dbo].[Positon]
+                                ([PosID]
+                                ,[PosName]
+                                ,[Allowance])
+                          VALUES (?, ?, ?)""";
         XJdbc.update(sql, pos.getPosID(), 
                 pos.getPosName(), 
                 pos.getAllowance());

@@ -4,6 +4,8 @@
  */
 package UI;
 
+import entity.Employee;
+
 /**
  *
  * @author caube
