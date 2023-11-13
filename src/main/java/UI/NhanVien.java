@@ -16,6 +16,7 @@ public class NhanVien extends javax.swing.JDialog {
     public NhanVien(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -33,43 +34,43 @@ public class NhanVien extends javax.swing.JDialog {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtMaNV = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtTenNV = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtDienThoai = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        rboKhac = new javax.swing.JRadioButton();
+        rboNu = new javax.swing.JRadioButton();
+        rboNam = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
+        rboNhanVien = new javax.swing.JRadioButton();
+        rboKeToan = new javax.swing.JRadioButton();
+        rboTruongPhong = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtMaVP = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        txtMaCV = new javax.swing.JTextField();
+        btnFirst = new javax.swing.JButton();
+        btnNext = new javax.swing.JButton();
+        btnPrev = new javax.swing.JButton();
+        btnLast = new javax.swing.JButton();
+        btnNew = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jTextField7 = new javax.swing.JTextField();
-        jButton10 = new javax.swing.JButton();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton11 = new javax.swing.JButton();
+        tblNhanVien = new javax.swing.JTable();
+        btnExit1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Thông Tin Nhân Viên");
@@ -89,9 +90,9 @@ public class NhanVien extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Giới Tính");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txtDienThoai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txtDienThoaiActionPerformed(evt);
             }
         });
 
@@ -109,118 +110,123 @@ public class NhanVien extends javax.swing.JDialog {
             .addGap(0, 25, Short.MAX_VALUE)
         );
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("Khác");
+        buttonGroup1.add(rboKhac);
+        rboKhac.setText("Khác");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Nữ");
+        buttonGroup1.add(rboNu);
+        rboNu.setText("Nữ");
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Nam");
+        buttonGroup1.add(rboNam);
+        rboNam.setText("Nam");
+        rboNam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rboNamActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addComponent(jRadioButton1)
+                .addComponent(rboNam)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton2)
+                .addComponent(rboNu)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton3))
+                .addComponent(rboKhac))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jRadioButton1)
-                .addComponent(jRadioButton2)
-                .addComponent(jRadioButton3))
+                .addComponent(rboNam)
+                .addComponent(rboNu)
+                .addComponent(rboKhac))
         );
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Vai trò");
 
-        buttonGroup2.add(jRadioButton4);
-        jRadioButton4.setText("Nhân Viên");
+        buttonGroup2.add(rboNhanVien);
+        rboNhanVien.setText("Nhân Viên");
 
-        buttonGroup2.add(jRadioButton5);
-        jRadioButton5.setText("Kế Toán");
+        buttonGroup2.add(rboKeToan);
+        rboKeToan.setText("Kế Toán");
 
-        buttonGroup2.add(jRadioButton6);
-        jRadioButton6.setText("Trưởng Phòng");
+        buttonGroup2.add(rboTruongPhong);
+        rboTruongPhong.setText("Trưởng Phòng");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addComponent(jRadioButton6)
+                .addComponent(rboTruongPhong)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton5)
+                .addComponent(rboKeToan)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton4))
+                .addComponent(rboNhanVien))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jRadioButton6)
-                .addComponent(jRadioButton5)
-                .addComponent(jRadioButton4))
+                .addComponent(rboTruongPhong)
+                .addComponent(rboKeToan)
+                .addComponent(rboNhanVien))
         );
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setText("Mã Văn Phòng");
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txtMaVP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                txtMaVPActionPerformed(evt);
             }
         });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel9.setText("Mã  Chức Vụ");
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        txtMaCV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                txtMaCVActionPerformed(evt);
             }
         });
 
-        jButton1.setText("First");
+        btnFirst.setText("First");
 
-        jButton2.setText("Next");
+        btnNext.setText("Next");
 
-        jButton3.setText("Previous");
+        btnPrev.setText("Previous");
 
-        jButton4.setText("Last");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnLast.setText("Last");
+        btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnLastActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Làm Mới");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnNew.setText("Làm Mới");
+        btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnNewActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Thêm mới");
+        btnAdd.setText("Thêm mới");
 
-        jButton7.setText("Cập nhật");
+        btnUpdate.setText("Cập nhật");
 
-        jButton8.setText("Xóa");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("Xóa");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
-        jButton9.setText("Thoát");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        btnExit.setText("Thoát");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                btnExitActionPerformed(evt);
             }
         });
 
@@ -237,15 +243,15 @@ public class NhanVien extends javax.swing.JDialog {
                                 .addGap(109, 109, 109)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel9))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txtMaCV, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMaVP, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -253,11 +259,11 @@ public class NhanVien extends javax.swing.JDialog {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(20, 20, 20)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtTenNV, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
@@ -267,34 +273,34 @@ public class NhanVien extends javax.swing.JDialog {
                                 .addGap(42, 42, 42)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtDienThoai, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButton5)
+                                .addComponent(btnNew)
                                 .addGap(7, 7, 7)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jButton1)
+                                        .addComponent(btnFirst)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton3)
+                                        .addComponent(btnPrev)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton2))
+                                        .addComponent(btnNext))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(36, 36, 36)
-                                        .addComponent(jButton6)
+                                        .addComponent(btnAdd)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton7)))
+                                        .addComponent(btnUpdate)))
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton4))
+                                        .addComponent(btnLast))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(45, 45, 45)
-                                        .addComponent(jButton8)))))
+                                        .addComponent(btnDelete)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(254, 254, 254)
-                .addComponent(jButton9)
+                .addComponent(btnExit)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -303,11 +309,11 @@ public class NhanVien extends javax.swing.JDialog {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTenNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
@@ -318,7 +324,7 @@ public class NhanVien extends javax.swing.JDialog {
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtDienThoai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -333,9 +339,9 @@ public class NhanVien extends javax.swing.JDialog {
                                 .addGap(20, 20, 20)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtMaVP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
@@ -343,31 +349,31 @@ public class NhanVien extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMaCV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
+                    .addComponent(btnLast)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton2)
-                        .addComponent(jButton3))
-                    .addComponent(jButton1))
+                        .addComponent(btnNext)
+                        .addComponent(btnPrev))
+                    .addComponent(btnFirst))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton8)
+                    .addComponent(btnDelete)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton6)
-                        .addComponent(jButton7))
-                    .addComponent(jButton5))
+                        .addComponent(btnAdd)
+                        .addComponent(btnUpdate))
+                    .addComponent(btnNew))
                 .addGap(18, 18, 18)
-                .addComponent(jButton9)
+                .addComponent(btnExit)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CẬP NHẬT", jPanel2);
 
-        jButton10.setText("Tìm kiếm");
+        btnSearch.setText("Tìm kiếm");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblNhanVien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -378,9 +384,9 @@ public class NhanVien extends javax.swing.JDialog {
                 "Mã Nhân Viên", "Tên Nhân Viên", "Giới Tính", "Điện Thoại", "Email", "Vai Trò", "Mã Văn Phòng", "Mã Chức Vụ"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblNhanVien);
 
-        jButton11.setText("Thoát");
+        btnExit1.setText("Thoát");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -388,14 +394,14 @@ public class NhanVien extends javax.swing.JDialog {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(jButton10)
+                .addComponent(btnSearch)
                 .addContainerGap(66, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton11)
+                .addComponent(btnExit1)
                 .addGap(23, 23, 23))
         );
         jPanel3Layout.setVerticalGroup(
@@ -403,12 +409,12 @@ public class NhanVien extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10))
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton11)
+                .addComponent(btnExit1)
                 .addGap(21, 21, 21))
         );
 
@@ -436,33 +442,37 @@ public class NhanVien extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txtDienThoaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDienThoaiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txtDienThoaiActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void txtMaVPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaVPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_txtMaVPActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void txtMaCVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaCVActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_txtMaCVActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnLastActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnNewActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void rboNamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rboNamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rboNamActionPerformed
 
     /**
      * @param args the command line arguments
@@ -475,7 +485,7 @@ public class NhanVien extends javax.swing.JDialog {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -510,19 +520,19 @@ public class NhanVien extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnExit1;
+    private javax.swing.JButton btnFirst;
+    private javax.swing.JButton btnLast;
+    private javax.swing.JButton btnNew;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnPrev;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -537,21 +547,21 @@ public class NhanVien extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JRadioButton rboKeToan;
+    private javax.swing.JRadioButton rboKhac;
+    private javax.swing.JRadioButton rboNam;
+    private javax.swing.JRadioButton rboNhanVien;
+    private javax.swing.JRadioButton rboNu;
+    private javax.swing.JRadioButton rboTruongPhong;
+    private javax.swing.JTable tblNhanVien;
+    private javax.swing.JTextField txtDienThoai;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtMaCV;
+    private javax.swing.JTextField txtMaNV;
+    private javax.swing.JTextField txtMaVP;
+    private javax.swing.JTextField txtSearch;
+    private javax.swing.JTextField txtTenNV;
     // End of variables declaration//GEN-END:variables
 }
