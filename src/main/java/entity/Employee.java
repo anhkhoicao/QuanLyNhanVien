@@ -4,54 +4,62 @@
  */
 package entity;
 
-import java.util.List;
-
 /**
  *
  * @author Fixluck
  */
 public class Employee {
-    private String EmpID;
-    private String name;
+    private String Id;
+    private String firstName;
+    private String lastName;
     private String sex;
     private String phoneNumber;
     private String email;
     private String password;
     private String role;
-    private double salary;
+    private double baseSalary;
     private Department department;
-    private Position position;
+    private Position position; 
 
     public Employee() {
     }
 
-    public Employee(String EmpID, String name, String sex, String phoneNumber, String email, String password, String role, double salary, Department department, Position position) {
-        this.EmpID = EmpID;
-        this.name = name;
+    public Employee(String Id, String firstName, String lastName, String sex, String phoneNumber, String email, String password, String role, double baseSalary, Department department, Position position) {
+        this.Id = Id;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.sex = sex;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
         this.role = role;
-        this.salary = salary;
+        this.baseSalary = baseSalary;
         this.department = department;
         this.position = position;
     }
 
-    public String getEmpID() {
-        return EmpID;
+    public String getId() {
+        return Id;
     }
 
-    public void setEmpID(String EmpID) {
-        this.EmpID = EmpID;
+    public void setId(String Id) {
+        this.Id = Id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getSex() {
@@ -94,12 +102,12 @@ public class Employee {
         this.role = role;
     }
 
-    public double getSalary() {
-        return salary;
+    public double getBaseSalary() {
+        return baseSalary;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public void setBaseSalary(double baseSalary) {
+        this.baseSalary = baseSalary;
     }
 
     public Department getDepartment() {
@@ -117,35 +125,7 @@ public class Employee {
     public void setPosition(Position position) {
         this.position = position;
     }
-    
-    private AdvancePayment monthlyAdvPayment;
-
-    public Employee(String EmpID, String name, String sex, String phoneNumber, String email, String password, String role, double salary, Department department, Position position, AdvancePayment monthlyAdvPayment) {
-        this.EmpID = EmpID;
-        this.name = name;
-        this.sex = sex;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-        this.salary = salary;
-        this.department = department;
-        this.position = position;
-        this.monthlyAdvPayment = monthlyAdvPayment;
-    }
-
-    public AdvancePayment getMonthlyAdvPayment() {
-        return monthlyAdvPayment;
-    }
-
-    public void setMonthlyAdvPayment(AdvancePayment monthlyAdvPayment) {
-        this.monthlyAdvPayment = monthlyAdvPayment;
-    }
-    
-    
-    
-    
-    
+   
     
           
 }

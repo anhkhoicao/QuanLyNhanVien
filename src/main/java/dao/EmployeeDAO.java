@@ -13,59 +13,67 @@ import utils.XJdbc;
 
 /**
  *
- * @author Fixluck
+ * @author caube
  */
 public class EmployeeDAO extends EntityDAO<Employee, String> {
 
     @Override
-    public void insert(Employee emp) {
-        String sql = """
-                     INSERT INTO [dbo].[Employee]
-                                ([EmpID]
-                                ,[Name]
-                                ,[Sexual]
-                                ,[PhoneNumber]
-                                ,[Email]
-                                ,[Password]
-                                ,[Role]
-                                ,[Salary]
-                                ,[DepID]
-                                ,[PosID])
-                          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""";
-
-        XJdbc.update(sql, emp.getEmail(),
-                emp.getName(),
-                emp.getSex(),
-                emp.getPhoneNumber(),
-                emp.getEmail(),
-                emp.getPassword(),
-                emp.getRole(),
-                emp.getSalary(),
-                emp.getDepartment().getDepID(),
-                emp.getPosition().getPosID());
+    public void insert(Employee e) {
+        String sql = "INSERT INTO [dbo].[Employee]\n"
+                + "           ([Id]\n"
+                + "           ,[FirstName]\n"
+                + "           ,[LastName]\n"
+                + "           ,[Sex]\n"
+                + "           ,[PhoneNumber]\n"
+                + "           ,[Email]\n"
+                + "           ,[Password]\n"
+                + "           ,[Role]\n"
+                + "           ,[BaseSalary]\n"
+                + "           ,[DepID]\n"
+                + "           ,[PosID])\n"
+                + "     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        XJdbc.update(sql, e.getId(), 
+                e.getFirstName(), 
+                e.getLastName(), 
+                e.getSex(), 
+                e.getPhoneNumber(), 
+                e.getEmail(), 
+                e.getPassword(), 
+                e.getRole(), 
+                e.getBaseSalary(), 
+                e.getDepartment().getDepID(), 
+                e.getPosition().getPosID());
     }
 
     @Override
-    public void update(Employee emp) {
-        String sql = "UPDATE Employee SET Name = ?, Sexual = ?, PhoneNumber = ?, "
-                + "Email = ?, Password = ?, Role = ?, Salary = ?, DepID = ?, PosID = ? "
-                + "WHERE EmpID = ?";
-
-        XJdbc.update(sql, emp.getName(),
-                emp.getSex(),
-                emp.getPhoneNumber(),
-                emp.getEmail(),
-                emp.getPassword(),
-                emp.getRole(),
-                emp.getSalary(),
-                emp.getDepartment().getDepID(),
-                emp.getPosition().getPosID(),
-                emp.getEmpID());
+    public void update(Employee e) {
+        String sql = "UPDATE Employee SET FirstName = ?, "
+                + "LastName = ?, "
+                + "Sex = ?, "
+                + "PhoneNumber = ?, "
+                + "Email = ?, "
+                + "Password = ?, "
+                + "Role = ?, "
+                + "BaseSalary = ?, "
+                + "DepID = ?, "
+                + "PosID = ? WHERE Id = ?";
+        
+        XJdbc.update(sql, e.getFirstName(), 
+                e.getLastName(), 
+                e.getSex(), 
+                e.getPhoneNumber(), 
+                e.getEmail(), 
+                e.getPassword(), 
+                e.getRole(), 
+                e.getBaseSalary(), 
+                e.getDepartment().getDepID(), 
+                e.getPosition().getPosID(), 
+                e.getId());
     }
 
     @Override
     public void delete(String empID) {
-        String sql = "DELETE FROM Employee WHERE EmpID = ?";
+        String sql = "delete from Employee where ID = ?";
         XJdbc.update(sql, empID);
     }
 
@@ -76,9 +84,9 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
     }
 
     @Override
-    public Employee selectByID(String empID) {
-        String sql = "select * from Employee where EmpID = ? ";
-        List<Employee> list = selectBySql(sql, empID);
+    public Employee selectByID(String empId) {
+        String sql = "select * from Employee where Id = ?";
+        List<Employee> list = selectBySql(sql, empId);
         if (!list.isEmpty()) {
             return list.get(0);
         } else {
@@ -98,18 +106,18 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
                 rs = XJdbc.query(sql, args);
                 while (rs.next()) {
                     Employee emp = new Employee();
-                    emp.setEmpID(rs.getString("EmpID"));
-                    emp.setName(rs.getString("Name"));
-                    emp.setSex(rs.getString("Sexual"));
+                    emp.setId(rs.getString("Id"));
+                    emp.setFirstName(rs.getString("FirstName"));
+                    emp.setLastName(rs.getString("LastName"));
+                    emp.setSex(rs.getString("Sex"));
                     emp.setPhoneNumber(rs.getString("PhoneNumber"));
                     emp.setEmail(rs.getString("Email"));
                     emp.setPassword(rs.getString("Password"));
                     emp.setRole(rs.getString("Role"));
-                    emp.setSalary(rs.getDouble("Salary"));
+                    emp.setBaseSalary(rs.getDouble("BaseSalary"));
                     emp.setDepartment(depDAO.selectByID(rs.getString("DepID")));
                     emp.setPosition(posDAO.selectByID(rs.getString("PosID")));
                     list.add(emp);
-
                 }
             } finally {
                 rs.getStatement().getConnection().close();
@@ -124,6 +132,9 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
 //    public static void main(String[] args) {
 //        EmployeeDAO dao = new EmployeeDAO();
 //        List<Employee> list = dao.selectAll();
-//        System.out.println(list.get(0).getName());
+//        for (Employee employee : list) {
+//            System.out.println(employee.getFirstName());
+//        }
 //    }
+
 }

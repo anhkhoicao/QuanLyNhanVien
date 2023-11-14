@@ -20,8 +20,8 @@ public class PositionDAO extends EntityDAO<Position, String> {
     @Override
     public void insert(Position pos) {
         String sql = """
-                     INSERT INTO [dbo].[Positon]
-                                ([PosID]
+                     INSERT INTO [dbo].[Position]
+                                ([ID]
                                 ,[PosName]
                                 ,[Allowance])
                           VALUES (?, ?, ?)""";
@@ -32,7 +32,7 @@ public class PositionDAO extends EntityDAO<Position, String> {
 
     @Override
     public void update(Position pos) {
-        String sql = "update Positon set PosName = ?, Allowance = ? where PosID = ?";
+        String sql = "update Position set PosName = ?, Allowance = ? where ID = ?";
         XJdbc.update(sql, pos.getPosName(), 
                 pos.getAllowance(), 
                 pos.getPosID());
@@ -40,19 +40,19 @@ public class PositionDAO extends EntityDAO<Position, String> {
 
     @Override
     public void delete(String depID) {
-        String sql = "delete from Positon where PosID = ?";
+        String sql = "delete from Position where ID = ?";
         XJdbc.update(sql, depID);
     }
 
     @Override
     public List<Position> selectAll() {
-        String sql = "select * from Positon";
+        String sql = "select * from Position";
         return selectBySql(sql);
     }
 
     @Override
     public Position selectByID(String posID) {
-        String sql = "select * from Positon where PosID = ? ";
+        String sql = "select * from Position where ID = ? ";
         List<Position> list = selectBySql(sql, posID);
         if (!list.isEmpty()) {
             return list.get(0);
@@ -70,7 +70,7 @@ public class PositionDAO extends EntityDAO<Position, String> {
                 rs = XJdbc.query(sql, args);
                 while (rs.next()) {
                     Position pos = new Position();
-                    pos.setPosID(rs.getString("PosID"));
+                    pos.setPosID(rs.getString("ID"));
                     pos.setPosName(rs.getString("PosName"));
                     pos.setAllowance(rs.getDouble("Allowance"));
                     list.add(pos);
@@ -84,5 +84,10 @@ public class PositionDAO extends EntityDAO<Position, String> {
 
         return list;
     }
+//    public static void main(String[] args) {
+//        PositionDAO dao = new PositionDAO();
+//        Position pos = dao.selectByID("P001  ");
+//        System.out.println(pos.getPosName());
+//    }
 
 }

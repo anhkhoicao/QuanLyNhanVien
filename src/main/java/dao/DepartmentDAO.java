@@ -20,7 +20,7 @@ public class DepartmentDAO extends EntityDAO<Department, String> {
     @Override
     public void insert(Department dep) {
         String sql = "INSERT INTO [dbo].[Department]\n"
-                + "           ([DepID]\n"
+                + "           ([ID]\n"
                 + "           ,[DepName])\n"
                 + "     VALUES (?, ?)";
 
@@ -30,7 +30,7 @@ public class DepartmentDAO extends EntityDAO<Department, String> {
 
     @Override
     public void update(Department dep) {
-        String sql = "UPDATE Department set DepName = ? where DepID = ?";
+        String sql = "UPDATE Department set DepName = ? where ID = ?";
         
         XJdbc.update(sql, dep.getDepName(), 
                 dep.getDepID());
@@ -40,7 +40,7 @@ public class DepartmentDAO extends EntityDAO<Department, String> {
 
     @Override
     public void delete(String depID) {
-        String sql = "delete from Department where DepID = ?";
+        String sql = "delete from Department where ID = ?";
         XJdbc.update(sql, depID);
     }
 
@@ -52,7 +52,7 @@ public class DepartmentDAO extends EntityDAO<Department, String> {
 
     @Override
     public Department selectByID(String depID) {
-        String sql = "select * from Department where DepID = ? ";
+        String sql = "select * from Department where ID = ? ";
         List<Department> list = selectBySql(sql, depID);
         if (!list.isEmpty()) {
             return list.get(0);
@@ -70,7 +70,7 @@ public class DepartmentDAO extends EntityDAO<Department, String> {
                 rs = XJdbc.query(sql, args);
                 while (rs.next()) {
                     Department dep = new Department();
-                    dep.setDepID(rs.getString("DepID"));
+                    dep.setDepID(rs.getString("ID"));
                     dep.setDepName(rs.getString("DepName"));
                     list.add(dep);
                 }
