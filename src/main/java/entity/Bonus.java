@@ -14,17 +14,17 @@ public class Bonus {
     private int seq;
     private double amount;
     private String desc;
-    private Date advDate;
+    private Date bonusDate;
     private Employee employee;
 
     public Bonus() {
     }
 
-    public Bonus(int seq, double amount, String desc, Date advDate, Employee employee) {
+    public Bonus(int seq, double amount, String desc, Date bonusDate, Employee employee) {
         this.seq = seq;
         this.amount = amount;
         this.desc = desc;
-        this.advDate = advDate;
+        this.bonusDate = bonusDate;
         this.employee = employee;
     }
 
@@ -52,12 +52,12 @@ public class Bonus {
         this.desc = desc;
     }
 
-    public Date getAdvDate() {
-        return advDate;
+    public Date getBonusDate() {
+        return bonusDate;
     }
 
-    public void setAdvDate(Date advDate) {
-        this.advDate = advDate;
+    public void setBonusDate(Date bonusDate) {
+        this.bonusDate = bonusDate;
     }
 
     public Employee getEmployee() {
@@ -67,6 +67,8 @@ public class Bonus {
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
+
+    
     
     
 }

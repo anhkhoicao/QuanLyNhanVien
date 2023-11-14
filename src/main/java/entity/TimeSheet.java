@@ -11,21 +11,22 @@ import java.sql.Date;
  * @author caube
  */
 public class TimeSheet {
+
     private int seq;
     private Date date;
     private boolean status;
-    private Employee empID;
-    private Employee managerID;
+    private Employee emp;
+    private Employee manager;
 
     public TimeSheet() {
     }
 
-    public TimeSheet(int seq, Date date, boolean status, Employee empID, Employee managerID) {
+    public TimeSheet(int seq, Date date, boolean status, Employee emp, Employee manager) {
         this.seq = seq;
         this.date = date;
         this.status = status;
-        this.empID = empID;
-        this.managerID = managerID;
+        this.emp = emp;
+        this.manager = manager;
     }
 
     public int getSeq() {
@@ -52,21 +53,20 @@ public class TimeSheet {
         this.status = status;
     }
 
-    public Employee getEmpID() {
-        return empID;
+    public Employee getEmp() {
+        return emp;
     }
 
-    public void setEmpID(Employee empID) {
-        this.empID = empID;
+    public void setEmp(Employee emp) {
+        this.emp = emp;
     }
 
-    public Employee getManagerID() {
-        return managerID;
+    public Employee getManager() {
+        return manager;
     }
 
-    public void setManagerID(Employee managerID) {
-        this.managerID = managerID;
+    public void setManager(Employee manager) {
+        this.manager = manager;
     }
-    
-    
+
 }
