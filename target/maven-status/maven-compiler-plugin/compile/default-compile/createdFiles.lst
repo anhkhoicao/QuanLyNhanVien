@@ -18,6 +18,7 @@ utils\XJdbc.class
 UI\NhanVien$2.class
 UI\LoginJFrame$2.class
 UI\NhanVien$7.class
+utils\Auth.class
 utils\MsgBox.class
 dao\PositionDAO.class
 dao\BonusDAO.class
