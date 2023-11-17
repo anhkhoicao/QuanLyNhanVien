@@ -1,5 +1,6 @@
 package utils;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,6 +12,7 @@ public class XJdbc {
     private static String dburl="jdbc:sqlserver://localhost;database=ChamCong;encrypt=true;trustServerCertificate=true";
     private static String username="sa";
     private static String password="sa123456";
+    private static Connection connection;
     
     /*
      * Nạp driver
@@ -86,6 +88,19 @@ public class XJdbc {
             }
             rs.getStatement().getConnection().close();
             return null;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    public static ResultSet callProc(String procSql, Object...args) throws SQLException {
+        connection = DriverManager.getConnection(dburl, username, password);
+        try {
+            CallableStatement callableStatement = connection.prepareCall(procSql);
+            for (int i = 0; i < args.length; i++) {
+                callableStatement.setObject(i+1, args[i]);
+            }
+            return callableStatement.executeQuery();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

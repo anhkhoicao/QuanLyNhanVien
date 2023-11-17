@@ -5,11 +5,15 @@
 package UI;
 
 import dao.EmployeeDAO;
+import dao.ReportDAOImpl;
 import dao.TimeSheetDAO;
 import entity.Employee;
+import entity.Report.Attendance;
+import entity.Report.SalaryDetail;
 import entity.TimeSheet;
 import java.util.Date;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import utils.CheckBoxEditor;
 import utils.CheckBoxRenderer;
@@ -48,18 +52,18 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         lblManagerID = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblSalaryDetail = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        cboMonth = new javax.swing.JComboBox<>();
+        cboMonthSalary = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        cboYear = new javax.swing.JComboBox<>();
+        cboYearSalary = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cboMonthAttendance = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cboYearAttendance = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblAttendance = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,7 +130,7 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
 
         tab2.addTab("TimeSheet", jPanel3);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblSalaryDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -137,13 +141,24 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
                 "ID", "FirstName", "LastName", "BaseSalary", "AdvPayment", "Bonus", "Total"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tblSalaryDetail);
 
         jLabel2.setText("Month:");
 
-        cboMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        cboMonthSalary.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        cboMonthSalary.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboMonthSalaryActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("YEAR:");
+
+        cboYearSalary.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboYearSalaryActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -156,11 +171,11 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cboMonthSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(148, 148, 148)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cboYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cboYearSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -170,9 +185,9 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(cboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboMonthSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(cboYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboYearSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2)
                 .addContainerGap())
@@ -182,11 +197,22 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
 
         jLabel4.setText("Month:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        cboMonthAttendance.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        cboMonthAttendance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboMonthAttendanceActionPerformed(evt);
+            }
+        });
 
-        jLabel5.setText("Year:");
+        jLabel5.setText("YEAR:");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        cboYearAttendance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboYearAttendanceActionPerformed(evt);
+            }
+        });
+
+        tblAttendance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -197,7 +223,7 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
                 "ID", "FirstName", "LastName", "Workday"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(tblAttendance);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -206,17 +232,18 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(cboMonthAttendance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(cboYearAttendance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(129, 129, 129))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,9 +251,9 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboMonthAttendance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboYearAttendance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -252,6 +279,26 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         // TODO add your handling code here:
         createEntity();
     }//GEN-LAST:event_btnCheckActionPerformed
+
+    private void cboMonthAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMonthAttendanceActionPerformed
+        // TODO add your handling code here:
+        fillAttendanceTable();
+    }//GEN-LAST:event_cboMonthAttendanceActionPerformed
+
+    private void cboYearAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboYearAttendanceActionPerformed
+        // TODO add your handling code here:
+        fillAttendanceTable();
+    }//GEN-LAST:event_cboYearAttendanceActionPerformed
+
+    private void cboMonthSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMonthSalaryActionPerformed
+        // TODO add your handling code here:
+        fillSalaryDetailTable();
+    }//GEN-LAST:event_cboMonthSalaryActionPerformed
+
+    private void cboYearSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboYearSalaryActionPerformed
+        // TODO add your handling code here:
+        fillSalaryDetailTable();
+    }//GEN-LAST:event_cboYearSalaryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,10 +337,10 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCheck;
-    private javax.swing.JComboBox<String> cboMonth;
-    private javax.swing.JComboBox<String> cboYear;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> cboMonthAttendance;
+    private javax.swing.JComboBox<String> cboMonthSalary;
+    private javax.swing.JComboBox<String> cboYearAttendance;
+    private javax.swing.JComboBox<String> cboYearSalary;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -306,15 +353,16 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblManagerID;
     private javax.swing.JTabbedPane tab2;
+    private javax.swing.JTable tblAttendance;
+    private javax.swing.JTable tblSalaryDetail;
     private javax.swing.JTable tblTime;
     // End of variables declaration//GEN-END:variables
 
     EmployeeDAO eDAO = new EmployeeDAO();
     TimeSheetDAO tDAO = new TimeSheetDAO();
+    ReportDAOImpl rpDAO = new ReportDAOImpl();
 
     @Override
     public TimeSheet getEntityFromForm() {
@@ -348,6 +396,7 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
     public void initialize() {
         setLocationRelativeTo(null);
         fillEntityListOnTable();
+        fillComboBoxYear();
 
     }
 
@@ -406,5 +455,65 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
     @Override
     public void resetForm() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void fillComboBoxYear() {
+        DefaultComboBoxModel modelSalary = (DefaultComboBoxModel) cboYearSalary.getModel();
+        DefaultComboBoxModel modelAttendance = (DefaultComboBoxModel) cboYearAttendance.getModel();
+        modelSalary.removeAllElements();
+        modelAttendance.removeAllElements();
+        List<Integer> years = rpDAO.selectYear();
+        for (Integer year : years) {
+            modelAttendance.addElement(year);
+            modelSalary.addElement(year);
+        }
+
+    }
+
+    private void fillSalaryDetailTable() {
+        DefaultTableModel model = (DefaultTableModel) tblSalaryDetail.getModel();
+        model.setRowCount(0);
+
+        String monthString = (String) cboMonthSalary.getSelectedItem();
+        int month = Integer.parseInt(monthString);
+        Integer year = (Integer) cboYearSalary.getSelectedItem();
+        try {
+            List<SalaryDetail> list = rpDAO.getSalaryDetail(month, year);
+            for (SalaryDetail s : list) {
+                Object[] rowData = new Object[]{s.getEmployee().getId(),
+                    s.getEmployee().getFirstName(),
+                    s.getEmployee().getLastName(),
+                    s.getEmployee().getBaseSalary(),
+                    s.getAdvPayment(),
+                    s.getBonus(),
+                    s.getTotalSalary()};
+                model.addRow(rowData);
+            }
+
+        } catch (Exception e) {
+            MsgBox.alert(this, "Lỗi truy vấn dữ liệu");
+        }
+
+    }
+
+    private void fillAttendanceTable() {
+        DefaultTableModel model = (DefaultTableModel) tblAttendance.getModel();
+        model.setRowCount(0);
+        String monthString = (String) cboMonthAttendance.getSelectedItem();
+        int month = Integer.parseInt(monthString);
+        Integer year = (Integer) cboYearAttendance.getSelectedItem();
+        try {
+            List<Attendance> list = rpDAO.getAttendance(month, year);
+            for (Attendance a : list) {
+                Object[] rowData = new Object[]{a.getEmployee().getId(), 
+                a.getEmployee().getFirstName(), 
+                a.getEmployee().getLastName(), 
+                a.getWorkDay()};
+                model.addRow(rowData);
+            }
+        } catch (Exception e) {
+            MsgBox.alert(this, "Lỗi truy vấn dữ liệu");
+        }
+
     }
 }

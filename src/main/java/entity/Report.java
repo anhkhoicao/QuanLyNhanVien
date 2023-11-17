@@ -10,10 +10,10 @@ package entity;
  */
 public class Report {
     public static class SalaryDetail {
-        private Employee employee;
-        private AdvancePayment advancePayment;
-        private Bonus bonus;
-        private double totalSalary;
+       private Employee employee;
+       private double advPayment;
+       private double bonus;
+       private double totalSalary;
 
         public Employee getEmployee() {
             return employee;
@@ -23,19 +23,19 @@ public class Report {
             this.employee = employee;
         }
 
-        public AdvancePayment getAdvancePayment() {
-            return advancePayment;
+        public double getAdvPayment() {
+            return advPayment;
         }
 
-        public void setAdvancePayment(AdvancePayment advancePayment) {
-            this.advancePayment = advancePayment;
+        public void setAdvPayment(double advPayment) {
+            this.advPayment = advPayment;
         }
 
-        public Bonus getBonus() {
+        public double getBonus() {
             return bonus;
         }
 
-        public void setBonus(Bonus bonus) {
+        public void setBonus(double bonus) {
             this.bonus = bonus;
         }
 
@@ -46,6 +46,8 @@ public class Report {
         public void setTotalSalary(double totalSalary) {
             this.totalSalary = totalSalary;
         }
+       
+       
     }
     
     public static class Attendance {
