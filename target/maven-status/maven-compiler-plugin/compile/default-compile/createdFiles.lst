@@ -1,5 +1,6 @@
 UI\LoginJFrame$3.class
 dao\TimeSheetDAO.class
+UI\NhanVien$15.class
 UI\NhanVien$8.class
 UI\NhanVien$10.class
 entity\Employee.class
@@ -11,11 +12,15 @@ UI\NhanVien$3.class
 entity\Position.class
 UI\NhanVien$12.class
 dao\DepartmentDAO.class
+UI\NhanVien$14.class
+UI\NhanVien$17.class
 UI\LoginJFrame.class
 UI\CrudController.class
+UI\NhanVien$18$1.class
 UI\NhanVien$5.class
 entity\TimeSheet.class
 utils\XJdbc.class
+UI\NhanVien$16.class
 UI\NhanVien$2.class
 UI\LoginJFrame$2.class
 UI\NhanVien$7.class
@@ -33,4 +38,5 @@ dao\AdvancePaymentDAO.class
 UI\NhanVien$9.class
 dao\EmployeeDAO.class
 UI\NhanVien$1.class
-UI\NhanVien$12$1.class
+UI\NhanVien$13.class
+UI\NhanVien$18.class
