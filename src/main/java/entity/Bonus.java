@@ -11,11 +11,13 @@ import java.sql.Date;
  * @author caube
  */
 public class Bonus {
+
     private int seq;
     private double amount;
     private String desc;
     private Date bonusDate;
     private Employee employee;
+   
 
     public Bonus() {
     }
@@ -26,7 +28,16 @@ public class Bonus {
         this.desc = desc;
         this.bonusDate = bonusDate;
         this.employee = employee;
+
     }
+
+    public void someMethod() {
+        Employee employee = new Employee();
+        String employeeId = employee.getId();
+        
+        // Sử dụng giá trị employeeId theo nhu cầu của bạn...
+    }
+    // Các phương thức khác của lớp Bonus...
 
     public int getSeq() {
         return seq;
@@ -68,7 +79,4 @@ public class Bonus {
         this.employee = employee;
     }
 
-    
-    
-    
 }

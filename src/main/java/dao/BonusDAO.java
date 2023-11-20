@@ -64,6 +64,17 @@ public class BonusDAO extends EntityDAO<Bonus, String> {
             return null;
         }
     }
+    
+     
+    public Bonus selectByEmpID(String EmpID) {
+        String sql = "select * from Bonus where EmpID = ?";
+        List<Bonus> list = selectBySql(sql, EmpID);
+        if (!list.isEmpty()) {
+            return list.get(0);
+        } else {
+            return null;
+        }
+    }
 
     @Override
     public List<Bonus> selectBySql(String sql, Object... args) {
