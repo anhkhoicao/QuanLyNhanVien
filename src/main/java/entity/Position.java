@@ -45,6 +45,10 @@ public class Position {
     public void setAllowance(double allowance) {
         this.allowance = allowance;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return posName;
+    }
+        
 }
