@@ -77,7 +77,7 @@
                           <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                           <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="34" max="32767" attributes="0"/>
+                      <EmptySpace pref="40" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -99,7 +99,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel9" min="-2" pref="78" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtDATE2" min="-2" pref="330" max="-2" attributes="0"/>
+                                  <Component id="jDateChooser1" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel11" min="-2" pref="78" max="-2" attributes="0"/>
@@ -124,10 +124,10 @@
                               <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtEMPID2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtDATE2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -170,11 +170,6 @@
                     <Property name="text" type="java.lang.String" value="Note :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtDATE2">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDATE2ActionPerformed"/>
-                  </Events>
-                </Component>
                 <Component class="javax.swing.JLabel" name="jLabel11">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Amount :"/>
@@ -194,6 +189,8 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEMPID2ActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
                 </Component>
               </SubComponents>
             </Container>
