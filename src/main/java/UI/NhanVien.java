@@ -30,6 +30,8 @@ public class NhanVien extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
         this.fillTable();
+        this.fillcboDepartment();
+        this.fillcboPosition();
         this.updateStatus();
     }
 
@@ -487,6 +489,7 @@ public class NhanVien extends javax.swing.JDialog {
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
@@ -524,7 +527,7 @@ public class NhanVien extends javax.swing.JDialog {
 
     private void tblEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeesMouseClicked
         // TODO add your handling code here:
-        if(evt.getClickCount() == 2){
+        if(evt.getClickCount() == 1){
             this.row = tblEmployees.getSelectedRow();
             this.edit();
         }
@@ -595,12 +598,6 @@ public class NhanVien extends javax.swing.JDialog {
     PositionDAO pdao = new PositionDAO();
     
     int row = -1;
-    void init(){
-        setLocationRelativeTo(null);
-        this.fillTable();
-        this.fillcboDepartment();
-        this.fillcboPosition();
-    }
     
     void fillTable(){
         DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
@@ -621,7 +618,7 @@ public class NhanVien extends javax.swing.JDialog {
                 model.addRow(row);
             }
         } catch (Exception e) {
-            MsgBox.alert(this, "Lỗi truy vấn dữ liệu");
+            System.out.println(e);
         }
     }
     
@@ -633,7 +630,6 @@ public class NhanVien extends javax.swing.JDialog {
             model.addElement(d);
             System.out.println("" + d);
         }
-        //this.fillcboDepartment();
     }
     
     void fillcboPosition(){
@@ -644,7 +640,6 @@ public class NhanVien extends javax.swing.JDialog {
             model.addElement(p);
             System.out.println("" + p);
         }
-        //this.fillcboPosition();
     }
     
     void setForm(Employee e){
@@ -671,6 +666,10 @@ public class NhanVien extends javax.swing.JDialog {
         }
         
         txtBaseSalary.setText(Double.toString(e.getBaseSalary()));
+        cboDep.setSelectedItem(e.getDepartment().getDepName());
+        cboPos.setSelectedItem(e.getPosition().getPosName());
+        cboDep.setToolTipText(e.getDepartment().getDepID());
+        cboPos.setToolTipText(e.getPosition().getPosID());
     }
     
     Employee getForm(){
@@ -699,6 +698,8 @@ public class NhanVien extends javax.swing.JDialog {
         }
         
         e.setBaseSalary(Double.parseDouble(txtBaseSalary.getText()));
+        e.setDepartment(ddao.selectByID(cboDep.getToolTipText()));
+        e.setPosition(pdao.selectByID(cboPos.getToolTipText()));
         return e;
     }
     
