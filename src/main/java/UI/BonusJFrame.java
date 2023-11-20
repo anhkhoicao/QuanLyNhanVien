@@ -600,6 +600,7 @@ public class BonusJFrame extends javax.swing.JFrame implements CrudController<Ob
     @Override
     public void moveNext() {
         int index = tblLIST.getSelectedRow() + 1;
+        
         if (index < tblLIST.getRowCount()) {
             this.setSelectedRowIndex(index);
             this.editEntity();

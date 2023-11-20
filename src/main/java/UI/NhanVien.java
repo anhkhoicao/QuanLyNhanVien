@@ -4,6 +4,18 @@
  */
 package UI;
 
+import entity.Employee;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import dao.EmployeeDAO;
+import javax.swing.DefaultComboBoxModel;
+import utils.Auth;
+import utils.MsgBox;
+import entity.Department;
+import dao.DepartmentDAO;
+import entity.Position;
+import dao.PositionDAO;
+
 /**
  *
  * @author Lenovo
@@ -17,6 +29,10 @@ public class NhanVien extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        this.fillTable();
+        this.fillcboDepartment();
+        this.fillcboPosition();
+        this.updateStatus();
     }
 
     /**
@@ -31,7 +47,7 @@ public class NhanVien extends javax.swing.JDialog {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tabs = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         btnExit = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
@@ -235,6 +251,11 @@ public class NhanVien extends javax.swing.JDialog {
         cbo.setText("Department");
         jPanel7.add(cbo);
 
+        cboDep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboDepActionPerformed(evt);
+            }
+        });
         jPanel7.add(cboDep);
 
         lbl17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -244,17 +265,37 @@ public class NhanVien extends javax.swing.JDialog {
         lbl17.setMinimumSize(new java.awt.Dimension(20, 20));
         jPanel7.add(lbl17);
 
+        cboPos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboPosActionPerformed(evt);
+            }
+        });
         jPanel7.add(cboPos);
 
         jPanel10.setLayout(new java.awt.GridLayout(1, 4, 20, 0));
 
         btnFirst.setText("First");
+        btnFirst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFirstActionPerformed(evt);
+            }
+        });
         jPanel10.add(btnFirst);
 
         btnPrev.setText("Previous");
+        btnPrev.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrevActionPerformed(evt);
+            }
+        });
         jPanel10.add(btnPrev);
 
         btnNext.setText("Next");
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
         jPanel10.add(btnNext);
 
         btnLast.setText("Last");
@@ -346,7 +387,7 @@ public class NhanVien extends javax.swing.JDialog {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("CẬP NHẬT", jPanel2);
+        tabs.addTab("CẬP NHẬT", jPanel2);
 
         btnSearch.setText("SEARCH");
 
@@ -361,6 +402,11 @@ public class NhanVien extends javax.swing.JDialog {
                 "ID", "First Name", "Last Name", "Sex", "Phone", "Email", "Department", "Position"
             }
         ));
+        tblEmployees.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblEmployeesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblEmployees);
 
         btnExit1.setText("EXIT");
@@ -396,7 +442,7 @@ public class NhanVien extends javax.swing.JDialog {
                 .addGap(21, 21, 21))
         );
 
-        jTabbedPane1.addTab("DANH SÁCH", jPanel3);
+        tabs.addTab("DANH SÁCH", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -406,7 +452,7 @@ public class NhanVien extends javax.swing.JDialog {
                 .addGap(193, 193, 193)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jTabbedPane1)
+            .addComponent(tabs)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -414,7 +460,7 @@ public class NhanVien extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabs, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -443,14 +489,17 @@ public class NhanVien extends javax.swing.JDialog {
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
         // TODO add your handling code here:
+        this.last();
     }//GEN-LAST:event_btnLastActionPerformed
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
         // TODO add your handling code here:
+        this.clearForm();
     }//GEN-LAST:event_btnNewActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -463,7 +512,41 @@ public class NhanVien extends javax.swing.JDialog {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void cboDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboDepActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_cboDepActionPerformed
+
+    private void cboPosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPosActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_cboPosActionPerformed
+
+    private void tblEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeesMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount() == 1){
+            this.row = tblEmployees.getSelectedRow();
+            this.edit();
+        }
+    }//GEN-LAST:event_tblEmployeesMouseClicked
+
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        // TODO add your handling code here:
+        this.next();
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    private void btnPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevActionPerformed
+        // TODO add your handling code here:
+        this.prev();
+    }//GEN-LAST:event_btnPrevActionPerformed
+
+    private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
+        // TODO add your handling code here:
+        this.first();
+    }//GEN-LAST:event_btnFirstActionPerformed
 
     /**
      * @param args the command line arguments
@@ -510,6 +593,234 @@ public class NhanVien extends javax.swing.JDialog {
         });
     }
 
+    EmployeeDAO edao = new EmployeeDAO();
+    DepartmentDAO ddao = new DepartmentDAO();
+    PositionDAO pdao = new PositionDAO();
+    
+    int row = -1;
+    
+    void fillTable(){
+        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
+        model.setRowCount(0);
+        try {
+            List<Employee> list = edao.selectAll();
+            for (Employee e : list){
+                Object[] row = {
+                    e.getId(),
+                    e.getFirstName(),
+                    e.getLastName(),
+                    e.getSex(),
+                    e.getPhoneNumber(),
+                    e.getEmail(),
+                    e.getDepartment().getDepName(),
+                    e.getPosition().getPosName()
+                };
+                model.addRow(row);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    void fillcboDepartment(){
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cboDep.getModel();
+        model.removeAllElements();
+        List<Department> list = ddao.selectAll();
+        for(Department d: list){
+            model.addElement(d);
+            System.out.println("" + d);
+        }
+    }
+    
+    void fillcboPosition(){
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cboPos.getModel();
+        model.removeAllElements();
+        List<Position> list = pdao.selectAll();
+        for(Position p: list){
+            model.addElement(p);
+            System.out.println("" + p);
+        }
+    }
+    
+    void setForm(Employee e){
+        txtID.setText(e.getId());
+        txtFirstName.setText(e.getFirstName());
+        txtLastName.setText(e.getLastName());
+        if(e.getSex().equalsIgnoreCase("Nam")){
+            rdoMale.setSelected(true);
+        }else if(e.getSex().equalsIgnoreCase("Nu")){
+            rdoFemale.setSelected(true);
+        }else{
+            rdoOther.setSelected(true);
+        }
+        
+        txtPhone.setText(e.getPhoneNumber());
+        txtEmail.setText(e.getEmail());
+        
+        if(e.getRole().equalsIgnoreCase("Manager")){
+            rboTruongPhong.setSelected(true);
+        }else if(e.getRole().equalsIgnoreCase("Accountant")){
+            rboKeToan.setSelected(true);
+        }else{
+            rboNhanVien.setSelected(true);
+        }
+        
+        txtBaseSalary.setText(Double.toString(e.getBaseSalary()));
+        cboDep.setSelectedItem(e.getDepartment().getDepName());
+        cboPos.setSelectedItem(e.getPosition().getPosName());
+        cboDep.setToolTipText(e.getDepartment().getDepID());
+        cboPos.setToolTipText(e.getPosition().getPosID());
+    }
+    
+    Employee getForm(){
+        Employee e = new Employee();
+        e.setId(txtID.getText());
+        e.setFirstName(txtFirstName.getText());
+        e.setLastName(txtLastName.getText());
+        
+        if(rdoMale.isSelected()){
+            e.setSex(String.valueOf(rdoMale.getText()));
+        }else if(rdoFemale.isSelected()){
+            e.setSex(String.valueOf(rdoFemale.getText()));
+        }else{
+            e.setSex(String.valueOf(rdoOther.getText()));
+        }
+        
+        e.setPhoneNumber(txtPhone.getText());
+        e.setEmail(txtEmail.getText());
+        
+        if(rboTruongPhong.isSelected()){
+            e.setRole(String.valueOf(rboTruongPhong.getText()));
+        }else if(rboKeToan.isSelected()){
+            e.setRole(String.valueOf(rboKeToan.getText()));
+        }else{
+            e.setRole(String.valueOf(rboNhanVien.getText()));
+        }
+        
+        e.setBaseSalary(Double.parseDouble(txtBaseSalary.getText()));
+        e.setDepartment(ddao.selectByID(cboDep.getToolTipText()));
+        e.setPosition(pdao.selectByID(cboPos.getToolTipText()));
+        return e;
+    }
+    
+    void Add(){
+        Employee e = this.getForm();
+            try {
+                edao.insert(e); // thêm mới
+                this.fillTable(); // đỗ lại bảng
+                this.clearForm(); // xóa trắng form
+                MsgBox.alert(this, "Thêm mới thành công!");
+            } 
+            catch (Exception ex) {
+                MsgBox.alert(this, "Thêm mới thất bại!");
+            }
+    }
+    
+    void Update(){
+        Employee e = this.getForm();
+        try {
+                edao.update(e); // cập nhật
+                this.fillTable(); // đổ lại bảng
+                MsgBox.alert(this, "Cập nhật thành công!");
+            } 
+            catch (Exception ex) {
+                MsgBox.alert(this, "Cập nhật thất bại!");
+            }
+    }
+    
+    void Delete(){
+        if(!Auth.isManager()){
+            MsgBox.alert(this, "Bạn không có quyền xóa nhân viên!");
+        }
+        else{
+            String id = txtID.getText();
+            if(id.equals(Auth.user.getId())){
+                MsgBox.alert(this, "Bạn không được xóa chính bạn!");
+            }
+            else if(MsgBox.confirm(this, "Bạn thực sự muốn xóa nhân viên này?")){
+                try {
+                    edao.delete(id);
+                    this.fillTable();
+                    this.clearForm();
+                    MsgBox.alert(this, "Xóa thành công!");
+                } 
+                catch (Exception e) {
+                    MsgBox.alert(this, "Xóa thất bại!");
+                }
+            }
+        }
+    }
+    
+    void first(){
+        this.row = 0;
+        this.edit();
+    }
+    void prev(){
+        if(this.row > 0){
+            this.row--;
+            this.edit();
+        }
+    }
+    void next(){
+        if(this.row < tblEmployees.getRowCount() - 1){
+            this.row++;
+            this.edit();
+        }
+    }
+    void last(){
+        this.row = tblEmployees.getRowCount() - 1;
+        this.edit();
+    }
+    
+    void clearForm(){
+        Employee e = new Employee();
+        this.setForm(e);
+        this.row = -1;
+        this.updateStatus();
+    }
+    
+    void updateStatus(){
+        boolean edit = (this.row >= 0);
+        boolean first = (this.row == 0);
+        boolean last = (this.row == tblEmployees.getRowCount() - 1);
+        // Trạng thái form
+        txtID.setEditable(!edit);
+        btnAdd.setEnabled(!edit);
+        btnUpdate.setEnabled(edit);
+        btnDelete.setEnabled(edit);
+        
+        // Trạng thái điều hướng
+        btnFirst.setEnabled(edit && !first);
+        btnPrev.setEnabled(edit && !first);
+        btnNext.setEnabled(edit && !last);
+        btnLast.setEnabled(edit && !last);
+    }
+    
+    void edit() {
+        String id = (String) tblEmployees.getValueAt(this.row, 0);
+        Employee e = edao.selectByID(id);
+        this.setForm(e);
+        tabs.setSelectedIndex(0);
+        this.updateStatus();
+    }
+    
+    boolean isValidated(){
+        Employee e = this.getForm();
+        if(e.getId().length() == 0){
+            MsgBox.alert(this, "Không để trống mã nhân viên!");
+        }
+        else if(e.getLastName().length() == 0){
+            MsgBox.alert(this, "Không để trống tên nhân viên!");
+        }
+        else if(e.getPhoneNumber().length() == 0){
+            MsgBox.alert(this, "Không để trống số điện thoại!");
+        }
+        else{
+            return true;
+        }
+        return false;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
@@ -544,7 +855,6 @@ public class NhanVien extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lbl17;
     private javax.swing.JLabel lblPics;
     private javax.swing.JRadioButton rboKeToan;
@@ -553,6 +863,7 @@ public class NhanVien extends javax.swing.JDialog {
     private javax.swing.JRadioButton rdoFemale;
     private javax.swing.JRadioButton rdoMale;
     private javax.swing.JRadioButton rdoOther;
+    private javax.swing.JTabbedPane tabs;
     private javax.swing.JTable tblEmployees;
     private javax.swing.JTextField txtBaseSalary;
     private javax.swing.JTextField txtEmail;
