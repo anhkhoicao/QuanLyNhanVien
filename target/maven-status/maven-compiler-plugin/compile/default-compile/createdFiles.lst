@@ -52,12 +52,14 @@ utils\CheckBoxRenderer.class
 entity\Position.class
 UI\TimeSheetJDialog$5.class
 UI\NhanVien$12.class
+utils\IconUtil.class
 entity\Report$Attendance.class
 dao\ReportDAOImpl.class
 UI\LoginJFrame.class
 utils\XJdbc.class
 UI\BonusJFrame$8.class
 UI\NhanVien$2.class
+utils\XFile.class
 dao\ReportDAO.class
 UI\BonusJFrame.class
 UI\NhanVien$11.class

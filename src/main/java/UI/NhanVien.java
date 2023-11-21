@@ -15,6 +15,11 @@ import entity.Department;
 import dao.DepartmentDAO;
 import entity.Position;
 import dao.PositionDAO;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import utils.IconUtil;
+import utils.XFile;
 
 /**
  *
@@ -46,6 +51,7 @@ public class NhanVien extends javax.swing.JDialog {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        fileImageChooser = new javax.swing.JFileChooser();
         jLabel1 = new javax.swing.JLabel();
         tabs = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -308,6 +314,12 @@ public class NhanVien extends javax.swing.JDialog {
 
         lblPics.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPics.setText("ẢNH");
+        lblPics.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        lblPics.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPicsMouseClicked(evt);
+            }
+        });
 
         jPanel5.setLayout(new java.awt.GridLayout(2, 2, 20, 20));
 
@@ -356,19 +368,16 @@ public class NhanVien extends javax.swing.JDialog {
                         .addGap(34, 34, 34)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addComponent(lblPics, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(29, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnExit)
-                        .addGap(76, 76, 76))))
+                        .addGap(76, 76, 76))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblPics, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(29, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -548,6 +557,11 @@ public class NhanVien extends javax.swing.JDialog {
         this.first();
     }//GEN-LAST:event_btnFirstActionPerformed
 
+    private void lblPicsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPicsMouseClicked
+        // TODO add your handling code here:
+        selectImage();
+    }//GEN-LAST:event_lblPicsMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -646,9 +660,9 @@ public class NhanVien extends javax.swing.JDialog {
         txtID.setText(e.getId());
         txtFirstName.setText(e.getFirstName());
         txtLastName.setText(e.getLastName());
-        if(e.getSex().equalsIgnoreCase("Nam")){
+        if(e.getSex().equalsIgnoreCase("Male")){
             rdoMale.setSelected(true);
-        }else if(e.getSex().equalsIgnoreCase("Nu")){
+        }else if(e.getSex().equalsIgnoreCase("Female")){
             rdoFemale.setSelected(true);
         }else{
             rdoOther.setSelected(true);
@@ -670,6 +684,10 @@ public class NhanVien extends javax.swing.JDialog {
         cboPos.setSelectedItem(e.getPosition().getPosName());
         cboDep.setToolTipText(e.getDepartment().getDepID());
         cboPos.setToolTipText(e.getPosition().getPosID());
+        
+        ImageIcon imageicon = new ImageIcon(e.getImage());
+        ImageIcon fitImage = XFile.getScaledIcon(imageicon, 150, 150);
+        lblPics.setIcon(fitImage);
     }
     
     Employee getForm(){
@@ -700,6 +718,7 @@ public class NhanVien extends javax.swing.JDialog {
         e.setBaseSalary(Double.parseDouble(txtBaseSalary.getText()));
         e.setDepartment(ddao.selectByID(cboDep.getToolTipText()));
         e.setPosition(pdao.selectByID(cboPos.getToolTipText()));
+        e.setImage(lblPics.getToolTipText());
         return e;
     }
     
@@ -838,6 +857,7 @@ public class NhanVien extends javax.swing.JDialog {
     private javax.swing.JLabel cbo;
     private javax.swing.JComboBox<String> cboDep;
     private javax.swing.JComboBox<String> cboPos;
+    private javax.swing.JFileChooser fileImageChooser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -873,4 +893,17 @@ public class NhanVien extends javax.swing.JDialog {
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
+
+    private void selectImage() {
+        int option = fileImageChooser.showOpenDialog(this);
+        if(option == JFileChooser.APPROVE_OPTION){
+            File file = fileImageChooser.getSelectedFile();
+            
+            File folder = new File("./src/main/resources/images");
+            File newFile = IconUtil.copyFileToStorageFolder(file, folder);
+            IconUtil.setIconToLabel(newFile, lblPics);
+            
+            lblPics.setToolTipText(newFile.getName());
+        }
+    }
 }

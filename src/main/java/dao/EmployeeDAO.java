@@ -30,19 +30,21 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
                 + "           ,[Role]\n"
                 + "           ,[BaseSalary]\n"
                 + "           ,[DepID]\n"
-                + "           ,[PosID])\n"
-                + "     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        XJdbc.update(sql, e.getId(), 
-                e.getFirstName(), 
-                e.getLastName(), 
-                e.getSex(), 
-                e.getPhoneNumber(), 
-                e.getEmail(), 
-                e.getPassword(), 
-                e.getRole(), 
-                e.getBaseSalary(), 
-                e.getDepartment().getDepID(), 
-                e.getPosition().getPosID());
+                + "           ,[PosID]\n"
+                + "           ,[Images])\n"
+                + "     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        XJdbc.update(sql, e.getId(),
+                e.getFirstName(),
+                e.getLastName(),
+                e.getSex(),
+                e.getPhoneNumber(),
+                e.getEmail(),
+                e.getPassword(),
+                e.getRole(),
+                e.getBaseSalary(),
+                e.getDepartment().getDepID(),
+                e.getPosition().getPosID(), 
+                e.getImage());
     }
 
     @Override
@@ -56,18 +58,19 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
                 + "Role = ?, "
                 + "BaseSalary = ?, "
                 + "DepID = ?, "
-                + "PosID = ? WHERE Id = ?";
-        
-        XJdbc.update(sql, e.getFirstName(), 
-                e.getLastName(), 
-                e.getSex(), 
-                e.getPhoneNumber(), 
-                e.getEmail(), 
-                e.getPassword(), 
-                e.getRole(), 
-                e.getBaseSalary(), 
-                e.getDepartment().getDepID(), 
-                e.getPosition().getPosID(), 
+                + "PosID = ?, "
+                + "Image = ? WHERE Id = ?";
+
+        XJdbc.update(sql, e.getFirstName(),
+                e.getLastName(),
+                e.getSex(),
+                e.getPhoneNumber(),
+                e.getEmail(),
+                e.getPassword(),
+                e.getRole(),
+                e.getBaseSalary(),
+                e.getDepartment().getDepID(),
+                e.getPosition().getPosID(),
                 e.getId());
     }
 
@@ -117,6 +120,7 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
                     emp.setBaseSalary(rs.getDouble("BaseSalary"));
                     emp.setDepartment(depDAO.selectByID(rs.getString("DepID")));
                     emp.setPosition(posDAO.selectByID(rs.getString("PosID")));
+                    emp.setImage(rs.getString("Images"));
                     list.add(emp);
                 }
             } finally {
@@ -132,7 +136,6 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
 //    public static void main(String[] args) {
 //        EmployeeDAO dao = new EmployeeDAO();
 //        Employee e =dao.selectByID("E001");
-//        System.out.println(e.getDepartment().getDepName());
+//        System.out.println(e.getImage());
 //    }
-
 }
