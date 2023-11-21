@@ -639,20 +639,18 @@ public class NhanVien extends javax.swing.JDialog {
     void fillcboDepartment(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboDep.getModel();
         model.removeAllElements();
-        List<Department> list = ddao.selectAll();
-        for(Department d: list){
-            model.addElement(d);
-            System.out.println("" + d);
+        List<String> list = ddao.getDepName();
+        for (String s : list) {
+            model.addElement(s);
         }
     }
     
     void fillcboPosition(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboPos.getModel();
         model.removeAllElements();
-        List<Position> list = pdao.selectAll();
-        for(Position p: list){
-            model.addElement(p);
-            System.out.println("" + p);
+        List<String> list = pdao.getPosName();
+        for (String s : list) {
+            model.addElement(s);
         }
     }
     

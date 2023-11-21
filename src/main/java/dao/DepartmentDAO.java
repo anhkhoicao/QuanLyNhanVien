@@ -83,6 +83,24 @@ public class DepartmentDAO extends EntityDAO<Department, String> {
 
         return list;
     }
+    
+    
+    public List<String> getDepName() {
+        String sql = "select distinct DepName from Department";
+        List<String> list = new ArrayList<>();
+        try {
+            ResultSet rs = XJdbc.query(sql);
+            while (rs.next()) {                
+                list.add(rs.getString("DepName"));
+            }
+            rs.getStatement().getConnection().close();
+            
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+    
     //hàm test để xem thử có kết nối đc với DB hay ko, vui lòng ko chỉnh sửa!!!!
 //    public static void main(String[] args) {
 //        DepartmentDAO dao = new DepartmentDAO();

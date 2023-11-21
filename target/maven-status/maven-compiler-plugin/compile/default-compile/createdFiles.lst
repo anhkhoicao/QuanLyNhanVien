@@ -16,7 +16,6 @@ dao\DepartmentDAO.class
 UI\NhanVien$14.class
 UI\NhanVien$17.class
 UI\CrudController.class
-UI\NhanVien$18$1.class
 UI\NhanVien$5.class
 UI\BonusJFrame$16.class
 entity\TimeSheet.class
@@ -51,7 +50,9 @@ UI\BonusJFrame$11.class
 utils\CheckBoxRenderer.class
 entity\Position.class
 UI\TimeSheetJDialog$5.class
+UI\NhanVien$19.class
 UI\NhanVien$12.class
+UI\NhanVien$19$1.class
 utils\IconUtil.class
 entity\Report$Attendance.class
 dao\ReportDAOImpl.class
