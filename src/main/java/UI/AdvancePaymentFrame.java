@@ -114,6 +114,11 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
                 txtSearchActionPerformed(evt);
             }
         });
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("AdvancePayment");
@@ -363,6 +368,7 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         // TODO add your handling code here:
+        this.searchEntity();
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void tbnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnUpdateActionPerformed
@@ -391,6 +397,11 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
             JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng muốn cập nhật", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_tbnUpdateActionPerformed
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        // TODO add your handling code here:
+        this.searchEntity();
+    }//GEN-LAST:event_txtSearchKeyReleased
 
     /**
      * @param args the command line arguments
@@ -535,6 +546,20 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
         for (entity.AdvancePayment e : list) {
             Object[] row = {e.getId(), e.getAdvAmount(), e.getDateAdv(), e.getEmployee()};
             model.addRow(row);
+        }
+    }
+
+    private void searchEntity() {
+        if (txtSearch.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Chưa nhập thông tin", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        } else {
+            List<AdvancePayment> list = new ArrayList<>();
+            for (AdvancePayment i : advancePaymentDAO.selectAll()) {
+                if (txtSearch.getText().trim().toLowerCase().equals(i.getEmployee().getId().toLowerCase())) {
+                    list.add(i);
+                }
+            }
+            fillTable(list);
         }
     }
 
