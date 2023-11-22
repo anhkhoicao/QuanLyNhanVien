@@ -35,6 +35,12 @@ public class Department {
     public void setDepName(String depName) {
         this.depName = depName;
     }
+
+    @Override
+    public String toString() {
+        return depName;
+    }
+    
     
     
 }

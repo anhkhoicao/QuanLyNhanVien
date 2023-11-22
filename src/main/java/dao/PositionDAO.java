@@ -84,6 +84,23 @@ public class PositionDAO extends EntityDAO<Position, String> {
 
         return list;
     }
+    
+    
+    public List<String> getPosName() {
+        String sql = "select distinct PosName from Position";
+        List<String> list = new ArrayList<>();
+        try {
+            ResultSet rs = XJdbc.query(sql);
+            while (rs.next()) {                
+                list.add(rs.getString("PosName"));
+            }
+            rs.getStatement().getConnection().close();
+            
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return list;
+    }
 //    public static void main(String[] args) {
 //        PositionDAO dao = new PositionDAO();
 //        Position pos = dao.selectByID("P001  ");
