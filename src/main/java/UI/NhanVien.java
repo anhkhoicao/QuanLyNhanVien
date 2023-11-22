@@ -794,13 +794,14 @@ public class NhanVien extends javax.swing.JDialog {
     
     void clearForm(){
         Employee e = new Employee();
+        
         e.setSex("Other");        
         e.setPhoneNumber("");
         e.setEmail("");
         e.setRole("Employee");
         e.setBaseSalary(0);
         e.setDepartment(ddao.selectByID("D001"));
-        e.setPosition(pdao.selectByID("P001"));
+        e.setPosition(pdao.selectByID("P003"));
         
         this.setForm(e);
         this.row = -1;
