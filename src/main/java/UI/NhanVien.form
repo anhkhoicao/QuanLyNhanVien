@@ -37,7 +37,7 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
-          <Component id="tabs" alignment="0" max="32767" attributes="0"/>
+          <Component id="tabs" alignment="0" pref="658" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -100,7 +100,7 @@
                                   <Component id="lblPics" alignment="1" min="-2" pref="146" max="-2" attributes="0"/>
                                   <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="29" max="32767" attributes="0"/>
+                              <EmptySpace pref="67" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -141,7 +141,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                 <Property name="columns" type="int" value="2"/>
-                <Property name="horizontalGap" type="int" value="-180"/>
+                <Property name="horizontalGap" type="int" value="-160"/>
                 <Property name="rows" type="int" value="10"/>
                 <Property name="verticalGap" type="int" value="10"/>
               </Layout>
@@ -221,7 +221,7 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroup1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Kh&#xe1;c"/>
+                        <Property name="text" type="java.lang.String" value="Other"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="rdoFemale">
@@ -229,7 +229,7 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroup1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="N&#x1eef;"/>
+                        <Property name="text" type="java.lang.String" value="Female"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="rdoMale">
@@ -237,7 +237,7 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroup1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Nam"/>
+                        <Property name="text" type="java.lang.String" value="Male"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rboNamActionPerformed"/>
@@ -315,7 +315,7 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroup2"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Nh&#xe2;n Vi&#xea;n"/>
+                        <Property name="text" type="java.lang.String" value="Employee"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="rboKeToan">
@@ -323,7 +323,7 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroup2"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="K&#x1ebf; To&#xe1;n"/>
+                        <Property name="text" type="java.lang.String" value="Accountant"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="rboTruongPhong">
@@ -331,7 +331,7 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroup2"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Tr&#x1b0;&#x1edf;ng Ph&#xf2;ng"/>
+                        <Property name="text" type="java.lang.String" value="Manager"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -519,7 +519,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                      <EmptySpace pref="88" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="txtSearch" min="-2" pref="421" max="-2" attributes="0"/>
