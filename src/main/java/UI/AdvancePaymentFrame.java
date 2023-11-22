@@ -487,7 +487,7 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
 
     @Override
     public void setEntityToForm(AdvancePaymentFrame entity) {
-        txtID.setText(entity.getName().toString());
+        txtID.setText(entity.getName());
         txtAdvAmout.setText(entity.getName());
         txtAdvDate.setText(entity.getName());
         txtEmpID.setText(entity.getName());
