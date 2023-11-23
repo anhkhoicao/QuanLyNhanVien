@@ -4,10 +4,14 @@
  */
 package UI;
 
-/**
- *
- * @author ACER
- */
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import utils.XJdbc;
+
+
 public class ChangePasswordJframe extends javax.swing.JFrame {
 
     /**
@@ -33,14 +37,14 @@ public class ChangePasswordJframe extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtUserID = new javax.swing.JTextField();
-        txtOldPass = new javax.swing.JTextField();
-        txtNewPass = new javax.swing.JTextField();
-        txtConfirmPass = new javax.swing.JTextField();
         btnChange = new javax.swing.JButton();
         lblOldPass = new javax.swing.JLabel();
         lblUserID = new javax.swing.JLabel();
         lblNewPass = new javax.swing.JLabel();
         lblConfirmPass = new javax.swing.JLabel();
+        txtOldPass = new javax.swing.JPasswordField();
+        txtNewPass = new javax.swing.JPasswordField();
+        txtConfirmPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,12 +103,12 @@ public class ChangePasswordJframe extends javax.swing.JFrame {
                     .addComponent(lblNewPass)
                     .addComponent(lblOldPass)
                     .addComponent(txtUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtOldPass, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNewPass, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtConfirmPass, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnChange)
-                    .addComponent(lblUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(77, Short.MAX_VALUE))
+                    .addComponent(lblUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtOldPass, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNewPass, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtConfirmPass, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +123,7 @@ public class ChangePasswordJframe extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtOldPass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
+                .addGap(8, 8, 8)
                 .addComponent(lblOldPass)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -127,15 +131,15 @@ public class ChangePasswordJframe extends javax.swing.JFrame {
                     .addComponent(txtNewPass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4)
                 .addComponent(lblNewPass)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtConfirmPass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(txtConfirmPass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
                 .addComponent(lblConfirmPass)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnChange, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,7 +163,48 @@ public class ChangePasswordJframe extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeActionPerformed
-        
+        String uid , oldpass , newpass , confirmpass;
+        uid = txtUserID.getText();
+        oldpass = txtOldPass.getText();
+        newpass = txtNewPass.getText();
+        confirmpass = txtConfirmPass.getText();
+        String sql = "select * from Employee where id='"+uid+"'";
+        String sql1 = "update Employee set Password='"+newpass+"'where id='"+uid+"'";
+       
+
+    // Check if the user exists
+    ResultSet rs = XJdbc.query(sql);
+        try {
+            if (rs.next()) {
+                if(rs.getString("Password").equals(oldpass))
+                {
+                    lblOldPass.setText("");
+                    if(newpass.equals(confirmpass))
+                    {
+                        lblConfirmPass.setText("");
+                        XJdbc.update(sql1, uid);
+                    }
+                    else
+                    {
+                        lblConfirmPass.setText("Mật khẩu không trùng khớp");
+                        txtConfirmPass.requestFocus();
+                    }
+                }else
+                {
+                    lblOldPass.setText("Mật khẩu không đúng!");
+                    txtOldPass.requestFocus();
+                }
+                lblUserID.setText("");
+                
+            }else
+            {
+                lblUserID.setText("ID không tồn tại!");
+                txtUserID.requestFocus();
+            }   } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+
+     
     }//GEN-LAST:event_btnChangeActionPerformed
 
     /**
@@ -208,9 +253,11 @@ public class ChangePasswordJframe extends javax.swing.JFrame {
     private javax.swing.JLabel lblNewPass;
     private javax.swing.JLabel lblOldPass;
     private javax.swing.JLabel lblUserID;
-    private javax.swing.JTextField txtConfirmPass;
-    private javax.swing.JTextField txtNewPass;
-    private javax.swing.JTextField txtOldPass;
+    private javax.swing.JPasswordField txtConfirmPass;
+    private javax.swing.JPasswordField txtNewPass;
+    private javax.swing.JPasswordField txtOldPass;
     private javax.swing.JTextField txtUserID;
     // End of variables declaration//GEN-END:variables
+    
+
 }
