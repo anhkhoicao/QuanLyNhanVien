@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import utils.MsgBox;
 
 /**
  *
@@ -100,12 +101,12 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPayment = new javax.swing.JTable();
-        tbnSave = new javax.swing.JButton();
-        tbnUpdate = new javax.swing.JButton();
-        tbnCleal = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
         txtAdvAmout = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        tbnDelete = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -164,24 +165,24 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
         });
         jScrollPane1.setViewportView(tblPayment);
 
-        tbnSave.setText("Lưu");
-        tbnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setText("Lưu");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbnSaveActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
-        tbnUpdate.setText("Cập nhật");
-        tbnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setText("Cập nhật");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbnUpdateActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
 
-        tbnCleal.setText("Làm mới");
-        tbnCleal.addActionListener(new java.awt.event.ActionListener() {
+        btnClear.setText("Làm mới");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbnClealActionPerformed(evt);
+                btnClearActionPerformed(evt);
             }
         });
 
@@ -194,10 +195,10 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("ID");
 
-        tbnDelete.setText("Xóa");
-        tbnDelete.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setText("Xóa");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbnDeleteActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
@@ -222,12 +223,12 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
                             .addComponent(txtEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tbnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tbnCleal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tbnDelete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tbnUpdate, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnUpdate, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(209, 209, 209)
@@ -270,12 +271,12 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
                         .addComponent(txtEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tbnSave)
-                            .addComponent(tbnUpdate))
+                            .addComponent(btnSave)
+                            .addComponent(btnUpdate))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tbnCleal)
-                            .addComponent(tbnDelete))
+                            .addComponent(btnClear)
+                            .addComponent(btnDelete))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -294,10 +295,9 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         if (txtSearch.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Chưa nhập thông tin", "Lỗi", JOptionPane.ERROR_MESSAGE);
-            return;
         } else {
             List<AdvancePayment> list = new ArrayList<>();
-            for (AdvancePayment i : advancePaymentDAO.selectAll()) {
+            for (AdvancePayment i : advancePaymentDAO.selectByKeyWord(txtSearch.getText())) {
                 if (txtSearch.getText().trim().toLowerCase().equals(i.getEmployee().getId().toLowerCase())) {
                     list.add(i);
                 }
@@ -306,26 +306,30 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
         }
     }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void tbnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnSaveActionPerformed
-        if (validateForm()) {
-            Employee employee = employeeDAO.selectByID(txtEmpID.getText().trim());
-            java.sql.Date date = null;
-            try {
-                date = java.sql.Date.valueOf(txtAdvDate.getText().trim());
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-            }
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        try {
+            if (validateForm()) {
+                Employee employee = employeeDAO.selectByID(txtEmpID.getText().trim());
+                java.sql.Date date = null;
+                try {
+                    date = java.sql.Date.valueOf(txtAdvDate.getText().trim());
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                }
 
-            AdvancePayment adv = new AdvancePayment();
-            adv.setAdvAmount(Double.parseDouble(txtAdvAmout.getText()));
-            adv.setDateAdv(date);
-            adv.setEmployee(employee);
-            advancePaymentDAO.insert(adv);
-            fillTable(advancePaymentDAO.selectAll());
-            resetForm();
-            JOptionPane.showMessageDialog(this, "Đã lưu thành công");
+                AdvancePayment adv = new AdvancePayment();
+                adv.setAdvAmount(Double.parseDouble(txtAdvAmout.getText()));
+                adv.setDateAdv(date);
+                adv.setEmployee(employee);
+                advancePaymentDAO.insert(adv);
+                fillTable(advancePaymentDAO.selectAll());
+                resetForm();
+                JOptionPane.showMessageDialog(this, "Đã lưu thành công");
+            }
+        } catch (Exception e) {
+            MsgBox.alert(this, "Mã nhân viên ko tồn tại");
         }
-    }//GEN-LAST:event_tbnSaveActionPerformed
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         // TODO add your handling code here:
@@ -335,12 +339,12 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAdvAmoutActionPerformed
 
-    private void tbnClealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnClealActionPerformed
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         resetForm();
         fillTable(advancePaymentDAO.selectAll());
-    }//GEN-LAST:event_tbnClealActionPerformed
+    }//GEN-LAST:event_btnClearActionPerformed
 
-    private void tbnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnDeleteActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         int index = tblPayment.getSelectedRow();
         if (index != -1) {
             AdvancePayment advancePayment = advancePaymentDAO.selectAll().get(index);
@@ -351,7 +355,7 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
         } else {
             JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng muốn cập nhật", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_tbnDeleteActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void tblPaymentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPaymentMouseClicked
         int index = tblPayment.getSelectedRow();
@@ -371,7 +375,7 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
         this.searchEntity();
     }//GEN-LAST:event_txtSearchActionPerformed
 
-    private void tbnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnUpdateActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         int index = tblPayment.getSelectedRow();
         if (index != -1) {
             if (validateForm()) {
@@ -396,7 +400,7 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
         } else {
             JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng muốn cập nhật", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_tbnUpdateActionPerformed
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         // TODO add your handling code here:
@@ -454,7 +458,11 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -462,10 +470,6 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblPayment;
-    private javax.swing.JButton tbnCleal;
-    private javax.swing.JButton tbnDelete;
-    private javax.swing.JButton tbnSave;
-    private javax.swing.JButton tbnUpdate;
     private javax.swing.JTextField txtAdvAmout;
     private javax.swing.JTextField txtAdvDate;
     private javax.swing.JTextField txtEmpID;
@@ -550,17 +554,23 @@ public class AdvancePaymentFrame extends javax.swing.JFrame implements CrudContr
     }
 
     private void searchEntity() {
-        if (txtSearch.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Chưa nhập thông tin", "Lỗi", JOptionPane.ERROR_MESSAGE);
-        } else {
-            List<AdvancePayment> list = new ArrayList<>();
-            for (AdvancePayment i : advancePaymentDAO.selectAll()) {
-                if (txtSearch.getText().trim().toLowerCase().equals(i.getEmployee().getId().toLowerCase())) {
-                    list.add(i);
-                }
-            }
-            fillTable(list);
+        List<AdvancePayment> list = new ArrayList<>();
+        for (AdvancePayment adv : advancePaymentDAO.selectByKeyWord(txtSearch.getText())) {
+            list.add(adv);
         }
+        fillTable(list);
+
+//        if (txtSearch.getText().trim().isEmpty()) {
+//            JOptionPane.showMessageDialog(this, "Chưa nhập thông tin", "Lỗi", JOptionPane.ERROR_MESSAGE);
+//        } else {
+//            List<AdvancePayment> list = new ArrayList<>();
+//            for (AdvancePayment i : advancePaymentDAO.selectAll()) {
+//                if (txtSearch.getText().trim().toLowerCase().equals(i.getEmployee().getId().toLowerCase())) {
+//                    list.add(i);
+//                }
+//            }
+//            fillTable(list);
+//        }
     }
 
 }
