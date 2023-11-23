@@ -32,6 +32,11 @@ public class XDate {
         date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
         return date;
     }
+    
+    public static String format(Date date, String pattern){
+        formater.applyPattern(pattern);
+        return formater.format(date);
+    }
 
 
 
