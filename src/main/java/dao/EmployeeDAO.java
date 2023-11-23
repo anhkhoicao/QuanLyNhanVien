@@ -71,7 +71,8 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
                 e.getBaseSalary(),
                 e.getDepartment().getDepID(),
                 e.getPosition().getPosID(),
-                e.getId());
+                e.getId(),
+                e.getImage());
     }
 
     @Override

@@ -77,7 +77,13 @@ public class ReportDAOImpl implements ReportDAO{
         return list;
     }
     
-    
+    public static void main(String[] args) {
+        ReportDAOImpl dao = new ReportDAOImpl();
+        List<Integer> list = dao.selectYear();
+        for (Integer integer : list) {
+            System.out.println(integer + "\n");
+        }
+    }
           
     
 }
