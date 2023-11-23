@@ -11,6 +11,7 @@ UI\NhanVien$17.class
 UI\CrudController.class
 UI\AdvancePaymentFrame$5.class
 UI\TimeSheetJDialog.class
+UI\ChangePasswordJframe.class
 UI\TimeSheetJDialog$2.class
 UI\MainJFrame$1.class
 UI\WelcomeJDialog.class
@@ -25,6 +26,7 @@ UI\BonusJFrame$6.class
 UI\NhanVien$1.class
 dao\TimeSheetDAO.class
 UI\TimeSheetJDialog$1.class
+UI\ChangePasswordJframe$1.class
 UI\WelcomeJDialog$1.class
 UI\AdvancePaymentFrame$10.class
 UI\AdvancePaymentFrame$7.class
@@ -32,6 +34,7 @@ UI\NhanVien$19.class
 UI\NhanVien$12.class
 UI\NhanVien$19$1.class
 utils\XJdbc.class
+UI\ChangePasswordJframe$2.class
 UI\AdvancePaymentFrame$8.class
 dao\ReportDAO.class
 UI\NhanVien$11.class
