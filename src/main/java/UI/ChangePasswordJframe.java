@@ -4,19 +4,21 @@
  */
 package UI;
 
+import dao.EmployeeDAO;
+import entity.Employee;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import utils.Auth;
+import utils.MsgBox;
 import utils.XJdbc;
 
 
 public class ChangePasswordJframe extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ChangePasswordJframe
-     */
+    EmployeeDAO dao = new EmployeeDAO();
     public ChangePasswordJframe() {
         initComponents();
         setLocationRelativeTo(null);
@@ -165,44 +167,28 @@ public class ChangePasswordJframe extends javax.swing.JFrame {
     private void btnChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeActionPerformed
         String uid , oldpass , newpass , confirmpass;
         uid = txtUserID.getText();
-        oldpass = txtOldPass.getText();
-        newpass = txtNewPass.getText();
-        confirmpass = txtConfirmPass.getText();
-        String sql = "select * from Employee where id='"+uid+"'";
-        String sql1 = "update Employee set Password='"+newpass+"'where id='"+uid+"'";
+        oldpass = new String (txtOldPass.getPassword());
+        newpass = new String (txtNewPass.getPassword());
+        confirmpass = new String(txtConfirmPass.getPassword());
+       
        
 
     // Check if the user exists
-    ResultSet rs = XJdbc.query(sql);
-        try {
-            if (rs.next()) {
-                if(rs.getString("Password").equals(oldpass))
-                {
-                    lblOldPass.setText("");
-                    if(newpass.equals(confirmpass))
-                    {
-                        lblConfirmPass.setText("");
-                        XJdbc.update(sql1, uid);
-                    }
-                    else
-                    {
-                        lblConfirmPass.setText("Mật khẩu không trùng khớp");
-                        txtConfirmPass.requestFocus();
-                    }
-                }else
-                {
-                    lblOldPass.setText("Mật khẩu không đúng!");
-                    txtOldPass.requestFocus();
-                }
-                lblUserID.setText("");
-                
-            }else
-            {
-                lblUserID.setText("ID không tồn tại!");
-                txtUserID.requestFocus();
-            }   } catch (SQLException ex) {
-                ex.printStackTrace();
-            }
+    if (!uid.equalsIgnoreCase(Auth.user.getId())) {
+            MsgBox.alert(this, "Sai tên đăng nhập");
+        } else if (!oldpass.equals(Auth.user.getPassword())) {
+            MsgBox.alert(this, "Sai mật khẩu");
+        } else if (!newpass.equals(confirmpass)) {
+            MsgBox.alert(this, "Xác nhận mật khẩu không đúng");
+
+        } else if (newpass.isEmpty()) {
+            MsgBox.alert(this, "Mật khẩu mới không được để trống");
+        } else {
+            Auth.user.setPassword(newpass);
+            dao.update(Auth.user);
+            MsgBox.alert(this, "Đổi mật khẩu thành công");
+            this.dispose();
+        }
 
      
     }//GEN-LAST:event_btnChangeActionPerformed
