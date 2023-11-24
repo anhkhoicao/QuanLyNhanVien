@@ -147,7 +147,7 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         mnuManage.add(mniAdvPayment);
 
-<<<<<<< HEAD
+
         jMenuItem7.setText("Thưởng");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +155,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
         mnuManage.add(jMenuItem7);
-=======
+
         mniBonus.setText("Thưởng");
         mniBonus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +163,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
         mnuManage.add(mniBonus);
->>>>>>> c87594fd47ffaa04614731f596623467f61633ef
+
         mnuManage.add(jSeparator3);
 
         jMenuBar1.add(mnuManage);
