@@ -11,7 +11,7 @@ import entity.Employee;
  * @author caube
  */
 public class Auth {
-    public static Employee user = null;
+    public static Employee user;
     
     public static void clear() {
         Auth.user = null;
