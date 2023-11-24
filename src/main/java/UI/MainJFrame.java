@@ -148,13 +148,7 @@ public class MainJFrame extends javax.swing.JFrame {
         mnuManage.add(mniAdvPayment);
 
 
-        jMenuItem7.setText("Thưởng");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
-            }
-        });
-        mnuManage.add(jMenuItem7);
+        
 
         mniBonus.setText("Thưởng");
         mniBonus.addActionListener(new java.awt.event.ActionListener() {
