@@ -419,7 +419,12 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     private void openNhanVien() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (Auth.isLogin()) {
+            JDialog dialog = new NhanVien(this, true);
+            dialog.setVisible(true);
+        } else {
+            MsgBox.alert(this, "Vui lòng đăng nhập");
+        }
     }
 
     private void openAdvancePaymentJFrame() {
