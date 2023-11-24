@@ -7,7 +7,8 @@ package UI;
 import java.util.Date;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import utils.Auth; 
+import utils.Auth;
+import utils.MsgBox;
 import utils.XDate;
 
 /**
@@ -41,25 +42,25 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuSystem = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mniLogin = new javax.swing.JMenuItem();
+        mniLogout = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        mniChangePass = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        mniExit = new javax.swing.JMenuItem();
         mnuManage = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        mniEmp = new javax.swing.JMenuItem();
+        mniAdvPayment = new javax.swing.JMenuItem();
+        mniBonus = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         mnuReport = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        mniAttendance = new javax.swing.JMenuItem();
+        mniSalaryTable = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         mnuHelp = new javax.swing.JMenu();
-        jMenuItem11 = new javax.swing.JMenuItem();
+        mniHelp = new javax.swing.JMenuItem();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem12 = new javax.swing.JMenuItem();
+        mniGuide = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -92,35 +93,61 @@ public class MainJFrame extends javax.swing.JFrame {
 
         mnuSystem.setText("Hệ thống");
 
-        jMenuItem1.setText("Đăng nhập");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mniLogin.setText("Đăng nhập");
+        mniLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mniLoginActionPerformed(evt);
             }
         });
-        mnuSystem.add(jMenuItem1);
+        mnuSystem.add(mniLogin);
 
-        jMenuItem2.setText("Đăng xuất");
-        mnuSystem.add(jMenuItem2);
+        mniLogout.setText("Đăng xuất");
+        mniLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniLogoutActionPerformed(evt);
+            }
+        });
+        mnuSystem.add(mniLogout);
         mnuSystem.add(jSeparator1);
 
-        jMenuItem3.setText("Đổi mật khẩu");
-        mnuSystem.add(jMenuItem3);
+        mniChangePass.setText("Đổi mật khẩu");
+        mniChangePass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniChangePassActionPerformed(evt);
+            }
+        });
+        mnuSystem.add(mniChangePass);
         mnuSystem.add(jSeparator2);
 
-        jMenuItem4.setText("Kết thúc");
-        mnuSystem.add(jMenuItem4);
+        mniExit.setText("Kết thúc");
+        mniExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniExitActionPerformed(evt);
+            }
+        });
+        mnuSystem.add(mniExit);
 
         jMenuBar1.add(mnuSystem);
 
         mnuManage.setText("Quản lý");
 
-        jMenuItem5.setText("Nhân sự");
-        mnuManage.add(jMenuItem5);
+        mniEmp.setText("Nhân sự");
+        mniEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniEmpActionPerformed(evt);
+            }
+        });
+        mnuManage.add(mniEmp);
 
-        jMenuItem6.setText("Ứng lương");
-        mnuManage.add(jMenuItem6);
+        mniAdvPayment.setText("Ứng lương");
+        mniAdvPayment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniAdvPaymentActionPerformed(evt);
+            }
+        });
+        mnuManage.add(mniAdvPayment);
 
+<<<<<<< HEAD
         jMenuItem7.setText("Thưởng");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,29 +155,58 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
         mnuManage.add(jMenuItem7);
+=======
+        mniBonus.setText("Thưởng");
+        mniBonus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniBonusActionPerformed(evt);
+            }
+        });
+        mnuManage.add(mniBonus);
+>>>>>>> c87594fd47ffaa04614731f596623467f61633ef
         mnuManage.add(jSeparator3);
 
         jMenuBar1.add(mnuManage);
 
         mnuReport.setText("Thống kê");
 
-        jMenuItem9.setText("Chấm công");
-        mnuReport.add(jMenuItem9);
+        mniAttendance.setText("Chấm công");
+        mniAttendance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniAttendanceActionPerformed(evt);
+            }
+        });
+        mnuReport.add(mniAttendance);
 
-        jMenuItem10.setText("Lương");
-        mnuReport.add(jMenuItem10);
+        mniSalaryTable.setText("Lương");
+        mniSalaryTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniSalaryTableActionPerformed(evt);
+            }
+        });
+        mnuReport.add(mniSalaryTable);
         mnuReport.add(jSeparator4);
 
         jMenuBar1.add(mnuReport);
 
         mnuHelp.setText("Trợ giúp");
 
-        jMenuItem11.setText("Hướng dẫn sử dụng");
-        mnuHelp.add(jMenuItem11);
+        mniHelp.setText("Hướng dẫn sử dụng");
+        mniHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniHelpActionPerformed(evt);
+            }
+        });
+        mnuHelp.add(mniHelp);
         mnuHelp.add(jSeparator5);
 
-        jMenuItem12.setText("Giới thiệu sản phẩm");
-        mnuHelp.add(jMenuItem12);
+        mniGuide.setText("Giới thiệu sản phẩm");
+        mniGuide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniGuideActionPerformed(evt);
+            }
+        });
+        mnuHelp.add(mniGuide);
 
         jMenuBar1.add(mnuHelp);
 
@@ -179,19 +235,72 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mniLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        openLoginJDialog();
+    }//GEN-LAST:event_mniLoginActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        initialize();
+        this.initialize();
     }//GEN-LAST:event_formWindowOpened
 
+<<<<<<< HEAD
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+=======
+    private void mniLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniLogoutActionPerformed
+        // TODO add your handling code here:
+        logOutUser();
+    }//GEN-LAST:event_mniLogoutActionPerformed
+
+    private void mniChangePassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniChangePassActionPerformed
+        // TODO add your handling code here:
+        openChangPassword();
+    }//GEN-LAST:event_mniChangePassActionPerformed
+
+    private void mniExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniExitActionPerformed
+        // TODO add your handling code here:
+        exit();
+    }//GEN-LAST:event_mniExitActionPerformed
+
+    private void mniEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniEmpActionPerformed
+        // TODO add your handling code here:
+        openNhanVien();
+    }//GEN-LAST:event_mniEmpActionPerformed
+
+    private void mniAdvPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAdvPaymentActionPerformed
+        // TODO add your handling code here:
+        openAdvancePaymentJFrame();
+    }//GEN-LAST:event_mniAdvPaymentActionPerformed
+
+    private void mniBonusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniBonusActionPerformed
+        // TODO add your handling code here:
+        openBonusJFrame();
+    }//GEN-LAST:event_mniBonusActionPerformed
+
+    private void mniAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAttendanceActionPerformed
+        // TODO add your handling code here:
+        openTimeSheetJDialog();
+    }//GEN-LAST:event_mniAttendanceActionPerformed
+
+    private void mniSalaryTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSalaryTableActionPerformed
+        // TODO add your handling code here:
+        openTimeSheetJDialog();
+    }//GEN-LAST:event_mniSalaryTableActionPerformed
+
+    private void mniHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniHelpActionPerformed
+        // TODO add your handling code here:
+        openHelp();
+    }//GEN-LAST:event_mniHelpActionPerformed
+
+    private void mniGuideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniGuideActionPerformed
+        // TODO add your handling code here:
+        openGuide();
+    }//GEN-LAST:event_mniGuideActionPerformed
+>>>>>>> c87594fd47ffaa04614731f596623467f61633ef
 
     /**
      * @param args the command line arguments
@@ -231,17 +340,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
@@ -251,6 +349,17 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblTimer;
+    private javax.swing.JMenuItem mniAdvPayment;
+    private javax.swing.JMenuItem mniAttendance;
+    private javax.swing.JMenuItem mniBonus;
+    private javax.swing.JMenuItem mniChangePass;
+    private javax.swing.JMenuItem mniEmp;
+    private javax.swing.JMenuItem mniExit;
+    private javax.swing.JMenuItem mniGuide;
+    private javax.swing.JMenuItem mniHelp;
+    private javax.swing.JMenuItem mniLogin;
+    private javax.swing.JMenuItem mniLogout;
+    private javax.swing.JMenuItem mniSalaryTable;
     private javax.swing.JMenu mnuHelp;
     private javax.swing.JMenu mnuManage;
     private javax.swing.JMenu mnuReport;
@@ -261,14 +370,15 @@ public class MainJFrame extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         openLoginDialog();
         startTimer();
-//        this.setStatus("Welcome: " + Auth.user.getFirstName());
+        setStatus("Welcome: " + Auth.user.getFirstName());
     }
 
     private void openLoginDialog() {
-        JFrame frame = new LoginJFrame();
-        frame.setVisible(true);
-//        mnuReport.setEnabled(Auth.isManager());
-        
+        JDialog dialog = new LoginJDialog(this, true);
+        dialog.setVisible(true);
+
+        mnuReport.setEnabled(Auth.isManager());
+
     }
 
     private void startTimer() {
@@ -276,7 +386,7 @@ public class MainJFrame extends javax.swing.JFrame {
             @Override
             public void run() {
                 try {
-                    while(true){
+                    while (true) {
                         lblTimer.setText(XDate.format(new Date(), "hh:mm:ss a"));
                         Thread.sleep(1000);
                     }
@@ -286,18 +396,71 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         }).start();
     }
-    
+
     public void setStatus(String message) {
         lblStatus.setText(message);
     }
-    
-     public void openWelcomeDialog() {
+
+    public void openWelcomeDialog() {
         JDialog dialog = new WelcomeJDialog(this, true);
         this.openDialog(dialog);
     }
-     
-      public void openDialog(JDialog dialog) {
+
+    public void openDialog(JDialog dialog) {
         dialog.setLocationRelativeTo(this);
         dialog.setVisible(true);
+    }
+
+    private void openLoginJDialog() {
+        openLoginDialog();
+    }
+
+    private void exit() {
+        if(MsgBox.confirm(this, "Bạn muốn kết thúc ứng dụng ?")) {
+            System.exit(0);
+        }
+    }
+
+    private void openChangPassword() {
+        if (Auth.isLogin()) {
+            JFrame frame = new ChangePasswordJframe();
+            frame.setVisible(true);
+        } else {
+            MsgBox.alert(this, "Vui lòng đăng nhập");
+        }
+    }
+
+    private void logOutUser() {
+        Auth.clear();
+        
+    }
+
+    private void openNhanVien() {
+        if (Auth.isLogin()) {
+            JDialog dialog = new NhanVien(this, true);
+            dialog.setVisible(true);
+        } else {
+            MsgBox.alert(this, "Vui lòng đăng nhập");
+        }
+    }
+
+    private void openAdvancePaymentJFrame() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void openBonusJFrame() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void openTimeSheetJDialog() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void openHelp() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void openGuide() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
