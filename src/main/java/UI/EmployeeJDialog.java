@@ -822,6 +822,12 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         btnUpdate.setEnabled(edit);
         btnDelete.setEnabled(edit);
         
+        if(!Auth.isAccountant()){
+            txtBaseSalary.setEditable(false);
+        }else{
+            txtBaseSalary.setEditable(true);
+        }
+                
         // Trạng thái điều hướng
         btnFirst.setEnabled(edit && !first);
         btnPrev.setEnabled(edit && !first);

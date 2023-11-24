@@ -252,7 +252,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void mniEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniEmpActionPerformed
         // TODO add your handling code here:
-        openNhanVien();
+        openEmployeeJDialog();
     }//GEN-LAST:event_mniEmpActionPerformed
 
     private void mniAdvPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAdvPaymentActionPerformed
@@ -418,8 +418,9 @@ public class MainJFrame extends javax.swing.JFrame {
         
     }
 
-    private void openNhanVien() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void openEmployeeJDialog() {
+        EmployeeJDialog Empdialog = new EmployeeJDialog(this, true);
+        Empdialog.setVisible(true);
     }
 
     private void openAdvancePaymentJFrame() {
