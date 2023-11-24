@@ -34,7 +34,7 @@ public class BonusDAO extends EntityDAO<Bonus, String> {
 
     @Override
     public void update(Bonus b) {
-        String sql = "UPDATE Bonus SET Amount = ?, Desc = ?, Date = ?, EmpID = ? WHERE SEQ = ?";
+        String sql = "UPDATE Bonus SET Amount = ?, [Desc] = ?, Date = ?, EmpID = ? WHERE SEQ = ?";
         XJdbc.update(sql, b.getAmount(), 
                 b.getDesc(), 
                 b.getBonusDate(), 

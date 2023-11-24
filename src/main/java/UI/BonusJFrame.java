@@ -7,7 +7,7 @@ package UI;
 import dao.BonusDAO;
 import dao.EmployeeDAO;
 import entity.Bonus;
-import java.sql.Date;
+import java.util.Date;
 
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -46,7 +46,7 @@ public class BonusJFrame extends javax.swing.JFrame implements CrudController<Bo
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txtAMOUNT2 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
+        lblSEQ = new javax.swing.JLabel();
         txtEMPID2 = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jPanel4 = new javax.swing.JPanel();
@@ -93,7 +93,7 @@ public class BonusJFrame extends javax.swing.JFrame implements CrudController<Bo
             }
         });
 
-        jLabel12.setText("Employee ID :");
+        lblSEQ.setText("Employee ID :");
 
         txtEMPID2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +109,7 @@ public class BonusJFrame extends javax.swing.JFrame implements CrudController<Bo
                 .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblSEQ, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtEMPID2))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -131,7 +131,7 @@ public class BonusJFrame extends javax.swing.JFrame implements CrudController<Bo
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
+                    .addComponent(lblSEQ)
                     .addComponent(txtEMPID2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -458,7 +458,6 @@ public class BonusJFrame extends javax.swing.JFrame implements CrudController<Bo
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -468,6 +467,7 @@ public class BonusJFrame extends javax.swing.JFrame implements CrudController<Bo
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblSEQ;
     private javax.swing.JPanel tabCapNhat;
     private javax.swing.JPanel tabDanhSach;
     private javax.swing.JTabbedPane tabs;
@@ -487,7 +487,7 @@ public class BonusJFrame extends javax.swing.JFrame implements CrudController<Bo
         Bonus bonus = new Bonus();
         String bonusString = txtAMOUNT2.getText();
         double bonusAmount = Double.parseDouble(bonusString);
-        
+        bonus.setSeq(Integer.parseInt(lblSEQ.getToolTipText()));
         bonus.setAmount(bonusAmount);
         bonus.setBonusDate((Date) jDateChooser1.getDate());
         bonus.setDesc(txtNOTE2.getText());
@@ -547,7 +547,7 @@ public class BonusJFrame extends javax.swing.JFrame implements CrudController<Bo
     @Override
     public void deleteEntity() {
         Bonus bonus = this.getEntityFromForm();
-        bDAO.delete(bonus.getEmployee().getId());
+        bDAO.delete(Integer.toString(bonus.getSeq()));
         this.resetForm();
         this.fillEntityListOnTable();
     }
@@ -621,7 +621,7 @@ public class BonusJFrame extends javax.swing.JFrame implements CrudController<Bo
         jDateChooser1.setDate(e.getBonusDate());
         txtAMOUNT2.setText(Double.toString(e.getAmount()));
         txtNOTE2.setText(e.getDesc());
-        
+        lblSEQ.setToolTipText(Integer.toString(e.getSeq()));
 
     }
 }

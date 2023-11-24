@@ -24,18 +24,18 @@ public class AdvancePaymentDAO extends EntityDAO<AdvancePayment, String> {
                 + "           ,[AdvDate]\n"
                 + "           ,[EmpID])\n"
                 + "     VALUES (?, ?, ?)";
-        
-        XJdbc.update(sql, adv.getAdvAmount(), 
-                adv.getDateAdv(), 
+
+        XJdbc.update(sql, adv.getAdvAmount(),
+                adv.getDateAdv(),
                 adv.getEmployee().getId());
     }
 
     @Override
     public void update(AdvancePayment adv) {
         String sql = "UPDATE AdvancePayment SET Amount = ?, AdvDate = ?, EmpID = ? where SEQ = ?";
-        XJdbc.update(sql, adv.getAdvAmount(), 
-                adv.getDateAdv(), 
-                adv.getEmployee().getId(), 
+        XJdbc.update(sql, adv.getAdvAmount(),
+                adv.getDateAdv(),
+                adv.getEmployee().getId(),
                 adv.getId());
     }
 
@@ -87,6 +87,13 @@ public class AdvancePaymentDAO extends EntityDAO<AdvancePayment, String> {
         }
 
         return list;
+    }
+
+    public List<AdvancePayment> selectByKeyWord(String keyword) {
+        String sql = "SELECT * FROM AdvancePayment WHERE 1 = 1 AND (Amount LIKE ? OR EmpID LIKE ? OR AdvDate LIKE ?)";
+        String formattedKeyword = "%" + keyword + "%";
+
+        return selectBySql(sql, formattedKeyword, formattedKeyword, formattedKeyword);
     }
 
 //    public static void main(String[] args) {
