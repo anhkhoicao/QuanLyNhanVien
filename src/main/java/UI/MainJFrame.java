@@ -122,6 +122,11 @@ public class MainJFrame extends javax.swing.JFrame {
         mnuManage.add(jMenuItem6);
 
         jMenuItem7.setText("Thưởng");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         mnuManage.add(jMenuItem7);
         mnuManage.add(jSeparator3);
 
@@ -182,6 +187,11 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         initialize();
     }//GEN-LAST:event_formWindowOpened
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments

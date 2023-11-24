@@ -26,19 +26,19 @@ public class BonusDAO extends EntityDAO<Bonus, String> {
                 + "           ,[Date]\n"
                 + "           ,[EmpID])\n"
                 + "     VALUES (?, ?, ?, ?)";
-        XJdbc.update(sql, b.getAmount(), 
-                b.getDesc(), 
-                b.getBonusDate(), 
+        XJdbc.update(sql, b.getAmount(),
+                b.getDesc(),
+                b.getBonusDate(),
                 b.getEmployee().getId());
     }
 
     @Override
     public void update(Bonus b) {
         String sql = "UPDATE Bonus SET Amount = ?, [Desc] = ?, Date = ?, EmpID = ? WHERE SEQ = ?";
-        XJdbc.update(sql, b.getAmount(), 
-                b.getDesc(), 
-                b.getBonusDate(), 
-                b.getEmployee().getId(), 
+        XJdbc.update(sql, b.getAmount(),
+                b.getDesc(),
+                b.getBonusDate(),
+                b.getEmployee().getId(),
                 b.getSeq());
     }
 
@@ -64,16 +64,11 @@ public class BonusDAO extends EntityDAO<Bonus, String> {
             return null;
         }
     }
-    
-     
-    public Bonus selectByEmpID(String EmpID) {
-        String sql = "select * from Bonus where EmpID = ?";
-        List<Bonus> list = selectBySql(sql, EmpID);
-        if (!list.isEmpty()) {
-            return list.get(0);
-        } else {
-            return null;
-        }
+
+    public List<Bonus> selectByEmpID(String EmpID) {
+
+        String sql = "SELECT * FROM Bonus WHERE EmpID LIKE ?";
+        return this.selectBySql(sql, "%" + EmpID + "%");
     }
 
     @Override
