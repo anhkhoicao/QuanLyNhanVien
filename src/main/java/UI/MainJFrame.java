@@ -245,12 +245,12 @@ public class MainJFrame extends javax.swing.JFrame {
         this.initialize();
     }//GEN-LAST:event_formWindowOpened
 
-<<<<<<< HEAD
+
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jMenuItem7ActionPerformed
-=======
+
     private void mniLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniLogoutActionPerformed
         // TODO add your handling code here:
         logOutUser();
@@ -300,7 +300,7 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         openGuide();
     }//GEN-LAST:event_mniGuideActionPerformed
->>>>>>> c87594fd47ffaa04614731f596623467f61633ef
+
 
     /**
      * @param args the command line arguments
