@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\utils\XJdbc.java
 C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\UI\BonusJFrame.java
 C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\UI\LoginJDialog.java
@@ -31,3 +32,38 @@ C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\UI\MainJFrame.java
 C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\utils\CheckBoxRenderer.java
 C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\utils\IconUtil.java
 C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\dao\TimeSheetDAO.java
+=======
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\utils\XDate.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\dao\TimeSheetDAO.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\dao\ReportDAO.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\entity\TimeSheet.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\UI\TimeSheetJDialog.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\dao\EntityDAO.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\utils\CheckBoxEditor.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\utils\XJdbc.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\entity\Bonus.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\UI\NhanVien.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\UI\BonusJFrame.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\dao\PositionDAO.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\dao\BonusDAO.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\entity\Employee.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\UI\BonusJDialog.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\UI\ChangePasswordJframe.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\entity\AdvancePayment.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\UI\WelcomeJDialog.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\utils\CheckBoxRenderer.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\dao\ReportDAOImpl.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\utils\MsgBox.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\UI\CrudController.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\utils\XFile.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\UI\AdvancePaymentFrame.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\dao\DepartmentDAO.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\entity\Department.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\entity\Report.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\dao\AdvancePaymentDAO.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\UI\LoginJDialog.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\utils\Auth.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\entity\Position.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\utils\IconUtil.java
+C:\Users\Fixluck\OneDrive\Desktop\clone\QuanLyNhanSu\src\main\java\dao\EmployeeDAO.java
+>>>>>>> 351218b1635eba56cb92e3a62d0ee0ccccf8bb0a
