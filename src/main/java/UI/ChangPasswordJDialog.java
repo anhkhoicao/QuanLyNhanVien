@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package UI;
 
@@ -8,13 +8,16 @@ import dao.EmployeeDAO;
 import utils.Auth;
 import utils.MsgBox;
 
-
-public class ChangePasswordJframe extends javax.swing.JFrame {
+/**
+ *
+ * @author caube
+ */
+public class ChangPasswordJDialog extends javax.swing.JDialog {
 
     EmployeeDAO dao = new EmployeeDAO();
-    public ChangePasswordJframe() {
+    public ChangPasswordJDialog(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
-        setLocationRelativeTo(null);
     }
 
     /**
@@ -41,7 +44,7 @@ public class ChangePasswordJframe extends javax.swing.JFrame {
         txtNewPass = new javax.swing.JPasswordField();
         txtConfirmPass = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Change Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 36), new java.awt.Color(0, 204, 255))); // NOI18N
 
@@ -103,7 +106,7 @@ public class ChangePasswordJframe extends javax.swing.JFrame {
                     .addComponent(txtOldPass, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNewPass, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtConfirmPass, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,11 +166,9 @@ public class ChangePasswordJframe extends javax.swing.JFrame {
         oldpass = new String (txtOldPass.getPassword());
         newpass = new String (txtNewPass.getPassword());
         confirmpass = new String(txtConfirmPass.getPassword());
-       
-       
 
-    // Check if the user exists
-    if (!uid.equalsIgnoreCase(Auth.user.getId())) {
+        // Check if the user exists
+        if (!uid.equalsIgnoreCase(Auth.user.getId())) {
             MsgBox.alert(this, "Sai tên đăng nhập");
         } else if (!oldpass.equals(Auth.user.getPassword())) {
             MsgBox.alert(this, "Sai mật khẩu");
@@ -183,7 +184,6 @@ public class ChangePasswordJframe extends javax.swing.JFrame {
             this.dispose();
         }
 
-     
     }//GEN-LAST:event_btnChangeActionPerformed
 
     /**
@@ -197,26 +197,33 @@ public class ChangePasswordJframe extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChangePasswordJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangPasswordJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChangePasswordJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangPasswordJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChangePasswordJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangPasswordJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChangePasswordJframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChangPasswordJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ChangePasswordJframe().setVisible(true);
+                ChangPasswordJDialog dialog = new ChangPasswordJDialog(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
@@ -237,6 +244,4 @@ public class ChangePasswordJframe extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtOldPass;
     private javax.swing.JTextField txtUserID;
     // End of variables declaration//GEN-END:variables
-    
-
 }
