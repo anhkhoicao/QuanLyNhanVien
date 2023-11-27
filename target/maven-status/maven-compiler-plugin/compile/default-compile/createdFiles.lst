@@ -1,5 +1,6 @@
 entity\Report.class
 UI\BonusJDialog$3.class
+UI\ChangPasswordJDialog$1.class
 entity\Employee.class
 UI\BonusJFrame$9.class
 utils\XDate.class
@@ -18,6 +19,7 @@ UI\EmployeeJDialog$2.class
 UI\AdvancePaymentJDialog$3.class
 UI\TimeSheetJDialog.class
 UI\ChangePasswordJframe.class
+UI\ChangPasswordJDialog.class
 UI\TimeSheetJDialog$2.class
 UI\MainJFrame$1.class
 UI\WelcomeJDialog.class
@@ -62,6 +64,7 @@ UI\AdvancePaymentFrame$1.class
 UI\AdvancePaymentJDialog$10.class
 UI\BonusJDialog$7.class
 UI\BonusJFrame$4.class
+UI\ChangPasswordJDialog$2$1.class
 UI\BonusJFrame$15.class
 dao\EntityDAO.class
 UI\AdvancePaymentJDialog$7.class
@@ -125,6 +128,7 @@ UI\EmployeeJDialog$17.class
 UI\BonusJFrame$8.class
 UI\BonusJDialog$4.class
 UI\EmployeeJDialog$3.class
+UI\ChangPasswordJDialog$2.class
 UI\EmployeeJDialog$10.class
 utils\XFile.class
 UI\BonusJFrame.class

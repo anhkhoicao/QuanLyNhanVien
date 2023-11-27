@@ -226,64 +226,64 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mniLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniLoginActionPerformed
-        // TODO add your handling code here:
+        
         openLoginJDialog();
-    }//GEN-LAST:event_mniLoginActionPerformed
+    }
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
+       
         this.initialize();
-    }//GEN-LAST:event_formWindowOpened
+    }
 
     private void mniLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniLogoutActionPerformed
-        // TODO add your handling code here:
+        
         logOutUser();
-    }//GEN-LAST:event_mniLogoutActionPerformed
+    }
 
     private void mniChangePassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniChangePassActionPerformed
         // TODO add your handling code here:
         openChangPassword();
-    }//GEN-LAST:event_mniChangePassActionPerformed
+    }
 
     private void mniExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniExitActionPerformed
         // TODO add your handling code here:
         exit();
-    }//GEN-LAST:event_mniExitActionPerformed
+    }
 
     private void mniEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniEmpActionPerformed
         // TODO add your handling code here:
         openEmployeeJDialog();
-    }//GEN-LAST:event_mniEmpActionPerformed
+    }
 
     private void mniAdvPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAdvPaymentActionPerformed
         // TODO add your handling code here:
         openAdvancePaymentJFrame();
-    }//GEN-LAST:event_mniAdvPaymentActionPerformed
+    }
 
     private void mniBonusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniBonusActionPerformed
         // TODO add your handling code here:
         openBonusJFrame();
-    }//GEN-LAST:event_mniBonusActionPerformed
+    }
 
     private void mniAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAttendanceActionPerformed
         // TODO add your handling code here:
         openTimeSheetJDialog();
-    }//GEN-LAST:event_mniAttendanceActionPerformed
+    }
 
     private void mniSalaryTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSalaryTableActionPerformed
         // TODO add your handling code here:
         openTimeSheetJDialog();
-    }//GEN-LAST:event_mniSalaryTableActionPerformed
+    }
 
     private void mniHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniHelpActionPerformed
         // TODO add your handling code here:
         openHelp();
-    }//GEN-LAST:event_mniHelpActionPerformed
+    }
 
     private void mniGuideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniGuideActionPerformed
         // TODO add your handling code here:
         openGuide();
-    }//GEN-LAST:event_mniGuideActionPerformed
+    }
 
     /**
      * @param args the command line arguments
