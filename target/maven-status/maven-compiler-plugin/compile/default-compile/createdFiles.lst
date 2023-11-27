@@ -1,5 +1,6 @@
 entity\Report.class
 UI\BonusJDialog$3.class
+UI\ChangPasswordJDialog$1.class
 entity\Employee.class
 UI\BonusJFrame$9.class
 utils\XDate.class
@@ -18,15 +19,13 @@ UI\EmployeeJDialog$2.class
 UI\AdvancePaymentJDialog$3.class
 UI\TimeSheetJDialog.class
 UI\ChangePasswordJframe.class
+UI\ChangPasswordJDialog.class
 UI\TimeSheetJDialog$2.class
 UI\MainJFrame$1.class
 UI\WelcomeJDialog.class
 UI\BonusJFrame$3.class
 UI\EmployeeJDialog$5.class
-<<<<<<< HEAD
-=======
 UI\AdvancePaymentJDialog$5.class
->>>>>>> 1ae3d38fbc2cfd553cad73121b909acfaf29d008
 UI\BonusJDialog$9.class
 UI\BonusJFrame$14.class
 UI\EmployeeJDialog$15.class
@@ -41,10 +40,7 @@ UI\LoginJDialog$3$1.class
 dao\TimeSheetDAO.class
 UI\LoginJDialog$1.class
 UI\TimeSheetJDialog$1.class
-<<<<<<< HEAD
-=======
 UI\AdvancePaymentJDialog$2.class
->>>>>>> 1ae3d38fbc2cfd553cad73121b909acfaf29d008
 UI\EmployeeJDialog$14.class
 UI\BonusJDialog$12.class
 UI\ChangePasswordJframe$1.class
@@ -53,11 +49,8 @@ UI\LoginJDialog.class
 UI\AdvancePaymentFrame$10.class
 UI\AdvancePaymentFrame$7.class
 UI\EmployeeJDialog$7.class
-<<<<<<< HEAD
-=======
 UI\AdvancePaymentJDialog$6.class
 UI\AdvancePaymentJDialog$11.class
->>>>>>> 1ae3d38fbc2cfd553cad73121b909acfaf29d008
 UI\BonusJDialog$1.class
 UI\BonusJDialog$8.class
 utils\XJdbc.class
@@ -71,6 +64,7 @@ UI\AdvancePaymentFrame$1.class
 UI\AdvancePaymentJDialog$10.class
 UI\BonusJDialog$7.class
 UI\BonusJFrame$4.class
+UI\ChangPasswordJDialog$2$1.class
 UI\BonusJFrame$15.class
 dao\EntityDAO.class
 UI\AdvancePaymentJDialog$7.class
@@ -81,10 +75,7 @@ UI\EmployeeJDialog$13.class
 UI\BonusJFrame$2.class
 UI\BonusJFrame$13.class
 UI\BonusJDialog$16$1.class
-<<<<<<< HEAD
-=======
 UI\AdvancePaymentJDialog$4.class
->>>>>>> 1ae3d38fbc2cfd553cad73121b909acfaf29d008
 UI\EmployeeJDialog$16.class
 UI\EmployeeJDialog$19$1.class
 UI\MainJFrame$5.class
@@ -137,6 +128,7 @@ UI\EmployeeJDialog$17.class
 UI\BonusJFrame$8.class
 UI\BonusJDialog$4.class
 UI\EmployeeJDialog$3.class
+UI\ChangPasswordJDialog$2.class
 UI\EmployeeJDialog$10.class
 utils\XFile.class
 UI\BonusJFrame.class
