@@ -7,6 +7,7 @@ UI\BonusJFrame$9.class
 utils\XDate.class
 UI\BonusJDialog$14.class
 entity\AdvancePayment.class
+UI\MainJFrame$9.class
 utils\CheckBoxEditor.class
 UI\BonusJDialog$6.class
 UI\AdvancePaymentJDialog.class
@@ -16,6 +17,7 @@ UI\TimeSheetJDialog2.class
 UI\TimeSheetJDialog2$3.class
 UI\AdvancePaymentJDialog$8.class
 UI\LoginJDialog$3.class
+UI\MainJFrame$6.class
 UI\CrudController.class
 UI\AdvancePaymentFrame$5.class
 UI\EmployeeJDialog$2.class
@@ -40,6 +42,7 @@ UI\TimeSheetJDialog2$6$1.class
 UI\EmployeeJDialog$8.class
 UI\BonusJDialog$11.class
 UI\BonusJFrame$6.class
+UI\MainJFrame$11.class
 dao\TimeSheetDAO.class
 UI\LoginJDialog$1.class
 UI\TimeSheetJDialog$1.class
@@ -68,6 +71,7 @@ UI\MainJFrame.class
 UI\AdvancePaymentFrame$1.class
 UI\AdvancePaymentJDialog$10.class
 UI\BonusJDialog$7.class
+UI\MainJFrame$13.class
 UI\BonusJFrame$4.class
 UI\ChangPasswordJDialog$2$1.class
 UI\LoginJDialog$4$1.class
@@ -139,6 +143,7 @@ UI\EmployeeJDialog$3.class
 UI\ChangPasswordJDialog$2.class
 UI\EmployeeJDialog$10.class
 utils\XFile.class
+UI\MainJFrame$8.class
 UI\BonusJFrame.class
 UI\BonusJDialog$16.class
 UI\EmployeeJDialog.class
