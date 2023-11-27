@@ -344,6 +344,7 @@ public class TimeSheetJDialog2 extends javax.swing.JDialog {
     private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
         // TODO add your handling code here:
         createEntity();
+               
     }//GEN-LAST:event_btnCheckActionPerformed
 
     private void cboMonthSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMonthSalaryActionPerformed
@@ -459,13 +460,17 @@ public class TimeSheetJDialog2 extends javax.swing.JDialog {
                 t.setEmp(eDAO.selectByID(empID));
                 t.setManager(eDAO.selectByID(lblManagerID.getText()));
                 tDAO.insert(t);
+                
             }
             MsgBox.alert(this, "Chấm công thành công");
+            fillComboBoxYear();
         } catch (Exception e) {
             MsgBox.alert(this, "Lỗi truy vấn dữ liệu");
         }
     }
+    
 
+ 
     private void fillSalaryDetailTable() {
         DefaultTableModel model = (DefaultTableModel) tblSalaryDetail.getModel();
         model.setRowCount(0);
