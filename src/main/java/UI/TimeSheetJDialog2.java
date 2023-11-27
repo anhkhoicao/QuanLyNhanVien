@@ -344,6 +344,8 @@ public class TimeSheetJDialog2 extends javax.swing.JDialog {
     private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
         // TODO add your handling code here:
         createEntity();
+        fillComboBoxYear();
+        fillAttendanceTable();
     }//GEN-LAST:event_btnCheckActionPerformed
 
     private void cboMonthSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMonthSalaryActionPerformed
@@ -507,7 +509,7 @@ public class TimeSheetJDialog2 extends javax.swing.JDialog {
                 model.addRow(rowData);
             }
         } catch (Exception e) {
-            MsgBox.alert(this, "Lỗi truy vấn dữ liệu");
+            System.out.println(e);
         }
     }
 
