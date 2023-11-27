@@ -146,6 +146,7 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
 
         jLabel2.setText("Month:");
 
+        cboMonthSalary.setEditable(true);
         cboMonthSalary.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
         cboMonthSalary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,6 +156,7 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
 
         jLabel3.setText("YEAR:");
 
+        cboYearSalary.setEditable(true);
         cboYearSalary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboYearSalaryActionPerformed(evt);
@@ -198,6 +200,7 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
 
         jLabel4.setText("Month:");
 
+        cboMonthAttendance.setEditable(true);
         cboMonthAttendance.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
         cboMonthAttendance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,6 +210,7 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
 
         jLabel5.setText("YEAR:");
 
+        cboYearAttendance.setEditable(true);
         cboYearAttendance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboYearAttendanceActionPerformed(evt);
