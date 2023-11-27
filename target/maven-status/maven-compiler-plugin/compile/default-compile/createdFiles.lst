@@ -36,7 +36,6 @@ UI\EmployeeJDialog$18.class
 UI\EmployeeJDialog$8.class
 UI\BonusJDialog$11.class
 UI\BonusJFrame$6.class
-UI\LoginJDialog$3$1.class
 dao\TimeSheetDAO.class
 UI\LoginJDialog$1.class
 UI\TimeSheetJDialog$1.class
@@ -65,6 +64,7 @@ UI\AdvancePaymentJDialog$10.class
 UI\BonusJDialog$7.class
 UI\BonusJFrame$4.class
 UI\ChangPasswordJDialog$2$1.class
+UI\LoginJDialog$4$1.class
 UI\BonusJFrame$15.class
 dao\EntityDAO.class
 UI\AdvancePaymentJDialog$7.class
@@ -137,6 +137,7 @@ UI\EmployeeJDialog.class
 UI\TimeSheetJDialog$4.class
 UI\WelcomeJDialog$1$1.class
 entity\Department.class
+UI\LoginJDialog$4.class
 UI\BonusJFrame$12.class
 UI\BonusJFrame$1.class
 UI\MainJFrame$2.class
