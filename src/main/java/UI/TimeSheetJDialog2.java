@@ -9,6 +9,8 @@ import dao.ReportDAOImpl;
 import dao.TimeSheetDAO;
 import entity.Employee;
 import entity.Report;
+import entity.Report.Attendance;
+import entity.Report.SalaryDetail;
 import entity.TimeSheet;
 import java.util.Date;
 import java.util.List;
@@ -344,12 +346,6 @@ public class TimeSheetJDialog2 extends javax.swing.JDialog {
     private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
         // TODO add your handling code here:
         createEntity();
-
-        fillComboBoxYear();
-        fillAttendanceTable();
-
-               
-
     }//GEN-LAST:event_btnCheckActionPerformed
 
     private void cboMonthSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMonthSalaryActionPerformed
@@ -460,32 +456,32 @@ public class TimeSheetJDialog2 extends javax.swing.JDialog {
                 TimeSheet t = new TimeSheet();
                 boolean status = (Boolean) model.getValueAt(i, 2);
                 String empID = (String) model.getValueAt(i, 0);
-                t.setDate((date));
-                t.setStatus(status);
-                t.setEmp(eDAO.selectByID(empID));
-                t.setManager(eDAO.selectByID(lblManagerID.getText()));
-                tDAO.insert(t);
-                
+                if (tDAO.existsEmployee(empID, date)) {
+                    MsgBox.alert(this, "Đã có bản ghi cho nhân viên này ngày hôm nay");
+                    return;
+                } else {
+                    t.setDate((date));
+                    t.setStatus(status);
+                    t.setEmp(eDAO.selectByID(empID));
+                    t.setManager(eDAO.selectByID(lblManagerID.getText()));
+                    tDAO.insert(t);
+                }
             }
             MsgBox.alert(this, "Chấm công thành công");
-            fillComboBoxYear();
         } catch (Exception e) {
             MsgBox.alert(this, "Lỗi truy vấn dữ liệu");
         }
     }
-    
 
- 
     private void fillSalaryDetailTable() {
         DefaultTableModel model = (DefaultTableModel) tblSalaryDetail.getModel();
         model.setRowCount(0);
-
         String monthString = (String) cboMonthSalary.getSelectedItem();
         int month = Integer.parseInt(monthString);
         Integer year = (Integer) cboYearSalary.getSelectedItem();
         try {
-            List<Report.SalaryDetail> list = rpDAO.getSalaryDetail(month, year);
-            for (Report.SalaryDetail s : list) {
+            List<SalaryDetail> list = rpDAO.getSalaryDetail(month, year);
+            for (SalaryDetail s : list) {
                 Object[] rowData = new Object[]{s.getEmployee().getId(),
                     s.getEmployee().getFirstName(),
                     s.getEmployee().getLastName(),
@@ -495,7 +491,6 @@ public class TimeSheetJDialog2 extends javax.swing.JDialog {
                     s.getTotalSalary()};
                 model.addRow(rowData);
             }
-
         } catch (Exception e) {
             MsgBox.alert(this, "Lỗi truy vấn dữ liệu");
         }
@@ -508,8 +503,8 @@ public class TimeSheetJDialog2 extends javax.swing.JDialog {
         int month = Integer.parseInt(monthString);
         Integer year = (Integer) cboYearAttendance.getSelectedItem();
         try {
-            List<Report.Attendance> list = rpDAO.getAttendance(month, year);
-            for (Report.Attendance a : list) {
+            List<Attendance> list = rpDAO.getAttendance(month, year);
+            for (Attendance a : list) {
                 Object[] rowData = new Object[]{a.getEmployee().getId(),
                     a.getEmployee().getFirstName(),
                     a.getEmployee().getLastName(),
