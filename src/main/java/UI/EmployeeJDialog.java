@@ -816,16 +816,48 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         boolean first = (this.row == 0);
         boolean last = (this.row == tblEmployees.getRowCount() - 1);
         // Trạng thái form
-        txtID.setEditable(!edit);
-        btnAdd.setEnabled(!edit);
-        btnUpdate.setEnabled(edit);
-        btnDelete.setEnabled(edit);
+//        txtID.setEditable(!edit);
+//        btnAdd.setEnabled(!edit);
+//        btnUpdate.setEnabled(edit);
+//        btnDelete.setEnabled(edit);
         
         if(!Auth.isAccountant()){
             txtBaseSalary.setEditable(false);
         }else{
+            txtID.setEditable(false);
+            txtFirstName.setEditable(false);
+            txtLastName.setEditable(false);
+            txtEmail.setEditable(false);
+            txtPhone.setEditable(false);
+            rdoMale.setEnabled(false);
+            rdoFemale.setEnabled(false);
+            rdoOther.setEnabled(false);
+            rboKeToan.setEnabled(false);
+            rboTruongPhong.setEnabled(false);
+            rboNhanVien.setEnabled(false);
             txtBaseSalary.setEditable(true);
+            cboDep.setEnabled(false);
+            cboPos.setEnabled(false);
         }
+        
+        if(Auth.isManager()){
+            txtID.setEditable(!edit);
+            btnAdd.setEnabled(!edit);
+            btnUpdate.setEnabled(edit);
+            btnDelete.setEnabled(edit);
+        }else if(Auth.isAccountant()){
+            btnNew.setEnabled(!edit);
+            btnAdd.setEnabled(!edit);
+            btnUpdate.setEnabled(edit);
+            btnDelete.setEnabled(!edit);
+        }else{
+            btnNew.setEnabled(!edit);
+            btnAdd.setEnabled(!edit);
+            btnUpdate.setEnabled(!edit);
+            btnDelete.setEnabled(!edit);
+        }
+        
+        
                 
         // Trạng thái điều hướng
         btnFirst.setEnabled(edit && !first);

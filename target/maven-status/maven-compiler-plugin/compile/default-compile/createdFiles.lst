@@ -19,6 +19,7 @@ UI\AdvancePaymentJDialog$8.class
 UI\LoginJDialog$3.class
 UI\MainJFrame$6.class
 UI\CrudController.class
+dao\User.class
 UI\AdvancePaymentFrame$5.class
 UI\EmployeeJDialog$2.class
 UI\AdvancePaymentJDialog$3.class
