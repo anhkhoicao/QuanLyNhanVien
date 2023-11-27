@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package UI;
 
@@ -8,8 +8,7 @@ import dao.EmployeeDAO;
 import dao.ReportDAOImpl;
 import dao.TimeSheetDAO;
 import entity.Employee;
-import entity.Report.Attendance;
-import entity.Report.SalaryDetail;
+import entity.Report;
 import entity.TimeSheet;
 import java.util.Date;
 import java.util.List;
@@ -22,14 +21,15 @@ import utils.MsgBox;
 
 /**
  *
- * @author caube
+ * @author Fixluck
  */
-public class TimeSheetJDialog extends javax.swing.JFrame implements CrudController<TimeSheet> {
+public class TimeSheetJDialog2 extends javax.swing.JDialog {
 
     /**
-     * Creates new form TimeSheetJDialog
+     * Creates new form TimeSheetJDialog2
      */
-    public TimeSheetJDialog() {
+    public TimeSheetJDialog2(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         initialize();
     }
@@ -43,7 +43,8 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tab2 = new javax.swing.JTabbedPane();
+        tabs = new javax.swing.JTabbedPane();
+        jPanel4 = new javax.swing.JPanel();
         pnlTimeSheet = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTime = new javax.swing.JTable();
@@ -51,13 +52,15 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         btnCheck = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lblManagerID = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSalaryDetail = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         cboMonthSalary = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         cboYearSalary = new javax.swing.JComboBox<>();
+        jPanel6 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         cboMonthAttendance = new javax.swing.JComboBox<>();
@@ -66,7 +69,7 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         jScrollPane3 = new javax.swing.JScrollPane();
         tblAttendance = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tblTime.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -129,7 +132,28 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
                 .addGap(9, 9, 9))
         );
 
-        tab2.addTab("TimeSheet", pnlTimeSheet);
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 506, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnlTimeSheet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 368, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnlTimeSheet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        tabs.addTab("Attendance", jPanel4);
 
         tblSalaryDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,15 +185,15 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cboMonthSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -180,11 +204,11 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cboMonthSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
@@ -194,7 +218,28 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
                 .addContainerGap())
         );
 
-        tab2.addTab("SalaryDetail", jPanel4);
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 506, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 368, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        tabs.addTab("SalaryDetail", jPanel5);
 
         jLabel4.setText("Month:");
 
@@ -259,19 +304,38 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
         );
 
-        tab2.addTab("Attendance", jPanel1);
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 506, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 368, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        tabs.addTab("WorkDay", jPanel6);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tab2)
+            .addComponent(tabs)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(tab2, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(tabs)
         );
 
         pack();
@@ -282,16 +346,6 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         createEntity();
     }//GEN-LAST:event_btnCheckActionPerformed
 
-    private void cboMonthAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMonthAttendanceActionPerformed
-        // TODO add your handling code here:
-        fillAttendanceTable();
-    }//GEN-LAST:event_cboMonthAttendanceActionPerformed
-
-    private void cboYearAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboYearAttendanceActionPerformed
-        // TODO add your handling code here:
-        fillAttendanceTable();
-    }//GEN-LAST:event_cboYearAttendanceActionPerformed
-
     private void cboMonthSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMonthSalaryActionPerformed
         // TODO add your handling code here:
         fillSalaryDetailTable();
@@ -301,6 +355,16 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         // TODO add your handling code here:
         fillSalaryDetailTable();
     }//GEN-LAST:event_cboYearSalaryActionPerformed
+
+    private void cboMonthAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMonthAttendanceActionPerformed
+        // TODO add your handling code here:
+        fillAttendanceTable();
+    }//GEN-LAST:event_cboMonthAttendanceActionPerformed
+
+    private void cboYearAttendanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboYearAttendanceActionPerformed
+        // TODO add your handling code here:
+        fillAttendanceTable();
+    }//GEN-LAST:event_cboYearAttendanceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -319,20 +383,27 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TimeSheetJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TimeSheetJDialog2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TimeSheetJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TimeSheetJDialog2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TimeSheetJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TimeSheetJDialog2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TimeSheetJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TimeSheetJDialog2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TimeSheetJDialog().setVisible(true);
+                TimeSheetJDialog2 dialog = new TimeSheetJDialog2(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
@@ -351,12 +422,15 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblManagerID;
     private javax.swing.JPanel pnlTimeSheet;
-    private javax.swing.JTabbedPane tab2;
+    private javax.swing.JTabbedPane tabs;
     private javax.swing.JTable tblAttendance;
     private javax.swing.JTable tblSalaryDetail;
     private javax.swing.JTable tblTime;
@@ -366,54 +440,7 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
     TimeSheetDAO tDAO = new TimeSheetDAO();
     ReportDAOImpl rpDAO = new ReportDAOImpl();
 
-    @Override
-    public TimeSheet getEntityFromForm() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void fillEntityListOnTable() {
-        CheckBoxRenderer render = new CheckBoxRenderer();
-        CheckBoxEditor checkBoxEditor = new CheckBoxEditor();
-        boolean status = true;
-
-        tblTime.getColumnModel().getColumn(2).setCellRenderer(render);
-        tblTime.getColumnModel().getColumn(2).setCellEditor(checkBoxEditor);
-        DefaultTableModel model = (DefaultTableModel) tblTime.getModel();
-        model.setRowCount(0);
-        try {
-
-            List<Employee> list = eDAO.selectAll();
-            for (Employee e : list) {
-                Object[] rowData = new Object[]{e.getId(), e.getFirstName(), status};
-
-                model.addRow(rowData);
-            }
-        } catch (Exception e) {
-            MsgBox.alert(this, "Lỗi truy vấn dữ liệu");
-        }
-    }
-
-    @Override
-    public void initialize() {
-        setLocationRelativeTo(null);
-        fillEntityListOnTable();
-        fillComboBoxYear();
-        if (Auth.isManager()) {
-            pnlTimeSheet.setEnabled(true);
-            lblManagerID.setText(Auth.user.getId());
-
-        } else {
-            tblTime.setEnabled(false);
-            jDateChooser1.setEnabled(false);
-            btnCheck.setEnabled(false);
-            lblManagerID.setText("Not a manager");
-        }
-
-    }
-
-    @Override
-    public void createEntity() {
+    private void createEntity() {
         DefaultTableModel model = (DefaultTableModel) tblTime.getModel();
         Date date = jDateChooser1.getDate();
 
@@ -439,49 +466,6 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         }
     }
 
-    @Override
-    public void setEntityToForm(TimeSheet entity) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public TimeSheet getEntityFromSelectedRow() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void updateEntity() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void deleteEntity() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void editEntity() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void resetForm() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void fillComboBoxYear() {
-        DefaultComboBoxModel modelSalary = (DefaultComboBoxModel) cboYearSalary.getModel();
-        DefaultComboBoxModel modelAttendance = (DefaultComboBoxModel) cboYearAttendance.getModel();
-        modelSalary.removeAllElements();
-        modelAttendance.removeAllElements();
-        List<Integer> years = rpDAO.selectYear();
-        for (Integer year : years) {
-            modelAttendance.addElement(year);
-            modelSalary.addElement(year);
-        }
-
-    }
-
     private void fillSalaryDetailTable() {
         DefaultTableModel model = (DefaultTableModel) tblSalaryDetail.getModel();
         model.setRowCount(0);
@@ -490,8 +474,8 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         int month = Integer.parseInt(monthString);
         Integer year = (Integer) cboYearSalary.getSelectedItem();
         try {
-            List<SalaryDetail> list = rpDAO.getSalaryDetail(month, year);
-            for (SalaryDetail s : list) {
+            List<Report.SalaryDetail> list = rpDAO.getSalaryDetail(month, year);
+            for (Report.SalaryDetail s : list) {
                 Object[] rowData = new Object[]{s.getEmployee().getId(),
                     s.getEmployee().getFirstName(),
                     s.getEmployee().getLastName(),
@@ -505,7 +489,6 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         } catch (Exception e) {
             MsgBox.alert(this, "Lỗi truy vấn dữ liệu");
         }
-
     }
 
     private void fillAttendanceTable() {
@@ -515,8 +498,8 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         int month = Integer.parseInt(monthString);
         Integer year = (Integer) cboYearAttendance.getSelectedItem();
         try {
-            List<Attendance> list = rpDAO.getAttendance(month, year);
-            for (Attendance a : list) {
+            List<Report.Attendance> list = rpDAO.getAttendance(month, year);
+            for (Report.Attendance a : list) {
                 Object[] rowData = new Object[]{a.getEmployee().getId(),
                     a.getEmployee().getFirstName(),
                     a.getEmployee().getLastName(),
@@ -526,6 +509,55 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         } catch (Exception e) {
             MsgBox.alert(this, "Lỗi truy vấn dữ liệu");
         }
+    }
 
+    private void initialize() {
+        setLocationRelativeTo(null);
+        fillEntityListOnTable();
+        fillComboBoxYear();
+        if (Auth.isManager()) {
+            pnlTimeSheet.setEnabled(true);
+            lblManagerID.setText(Auth.user.getId());
+
+        } else {
+            tblTime.setEnabled(false);
+            jDateChooser1.setEnabled(false);
+            btnCheck.setEnabled(false);
+            lblManagerID.setText("Not a manager");
+        }
+    }
+
+    private void fillEntityListOnTable() {
+        CheckBoxRenderer render = new CheckBoxRenderer();
+        CheckBoxEditor checkBoxEditor = new CheckBoxEditor();
+        boolean status = true;
+
+        tblTime.getColumnModel().getColumn(2).setCellRenderer(render);
+        tblTime.getColumnModel().getColumn(2).setCellEditor(checkBoxEditor);
+        DefaultTableModel model = (DefaultTableModel) tblTime.getModel();
+        model.setRowCount(0);
+        try {
+
+            List<Employee> list = eDAO.selectAll();
+            for (Employee e : list) {
+                Object[] rowData = new Object[]{e.getId(), e.getFirstName(), status};
+
+                model.addRow(rowData);
+            }
+        } catch (Exception e) {
+            MsgBox.alert(this, "Lỗi truy vấn dữ liệu");
+        }
+    }
+
+    private void fillComboBoxYear() {
+        DefaultComboBoxModel modelSalary = (DefaultComboBoxModel) cboYearSalary.getModel();
+        DefaultComboBoxModel modelAttendance = (DefaultComboBoxModel) cboYearAttendance.getModel();
+        modelSalary.removeAllElements();
+        modelAttendance.removeAllElements();
+        List<Integer> years = rpDAO.selectYear();
+        for (Integer year : years) {
+            modelAttendance.addElement(year);
+            modelSalary.addElement(year);
+        }
     }
 }
