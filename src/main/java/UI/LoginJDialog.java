@@ -6,6 +6,7 @@ package UI;
 
 import dao.EmployeeDAO;
 import entity.Employee;
+import java.awt.event.KeyEvent;
 import utils.Auth;
 import utils.MsgBox;
 
@@ -45,6 +46,12 @@ public class LoginJDialog extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblForgotPass.setText("Forgot password ?");
+
+        txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPassKeyReleased(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("LOGIN");
@@ -132,6 +139,17 @@ public class LoginJDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         login();
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtPassKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyReleased
+        // TODO add your handling code here:
+         if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            try {
+                login();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }//GEN-LAST:event_txtPassKeyReleased
 
     /**
      * @param args the command line arguments

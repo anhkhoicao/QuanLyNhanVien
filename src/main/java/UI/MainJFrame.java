@@ -360,7 +360,7 @@ public class MainJFrame extends javax.swing.JFrame {
         JDialog dialog = new LoginJDialog(this, true);
         dialog.setVisible(true);
 
-        mnuReport.setEnabled(Auth.isManager());
+//        mnuReport.setEnabled(Auth.isManager());
     }
 
     private void startTimer() {

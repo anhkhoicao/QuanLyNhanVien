@@ -92,6 +92,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtPass">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPassKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\UI\ChangPasswordJDialog.java
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\entity\Department.java
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\dao\TimeSheetDAO.java
@@ -35,39 +34,3 @@ C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\utils\XJdbc.java
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\UI\TimeSheetJDialog.java
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\entity\AdvancePayment.java
-=======
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\utils\XJdbc.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\UI\BonusJFrame.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\UI\LoginJDialog.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\entity\Bonus.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\entity\Department.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\utils\MsgBox.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\dao\DepartmentDAO.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\dao\EntityDAO.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\UI\ChangePasswordJframe.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\UI\CrudController.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\utils\Auth.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\dao\AdvancePaymentDAO.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\dao\ReportDAO.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\entity\Report.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\entity\TimeSheet.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\utils\XDate.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\dao\ReportDAOImpl.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\UI\TimeSheetJDialog.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\entity\Position.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\utils\XFile.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\utils\CheckBoxEditor.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\UI\BonusJDialog.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\dao\BonusDAO.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\dao\EmployeeDAO.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\entity\AdvancePayment.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\UI\WelcomeJDialog.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\entity\Employee.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\UI\EmployeeJDialog.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\dao\PositionDAO.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\UI\AdvancePaymentFrame.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\UI\MainJFrame.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\utils\CheckBoxRenderer.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\utils\IconUtil.java
-C:\Users\Lenovo\Documents\DUAN1\QuanLyNhanSu\src\main\java\dao\TimeSheetDAO.java
->>>>>>> 998afde714d51e62f859a9b28f3445b54e3894e2

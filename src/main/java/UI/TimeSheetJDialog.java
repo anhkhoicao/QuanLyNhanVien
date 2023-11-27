@@ -44,7 +44,7 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
     private void initComponents() {
 
         tab2 = new javax.swing.JTabbedPane();
-        jPanel3 = new javax.swing.JPanel();
+        pnlTimeSheet = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTime = new javax.swing.JTable();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
@@ -94,32 +94,32 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         lblManagerID.setForeground(new java.awt.Color(255, 0, 51));
         lblManagerID.setText("E001");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlTimeSheetLayout = new javax.swing.GroupLayout(pnlTimeSheet);
+        pnlTimeSheet.setLayout(pnlTimeSheetLayout);
+        pnlTimeSheetLayout.setHorizontalGroup(
+            pnlTimeSheetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTimeSheetLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGroup(pnlTimeSheetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTimeSheetLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblManagerID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTimeSheetLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnCheck)))
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        pnlTimeSheetLayout.setVerticalGroup(
+            pnlTimeSheetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlTimeSheetLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlTimeSheetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnlTimeSheetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
                         .addComponent(lblManagerID)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -129,7 +129,7 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
                 .addGap(9, 9, 9))
         );
 
-        tab2.addTab("TimeSheet", jPanel3);
+        tab2.addTab("TimeSheet", pnlTimeSheet);
 
         tblSalaryDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -350,12 +350,12 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblManagerID;
+    private javax.swing.JPanel pnlTimeSheet;
     private javax.swing.JTabbedPane tab2;
     private javax.swing.JTable tblAttendance;
     private javax.swing.JTable tblSalaryDetail;
@@ -399,7 +399,16 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         setLocationRelativeTo(null);
         fillEntityListOnTable();
         fillComboBoxYear();
-        lblManagerID.setText(Auth.user.getId());
+        if (Auth.isManager()) {
+            pnlTimeSheet.setEnabled(true);
+            lblManagerID.setText(Auth.user.getId());
+
+        } else {
+            tblTime.setEnabled(false);
+            jDateChooser1.setEnabled(false);
+            btnCheck.setEnabled(false);
+            lblManagerID.setText("Not a manager");
+        }
 
     }
 
@@ -508,10 +517,10 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         try {
             List<Attendance> list = rpDAO.getAttendance(month, year);
             for (Attendance a : list) {
-                Object[] rowData = new Object[]{a.getEmployee().getId(), 
-                a.getEmployee().getFirstName(), 
-                a.getEmployee().getLastName(), 
-                a.getWorkDay()};
+                Object[] rowData = new Object[]{a.getEmployee().getId(),
+                    a.getEmployee().getFirstName(),
+                    a.getEmployee().getLastName(),
+                    a.getWorkDay()};
                 model.addRow(rowData);
             }
         } catch (Exception e) {
