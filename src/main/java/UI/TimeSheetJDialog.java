@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
+import utils.Auth;
 import utils.CheckBoxEditor;
 import utils.CheckBoxRenderer;
 import utils.MsgBox;
@@ -398,6 +399,7 @@ public class TimeSheetJDialog extends javax.swing.JFrame implements CrudControll
         setLocationRelativeTo(null);
         fillEntityListOnTable();
         fillComboBoxYear();
+        lblManagerID.setText(Auth.user.getId());
 
     }
 

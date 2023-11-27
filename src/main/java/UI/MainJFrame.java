@@ -226,17 +226,17 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mniLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniLoginActionPerformed
-        
+
         openLoginJDialog();
     }
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-       
+
         this.initialize();
     }
 
     private void mniLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniLogoutActionPerformed
-        
+
         logOutUser();
     }
 
@@ -361,7 +361,6 @@ public class MainJFrame extends javax.swing.JFrame {
         dialog.setVisible(true);
 
         mnuReport.setEnabled(Auth.isManager());
-
     }
 
     private void startTimer() {
@@ -420,8 +419,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void openEmployeeJDialog() {
         if (Auth.isLogin()) {
-            EmployeeJDialog Empdialog = new EmployeeJDialog(this, true);
-            Empdialog.setVisible(true);
+            if (Auth.isManager()) {
+                EmployeeJDialog Empdialog = new EmployeeJDialog(this, true);
+                Empdialog.setVisible(true);
+            }
         } else {
             MsgBox.alert(this, "Vui lòng đăng nhập");
 
@@ -429,22 +430,43 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     private void openAdvancePaymentJFrame() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (Auth.isLogin()) {
+            if (Auth.isAccountant()) {
+                AdvancePaymentJDialog dialog = new AdvancePaymentJDialog(this, true);
+                dialog.setVisible(true);
+            } else {
+                MsgBox.alert(this, "Bạn ko có quyền thực hiện thao tác này");
+            }
+        } else {
+            MsgBox.alert(this, "Vui lòng đăng nhập");
+        }
     }
 
     private void openBonusJFrame() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (Auth.isLogin()) {
+            if (Auth.isAccountant()) {
+                BonusJDialog dialog = new BonusJDialog(this, true);
+                dialog.setVisible(true);
+            } else {
+                MsgBox.alert(this, "Bạn ko có quyền thực hiện thao tác này");
+            }
+        } else {
+            MsgBox.alert(this, "Vui lòng đăng nhập");
+        }
     }
 
     private void openTimeSheetJDialog() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (Auth.isLogin()) {
+            TimeSheetJDialog dialog = new TimeSheetJDialog();
+            dialog.setVisible(true);
+        } else {
+            MsgBox.alert(this, "Vui lòng đăng nhập");
+        }
     }
 
     private void openHelp() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     private void openGuide() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

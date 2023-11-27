@@ -25,10 +25,7 @@ UI\MainJFrame$1.class
 UI\WelcomeJDialog.class
 UI\BonusJFrame$3.class
 UI\EmployeeJDialog$5.class
-<<<<<<< HEAD
-=======
 UI\AdvancePaymentJDialog$5.class
->>>>>>> 1ae3d38fbc2cfd553cad73121b909acfaf29d008
 UI\BonusJDialog$9.class
 UI\BonusJFrame$14.class
 UI\EmployeeJDialog$15.class
@@ -43,10 +40,7 @@ UI\LoginJDialog$3$1.class
 dao\TimeSheetDAO.class
 UI\LoginJDialog$1.class
 UI\TimeSheetJDialog$1.class
-<<<<<<< HEAD
-=======
 UI\AdvancePaymentJDialog$2.class
->>>>>>> 1ae3d38fbc2cfd553cad73121b909acfaf29d008
 UI\EmployeeJDialog$14.class
 UI\BonusJDialog$12.class
 UI\ChangePasswordJframe$1.class
@@ -55,11 +49,8 @@ UI\LoginJDialog.class
 UI\AdvancePaymentFrame$10.class
 UI\AdvancePaymentFrame$7.class
 UI\EmployeeJDialog$7.class
-<<<<<<< HEAD
-=======
 UI\AdvancePaymentJDialog$6.class
 UI\AdvancePaymentJDialog$11.class
->>>>>>> 1ae3d38fbc2cfd553cad73121b909acfaf29d008
 UI\BonusJDialog$1.class
 UI\BonusJDialog$8.class
 utils\XJdbc.class
@@ -84,10 +75,7 @@ UI\EmployeeJDialog$13.class
 UI\BonusJFrame$2.class
 UI\BonusJFrame$13.class
 UI\BonusJDialog$16$1.class
-<<<<<<< HEAD
-=======
 UI\AdvancePaymentJDialog$4.class
->>>>>>> 1ae3d38fbc2cfd553cad73121b909acfaf29d008
 UI\EmployeeJDialog$16.class
 UI\EmployeeJDialog$19$1.class
 UI\MainJFrame$5.class
