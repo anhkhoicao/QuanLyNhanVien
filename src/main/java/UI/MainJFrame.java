@@ -457,7 +457,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void openTimeSheetJDialog() {
         if (Auth.isLogin()) {
-            TimeSheetJDialog dialog = new TimeSheetJDialog();
+            TimeSheetJDialog2 dialog = new TimeSheetJDialog2(this, true);
             dialog.setVisible(true);
         } else {
             MsgBox.alert(this, "Vui lòng đăng nhập");
