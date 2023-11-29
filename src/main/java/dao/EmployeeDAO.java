@@ -134,8 +134,6 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
         return list;
     }
 
-<<<<<<< HEAD
-=======
     public List<Employee> selectByKeyWord(String keyword) {
         String sql = "SELECT * FROM Employee WHERE 1 = 1 AND (FirstName LIKE ? OR LastName LIKE ? OR Id LIKE ? OR Sex LIKE ? OR Role LIKE ? OR BaseSalary LIKE ? OR DepID LIKE ? OR PosID LIKE ?)";
         String formattedKeyword = "%" + keyword + "%";
@@ -148,28 +146,16 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
 //        Employee e =dao.selectByID("E003");
 //        System.out.println(e.getSex());
 //    } 
->>>>>>> 1375d03dfb3e451f6bcd4e1d8d7a14400231e16c
-    public static void main(String[] args) {
-        try {
-            EmployeeDAO dao = new EmployeeDAO();
-            Employee e = dao.selectByID("E003");
-<<<<<<< HEAD
-            e.setSex("Other");
-            dao.update(e);
-            Employee e1 = dao.selectByID("E003");
-            System.out.println(e1.getSex());
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-=======
-            String sex = "Other";
-            e.setSex(sex);
-            dao.update(e);
-            System.out.println(e.getSex());
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
->>>>>>> 1375d03dfb3e451f6bcd4e1d8d7a14400231e16c
-    }
+//    public static void main(String[] args) {
+//        try {
+//            EmployeeDAO dao = new EmployeeDAO();
+//            Employee e = dao.selectByID("E003");
+//            e.setSex("Other");
+//            dao.update(e);
+//            Employee e1 = dao.selectByID("E003");
+//            System.out.println(e1.getSex());
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//    }
 }
