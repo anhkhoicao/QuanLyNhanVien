@@ -463,6 +463,8 @@ public class TimeSheetJDialog2 extends javax.swing.JDialog {
                 
             }
             MsgBox.alert(this, "Chấm công thành công");
+            cboYearAttendance.removeAllItems();
+            cboYearSalary.removeAllItems();
             fillComboBoxYear();
         } catch (Exception e) {
             MsgBox.alert(this, "Lỗi truy vấn dữ liệu");
