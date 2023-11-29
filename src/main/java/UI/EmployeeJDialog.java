@@ -16,6 +16,7 @@ import dao.DepartmentDAO;
 import entity.Position;
 import dao.PositionDAO;
 import java.io.File;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import utils.IconUtil;
@@ -398,17 +399,33 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
         tabs.addTab("CẬP NHẬT", jPanel2);
 
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
+        });
+
         btnSearch.setText("SEARCH");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "First Name", "Last Name", "Sex", "Phone", "Email", "Department", "Position"
+                "ID", "First Name", "Last Name", "Sex", "Phone", "Email", "Department", "Position", "Image"
             }
         ));
         tblEmployees.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -469,7 +486,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabs, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE))
+                .addComponent(tabs))
         );
 
         pack();
@@ -563,6 +580,25 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         selectImage();
     }//GEN-LAST:event_lblPicsMouseClicked
 
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+        this.Search();
+    }//GEN-LAST:event_txtSearchActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        if (txtSearch.getText().trim().isEmpty()) {
+            MsgBox.alert(this, "Chưa nhập thông tin");
+        } else {
+            this.Search();
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        // TODO add your handling code here:
+        this.Search();
+    }//GEN-LAST:event_txtSearchKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -632,7 +668,33 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                     e.getPhoneNumber(),
                     e.getEmail(),
                     e.getDepartment().getDepName(),
-                    e.getPosition().getPosName()
+                    e.getPosition().getPosName(),
+                    e.getImage()
+                };
+                model.addRow(row);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+        void fillTableSearch(){
+        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
+        model.setRowCount(0);
+        try {
+            String keyword = txtSearch.getText();
+            List<Employee> list = edao.selectByKeyWord(keyword);
+            for (Employee e : list){
+                Object[] row = {
+                    e.getId(),
+                    e.getFirstName(),
+                    e.getLastName(),
+                    e.getSex(),
+                    e.getPhoneNumber(),
+                    e.getEmail(),
+                    e.getDepartment().getDepName(),
+                    e.getPosition().getPosName(),
+                    e.getImage()
                 };
                 model.addRow(row);
             }
@@ -956,5 +1018,17 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             
             lblPics.setToolTipText(newFile.getName());
         }
+    }
+    
+    private void Search(){
+//        List<Employee> list = new ArrayList<>();
+//        for (Employee emp : edao.selectByKeyWord(txtSearch.getText())) {
+//            list.add(emp);
+//        }
+//        fillTable();
+        this.fillTableSearch();
+        this.clearForm();
+        this.row = -1;
+        this.updateStatus();
     }
 }
