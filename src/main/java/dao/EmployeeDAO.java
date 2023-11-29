@@ -43,7 +43,7 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
                 e.getRole(),
                 e.getBaseSalary(),
                 e.getDepartment().getDepID(),
-                e.getPosition().getPosID(), 
+                e.getPosition().getPosID(),
                 e.getImage());
     }
 
@@ -71,8 +71,8 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
                 e.getBaseSalary(),
                 e.getDepartment().getDepID(),
                 e.getPosition().getPosID(),
-                e.getId(),
-                e.getImage());
+                e.getImage(),
+                e.getId());
     }
 
     @Override
@@ -134,9 +134,16 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
         return list;
     }
 
-//    public static void main(String[] args) {
-//        EmployeeDAO dao = new EmployeeDAO();
-//        Employee e =dao.selectByID("E001");
-//        System.out.println(e.getImage());
-//    }
+    public static void main(String[] args) {
+        try {
+            EmployeeDAO dao = new EmployeeDAO();
+            Employee e = dao.selectByID("E003");
+            e.setSex("Other");
+            dao.update(e);
+            Employee e1 = dao.selectByID("E003");
+            System.out.println(e1.getSex());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 }
