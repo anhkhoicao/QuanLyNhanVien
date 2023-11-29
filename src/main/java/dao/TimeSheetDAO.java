@@ -8,7 +8,9 @@ import entity.TimeSheet;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import utils.XDate;
 import utils.XJdbc;
 
 /**
@@ -93,6 +95,17 @@ public class TimeSheetDAO extends EntityDAO<TimeSheet, String> {
         return list;
     }
     
+     public boolean existsEmployee(String empID, Date date) {
+        String sql = "SELECT COUNT(*) FROM TimeSheet WHERE EmpID = ? AND Date = ?";
+        Integer value =(Integer) XJdbc.value(sql, empID, date);
+        return value >= 1;
+    }
     
+    public static void main(String[] args) {
+        TimeSheetDAO dao = new TimeSheetDAO();
+        boolean value = dao.existsEmployee("E005", XDate.toDate("2023-11-20", "yyyy-MM-dd"));
+        System.out.println(value);
+                
+    }
 
 }
