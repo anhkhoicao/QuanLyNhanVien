@@ -62,7 +62,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         txtID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtFirstName = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        lblPass = new javax.swing.JLabel();
         txtLastName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -129,10 +129,10 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         jPanel7.add(jLabel3);
         jPanel7.add(txtFirstName);
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel5.setText("Last Name");
-        jPanel7.add(jLabel5);
+        lblPass.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblPass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblPass.setText("Last Name");
+        jPanel7.add(lblPass);
 
         txtLastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -419,13 +419,13 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
         tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "First Name", "Last Name", "Sex", "Phone", "Email", "Department", "Position", "Image"
+                "ID", "First Name", "Last Name", "Sex", "Phone", "Email", "Department", "Position"
             }
         ));
         tblEmployees.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -668,8 +668,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                     e.getPhoneNumber(),
                     e.getEmail(),
                     e.getDepartment().getDepName(),
-                    e.getPosition().getPosName(),
-                    e.getImage()
+                    e.getPosition().getPosName()
                 };
                 model.addRow(row);
             }
@@ -693,8 +692,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                     e.getPhoneNumber(),
                     e.getEmail(),
                     e.getDepartment().getDepName(),
-                    e.getPosition().getPosName(),
-                    e.getImage()
+                    e.getPosition().getPosName()
                 };
                 model.addRow(row);
             }
@@ -753,6 +751,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         ImageIcon imageicon = new ImageIcon(e.getImage());
         ImageIcon fitImage = XFile.getScaledIcon(imageicon, 150, 150);
         lblPics.setIcon(fitImage);
+        
+        lblPass.setToolTipText(e.getPassword());
     }
     
     Employee getForm(){
@@ -783,7 +783,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         e.setBaseSalary(Double.parseDouble(txtBaseSalary.getText()));
         e.setDepartment(ddao.selectByID(cboDep.getToolTipText()));
         e.setPosition(pdao.selectByID(cboPos.getToolTipText()));
-        e.setImage(lblPics.getToolTipText());
+        e.setImage("./src/main/resources/images/" + lblPics.getToolTipText());
+        e.setPassword(lblPass.getToolTipText());
         return e;
     }
     
@@ -978,7 +979,6 @@ public class EmployeeJDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
@@ -989,6 +989,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl17;
+    private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblPics;
     private javax.swing.JRadioButton rboKeToan;
     private javax.swing.JRadioButton rboNhanVien;
