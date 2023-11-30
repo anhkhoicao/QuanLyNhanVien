@@ -9,6 +9,7 @@ import dao.EmployeeDAO;
 import entity.Bonus;
 import java.util.Date;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import utils.MsgBox;
@@ -37,6 +38,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         tabs = new javax.swing.JTabbedPane();
         tabCapNhat = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -57,8 +59,11 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         jLabel11 = new javax.swing.JLabel();
         txtAMOUNT2 = new javax.swing.JTextField();
         lblSEQ = new javax.swing.JLabel();
-        txtEMPID2 = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        rdoBonus = new javax.swing.JRadioButton();
+        rdoFine = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
+        cboEmpId = new javax.swing.JComboBox<>();
         tabDanhSach = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -161,9 +166,22 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
 
         lblSEQ.setText("Employee ID :");
 
-        txtEMPID2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rdoBonus);
+        rdoBonus.setText("Bonus");
+        rdoBonus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEMPID2ActionPerformed(evt);
+                rdoBonusActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(rdoFine);
+        rdoFine.setText("Fine");
+
+        jLabel1.setText("Option");
+
+        cboEmpId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboEmpIdActionPerformed(evt);
             }
         });
 
@@ -177,29 +195,36 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(lblSEQ, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEMPID2))
+                        .addComponent(cboEmpId, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAMOUNT2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3)))
+                        .addComponent(jScrollPane3))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(rdoBonus, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(rdoFine, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtAMOUNT2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(7, 7, 7)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSEQ)
-                    .addComponent(txtEMPID2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(cboEmpId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSEQ))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel9)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -208,10 +233,15 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
                     .addComponent(jLabel11)
                     .addComponent(txtAMOUNT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rdoBonus)
+                    .addComponent(rdoFine)
+                    .addComponent(jLabel1))
+                .addGap(22, 22, 22)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout tabCapNhatLayout = new javax.swing.GroupLayout(tabCapNhat);
@@ -234,7 +264,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             tabCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabCapNhatLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(tabCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -375,10 +405,6 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAMOUNT2ActionPerformed
 
-    private void txtEMPID2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEMPID2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEMPID2ActionPerformed
-
     private void tblLISTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblLISTMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 1) {
@@ -405,6 +431,14 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         // TODO add your handling code here:
         initialize();
     }//GEN-LAST:event_formWindowOpened
+
+    private void rdoBonusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoBonusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdoBonusActionPerformed
+
+    private void cboEmpIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboEmpIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboEmpIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -458,7 +492,10 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
     private javax.swing.JButton btnPRE;
     private javax.swing.JButton btnTHOAT;
     private javax.swing.JButton btnUPDATE;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cboEmpId;
     private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel9;
@@ -471,38 +508,55 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblSEQ;
+    private javax.swing.JRadioButton rdoBonus;
+    private javax.swing.JRadioButton rdoFine;
     private javax.swing.JPanel tabCapNhat;
     private javax.swing.JPanel tabDanhSach;
     private javax.swing.JTabbedPane tabs;
     private javax.swing.JTable tblLIST;
     private javax.swing.JTextField txtAMOUNT2;
-    private javax.swing.JTextField txtEMPID2;
     private javax.swing.JTextArea txtNOTE2;
     private javax.swing.JTextField txtSEARCH;
     // End of variables declaration//GEN-END:variables
 
     BonusDAO bDAO = new BonusDAO();
     EmployeeDAO eDAO = new EmployeeDAO();
-    
+
     @Override
     public Bonus getEntityFromForm() {
-        Bonus bonus = new Bonus();
-        String bonusString = txtAMOUNT2.getText();
-        double bonusAmount = Double.parseDouble(bonusString);
-        bonus.setSeq(Integer.parseInt(lblSEQ.getToolTipText()));
-        bonus.setAmount(bonusAmount);
-        bonus.setBonusDate((Date) jDateChooser1.getDate());
-        bonus.setDesc(txtNOTE2.getText());
-        bonus.setEmployee(eDAO.selectByID(txtEMPID2.getText()));
-        return bonus;
+        Bonus b = new Bonus();
+
+        double BonusDouble;
+        String bonus = txtAMOUNT2.getText();
+        BonusDouble = Double.parseDouble(bonus);
+        if (rdoBonus.isSelected()) {
+            BonusDouble = BonusDouble * 1;
+        } else {
+            BonusDouble = BonusDouble * -1;
+        }
+
+        b.setSeq(Integer.parseInt(lblSEQ.getToolTipText()));
+        b.setAmount(BonusDouble);
+        b.setBonusDate((Date) jDateChooser1.getDate());
+        b.setDesc(txtNOTE2.getText());
         
+        String empId;
+        String bonusEmp = (String) cboEmpId.getSelectedItem();
+        empId = String.valueOf(bonusEmp);
+        
+        b.setEmployee(eDAO.selectByID(empId));
+        
+//        b.setEmployee(eDAO.selectByID(txtEMPID2.getText()));
+        return b;
+
     }
-    
+
     @Override
     public void fillEntityListOnTable() {
         DefaultTableModel model = (DefaultTableModel) tblLIST.getModel();
         model.setRowCount(0);
-        
+
+
         try {
             String Keyword = txtSEARCH.getText();
             List<Bonus> list = bDAO.selectByEmpID(Keyword);
@@ -515,23 +569,37 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             System.out.println(e);
         }
     }
-    
+
+    private void fillComboBoxEmpId() {
+        DefaultComboBoxModel modelEmpId = (DefaultComboBoxModel) cboEmpId.getModel();
+
+        modelEmpId.removeAllElements();
+
+        List<String> emps = bDAO.selectEmpID();
+        for (String emp : emps) {
+            modelEmpId.addElement(emp);
+
+        }
+
+    }
+
     @Override
     public Bonus getEntityFromSelectedRow() {
-        
+
         int rowIndex = tblLIST.getSelectedRow();
         Integer id = (Integer) tblLIST.getValueAt(rowIndex, 0);
         Bonus bonus = bDAO.selectByID(String.valueOf(id));
         return bonus;
-        
+
     }
-    
+
     @Override
     public void initialize() {
         fillEntityListOnTable();
+        fillComboBoxEmpId();
 //        resetForm();
     }
-    
+
     @Override
     public void createEntity() {
         Bonus bonus = this.getEntityFromForm();
@@ -543,9 +611,9 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         } catch (Exception e) {
             MsgBox.alert(this, "Thêm mới thất bại!");
         }
-        
+
     }
-    
+
     @Override
     public void updateEntity() {
         Bonus bonus = this.getEntityFromForm();
@@ -556,9 +624,9 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         } catch (Exception e) {
             MsgBox.alert(this, "Cập nhật thất bại!");
         }
-        
+
     }
-    
+
     @Override
     public void deleteEntity() {
         Bonus bonus = this.getEntityFromForm();
@@ -570,38 +638,39 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         } catch (Exception e) {
             MsgBox.alert(this, "Xóa thất bại!");
         }
-        
+
     }
-    
+
     @Override
     public void editEntity() {
-        
+
         Bonus bonus = (Bonus) this.getEntityFromSelectedRow();
         this.setEntityToForm(bonus);
     }
-    
+
     @Override
     public void resetForm() {
         Bonus bonus = new Bonus();
         bonus.setAmount(0);
+
         bonus.setDesc("");
         bonus.setEmployee(eDAO.selectByID("E001"));
         this.setEntityToForm(bonus);
     }
-    
+
     @Override
     public void setSelectedRowIndex(int index) {
         tblLIST.clearSelection();
         tblLIST.setRowSelectionInterval(index, index);
     }
-    
+
     @Override
     public void moveFirst() {
         int index = 0;
         this.setSelectedRowIndex(index);
         this.editEntity();
     }
-    
+
     @Override
     public void movePrev() {
         int index = tblLIST.getSelectedRow() - 1;
@@ -612,35 +681,44 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             JOptionPane.showMessageDialog(this, "Bạn đã ở hàng đầu tiên!");
         }
     }
-    
+
     @Override
     public void moveNext() {
         int index = tblLIST.getSelectedRow() + 1;
-        
+
         if (index < tblLIST.getRowCount()) {
             this.setSelectedRowIndex(index);
             this.editEntity();
         } else {
             JOptionPane.showMessageDialog(this, "Bạn đã ở hàng cuối cùng!");
-            
+
         }
     }
-    
+
     @Override
     public void moveLast() {
         int index = tblLIST.getRowCount() - 1;
         this.setSelectedRowIndex(index);
         this.editEntity();
     }
-    
+
     @Override
     public void setEntityToForm(Bonus e) {
-        txtEMPID2.setText(e.getEmployee().getId().trim());
-        jDateChooser1.setDate(e.getBonusDate());
-        txtAMOUNT2.setText(Double.toString(e.getAmount()));
-        txtNOTE2.setText(e.getDesc());
-        lblSEQ.setToolTipText(Integer.toString(e.getSeq()));
         
+        cboEmpId.setSelectedItem(e.getEmployee().getId());
+        
+        jDateChooser1.setDate(e.getBonusDate());
+        
+        txtAMOUNT2.setText(Double.toString(e.getAmount()));
+        if (e.getAmount() > 0) {
+            rdoBonus.setSelected(true);
+        } else {
+            rdoFine.setSelected(true);
+        }
+        txtNOTE2.setText(e.getDesc());
+        
+        lblSEQ.setToolTipText(Integer.toString(e.getSeq()));
+
     }
-    
+
 }

@@ -5,6 +5,7 @@ UI\ChangPasswordJDialog$1.class
 entity\Employee.class
 UI\BonusJFrame$9.class
 utils\XDate.class
+UI\BonusJDialog$17.class
 UI\BonusJDialog$14.class
 entity\AdvancePayment.class
 UI\MainJFrame$9.class
@@ -87,7 +88,6 @@ dao\EmployeeDAO.class
 UI\EmployeeJDialog$13.class
 UI\BonusJFrame$2.class
 UI\BonusJFrame$13.class
-UI\BonusJDialog$16$1.class
 UI\AdvancePaymentJDialog$4.class
 UI\EmployeeJDialog$16.class
 UI\MainJFrame$5.class
@@ -121,6 +121,7 @@ UI\TimeSheetJDialog2$4.class
 UI\EmployeeJDialog$4.class
 UI\AdvancePaymentJDialog$11$1.class
 UI\AdvancePaymentJDialog$9.class
+UI\BonusJDialog$17$1.class
 UI\MainJFrame$10.class
 UI\MainJFrame$7.class
 utils\CheckBoxEditor$1.class
