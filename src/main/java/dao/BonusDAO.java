@@ -70,6 +70,24 @@ public class BonusDAO extends EntityDAO<Bonus, String> {
         String sql = "SELECT * FROM Bonus WHERE EmpID LIKE ?";
         return this.selectBySql(sql, "%" + EmpID + "%");
     }
+    
+        public List<String> selectEmpID() {
+
+        String sql = "select distinct empid from bonus";
+        List<String> listEmp = new ArrayList();
+        try {
+            ResultSet rs = XJdbc.query(sql);
+            while (rs.next()) {                
+                listEmp.add(rs.getString("empid"));
+            }
+            rs.getStatement().getConnection().close();
+            
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return listEmp;
+
+    }
 
     @Override
     public List<Bonus> selectBySql(String sql, Object... args) {
