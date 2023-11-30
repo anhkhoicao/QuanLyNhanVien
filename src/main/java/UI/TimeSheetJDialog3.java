@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
+import utils.Auth;
 import utils.CheckBoxEditor;
 import utils.CheckBoxRenderer;
 import utils.MsgBox;
@@ -399,6 +400,15 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
         fillEntityListOnTable();
         fillDepartmentReportTable();
         fillComboBoxYear();
+        if (Auth.isManager()) {
+            lblManagerID.setText(Auth.user.getId());
+
+        } else {
+            tblTime.setEnabled(false);
+            jDateChooser1.setEnabled(false);
+            btnCheck.setEnabled(false);
+            lblManagerID.setText("Not a manager");
+        }
     }
 
     private void fillEntityListOnTable() {
