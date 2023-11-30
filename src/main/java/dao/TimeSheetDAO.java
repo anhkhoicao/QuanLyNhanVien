@@ -96,16 +96,19 @@ public class TimeSheetDAO extends EntityDAO<TimeSheet, String> {
     }
     
      public boolean existsEmployee(String empID, Date date) {
+        String convertDate = XDate.format(date, "yyyy-MM-dd");
         String sql = "SELECT COUNT(*) FROM TimeSheet WHERE EmpID = ? AND Date = ?";
-        Integer value =(Integer) XJdbc.value(sql, empID, date);
+        Integer value = (Integer) XJdbc.value(sql, empID, convertDate);
         return value >= 1;
+        
     }
     
-    public static void main(String[] args) {
-        TimeSheetDAO dao = new TimeSheetDAO();
-        boolean value = dao.existsEmployee("E005", XDate.toDate("2023-11-20", "yyyy-MM-dd"));
-        System.out.println(value);
-                
-    }
+//    public static void main(String[] args) {
+//        TimeSheetDAO dao = new TimeSheetDAO();
+//        boolean value = dao.existsEmployee("E001", XDate.toDate("11-30-2023", "MM-dd-yyyy"));
+//        
+//        System.out.println(value);
+//                
+//    }
 
 }
