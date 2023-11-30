@@ -28,4 +28,8 @@ public class Auth {
     public static boolean isAccountant() {
         return user.getRole().equals("Accountant");
     }
+    
+    public static boolean isEmployee() {
+        return user.getRole().equals("Employee");
+    }
 }

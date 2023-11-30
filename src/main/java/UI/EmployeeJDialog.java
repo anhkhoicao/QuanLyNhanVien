@@ -16,6 +16,7 @@ import dao.DepartmentDAO;
 import entity.Position;
 import dao.PositionDAO;
 import java.io.File;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import utils.IconUtil;
@@ -61,7 +62,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         txtID = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtFirstName = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        lblPass = new javax.swing.JLabel();
         txtLastName = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -128,10 +129,10 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         jPanel7.add(jLabel3);
         jPanel7.add(txtFirstName);
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel5.setText("Last Name");
-        jPanel7.add(jLabel5);
+        lblPass.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblPass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblPass.setText("Last Name");
+        jPanel7.add(lblPass);
 
         txtLastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -398,7 +399,23 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
         tabs.addTab("CẬP NHẬT", jPanel2);
 
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
+        });
+
         btnSearch.setText("SEARCH");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -469,7 +486,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabs, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE))
+                .addComponent(tabs))
         );
 
         pack();
@@ -563,6 +580,25 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         selectImage();
     }//GEN-LAST:event_lblPicsMouseClicked
 
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+        this.Search();
+    }//GEN-LAST:event_txtSearchActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        if (txtSearch.getText().trim().isEmpty()) {
+            MsgBox.alert(this, "Chưa nhập thông tin");
+        } else {
+            this.Search();
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        // TODO add your handling code here:
+        this.Search();
+    }//GEN-LAST:event_txtSearchKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -641,6 +677,30 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         }
     }
     
+        void fillTableSearch(){
+        DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
+        model.setRowCount(0);
+        try {
+            String keyword = txtSearch.getText();
+            List<Employee> list = edao.selectByKeyWord(keyword);
+            for (Employee e : list){
+                Object[] row = {
+                    e.getId(),
+                    e.getFirstName(),
+                    e.getLastName(),
+                    e.getSex(),
+                    e.getPhoneNumber(),
+                    e.getEmail(),
+                    e.getDepartment().getDepName(),
+                    e.getPosition().getPosName()
+                };
+                model.addRow(row);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
     void fillcboDepartment(){
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboDep.getModel();
         model.removeAllElements();
@@ -691,6 +751,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         ImageIcon imageicon = new ImageIcon(e.getImage());
         ImageIcon fitImage = XFile.getScaledIcon(imageicon, 150, 150);
         lblPics.setIcon(fitImage);
+        
+        lblPass.setToolTipText(e.getPassword());
     }
     
     Employee getForm(){
@@ -721,7 +783,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         e.setBaseSalary(Double.parseDouble(txtBaseSalary.getText()));
         e.setDepartment(ddao.selectByID(cboDep.getToolTipText()));
         e.setPosition(pdao.selectByID(cboPos.getToolTipText()));
-        e.setImage(lblPics.getToolTipText());
+        e.setImage("./src/main/resources/images/" + lblPics.getToolTipText());
+        e.setPassword(lblPass.getToolTipText());
         return e;
     }
     
@@ -816,16 +879,48 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         boolean first = (this.row == 0);
         boolean last = (this.row == tblEmployees.getRowCount() - 1);
         // Trạng thái form
-        txtID.setEditable(!edit);
-        btnAdd.setEnabled(!edit);
-        btnUpdate.setEnabled(edit);
-        btnDelete.setEnabled(edit);
+//        txtID.setEditable(!edit);
+//        btnAdd.setEnabled(!edit);
+//        btnUpdate.setEnabled(edit);
+//        btnDelete.setEnabled(edit);
         
         if(!Auth.isAccountant()){
             txtBaseSalary.setEditable(false);
         }else{
+            txtID.setEditable(false);
+            txtFirstName.setEditable(false);
+            txtLastName.setEditable(false);
+            txtEmail.setEditable(false);
+            txtPhone.setEditable(false);
+            rdoMale.setEnabled(false);
+            rdoFemale.setEnabled(false);
+            rdoOther.setEnabled(false);
+            rboKeToan.setEnabled(false);
+            rboTruongPhong.setEnabled(false);
+            rboNhanVien.setEnabled(false);
             txtBaseSalary.setEditable(true);
+            cboDep.setEnabled(false);
+            cboPos.setEnabled(false);
         }
+        
+        if(Auth.isManager()){
+            txtID.setEditable(!edit);
+            btnAdd.setEnabled(!edit);
+            btnUpdate.setEnabled(edit);
+            btnDelete.setEnabled(edit);
+        }else if(Auth.isAccountant()){
+            btnNew.setEnabled(!edit);
+            btnAdd.setEnabled(!edit);
+            btnUpdate.setEnabled(edit);
+            btnDelete.setEnabled(!edit);
+        }else{
+            btnNew.setEnabled(!edit);
+            btnAdd.setEnabled(!edit);
+            btnUpdate.setEnabled(!edit);
+            btnDelete.setEnabled(!edit);
+        }
+        
+        
                 
         // Trạng thái điều hướng
         btnFirst.setEnabled(edit && !first);
@@ -884,7 +979,6 @@ public class EmployeeJDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
@@ -895,6 +989,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl17;
+    private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblPics;
     private javax.swing.JRadioButton rboKeToan;
     private javax.swing.JRadioButton rboNhanVien;
@@ -924,5 +1019,17 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             
             lblPics.setToolTipText(newFile.getName());
         }
+    }
+    
+    private void Search(){
+//        List<Employee> list = new ArrayList<>();
+//        for (Employee emp : edao.selectByKeyWord(txtSearch.getText())) {
+//            list.add(emp);
+//        }
+//        fillTable();
+        this.fillTableSearch();
+        this.clearForm();
+        this.row = -1;
+        this.updateStatus();
     }
 }

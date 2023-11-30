@@ -419,10 +419,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void openEmployeeJDialog() {
         if (Auth.isLogin()) {
-            if (Auth.isManager()) {
                 EmployeeJDialog Empdialog = new EmployeeJDialog(this, true);
                 Empdialog.setVisible(true);
-            }
         } else {
             MsgBox.alert(this, "Vui lòng đăng nhập");
 
