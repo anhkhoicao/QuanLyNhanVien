@@ -463,7 +463,14 @@ public class MainJFrame extends javax.swing.JFrame {
             MsgBox.alert(this, "Vui lòng đăng nhập");
         }
     }
-
+    private void openDepartment(){
+        if(Auth.isLogin()){
+            DepartmentJDialog dialog = new DepartmentJDialog(this, true);
+            dialog.setVisible(true);
+        }else{
+            MsgBox.alert(this, "Vui lòng đăng nhập");
+        }
+    }
     private void openHelp() {
     }
 
