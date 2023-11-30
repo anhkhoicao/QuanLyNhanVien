@@ -59,7 +59,8 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
                 + "BaseSalary = ?, "
                 + "DepID = ?, "
                 + "PosID = ?, "
-                + "Images = ? WHERE Id = ?";
+                + "Images = ?"
+                + " WHERE Id = ?";
 
         XJdbc.update(sql, e.getFirstName(),
                 e.getLastName(),
