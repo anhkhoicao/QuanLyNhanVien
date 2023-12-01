@@ -23,7 +23,7 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        initialize();
+        
     }
 
     /**
@@ -256,10 +256,5 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
     private void exit() {
         this.dispose();
     }
-
-    private void initialize() {
-        
-    }
     
-   
 }
