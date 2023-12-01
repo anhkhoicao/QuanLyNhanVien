@@ -377,6 +377,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
     private void btnUPDATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUPDATEActionPerformed
         // TODO add your handling code here:
         this.updateEntity();
+        this.resetForm();
     }//GEN-LAST:event_btnUPDATEActionPerformed
 
     private void btnDELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDELETEActionPerformed
@@ -533,22 +534,29 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         String bonus = txtAMOUNT2.getText();
         BonusDouble = Double.parseDouble(bonus);
         if (rdoBonus.isSelected()) {
-            BonusDouble = BonusDouble * 1;
+            if (BonusDouble < 0) {
+                BonusDouble = BonusDouble * -1;
+            } else {
+                BonusDouble = BonusDouble * 1;
+            }
+
+           
         } else {
             BonusDouble = BonusDouble * -1;
+            
         }
 
         b.setSeq(Integer.parseInt(lblSEQ.getToolTipText()));
         b.setAmount(BonusDouble);
         b.setBonusDate((Date) jDateChooser1.getDate());
         b.setDesc(txtNOTE2.getText());
-        
+
         String empId;
         String bonusEmp = (String) cboEmpId.getSelectedItem();
         empId = String.valueOf(bonusEmp);
-        
+
         b.setEmployee(eDAO.selectByID(empId));
-        
+
 //        b.setEmployee(eDAO.selectByID(txtEMPID2.getText()));
         return b;
 
@@ -558,7 +566,6 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
     public void fillEntityListOnTable() {
         DefaultTableModel model = (DefaultTableModel) tblLIST.getModel();
         model.setRowCount(0);
-
 
         try {
             String Keyword = txtSEARCH.getText();
@@ -707,11 +714,11 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
 
     @Override
     public void setEntityToForm(Bonus e) {
-        
+
         cboEmpId.setSelectedItem(e.getEmployee().getId());
-        
+
         jDateChooser1.setDate(e.getBonusDate());
-        
+
         txtAMOUNT2.setText(Double.toString(e.getAmount()));
         if (e.getAmount() > 0) {
             rdoBonus.setSelected(true);
@@ -719,7 +726,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             rdoFine.setSelected(true);
         }
         txtNOTE2.setText(e.getDesc());
-        
+
         lblSEQ.setToolTipText(Integer.toString(e.getSeq()));
 
     }
