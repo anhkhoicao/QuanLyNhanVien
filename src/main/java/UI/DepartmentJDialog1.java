@@ -71,6 +71,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
 
         btnNew.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         btnNew.setText("NEW");
+        btnNew.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnNew.setPreferredSize(new java.awt.Dimension(80, 40));
         btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +82,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
 
         btnAdd.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         btnAdd.setText("ADD");
+        btnAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnAdd.setPreferredSize(new java.awt.Dimension(80, 40));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +93,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
 
         btnUpdate.setFont(new java.awt.Font("Segoe UI Black", 1, 11)); // NOI18N
         btnUpdate.setText("UPDATE");
+        btnUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnUpdate.setPreferredSize(new java.awt.Dimension(80, 40));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +104,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
 
         btnDelete.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         btnDelete.setText("DELETE");
+        btnDelete.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnDelete.setPreferredSize(new java.awt.Dimension(80, 40));
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
