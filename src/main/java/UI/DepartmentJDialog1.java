@@ -15,12 +15,12 @@ import utils.MsgBox;
  *
  * @author ACER
  */
-public class DepartmentJDialog extends javax.swing.JDialog implements CrudController<Department>{
+public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudController<Department>{
 
     /**
      * Creates new form DepartmentJDialog
      */
-    public DepartmentJDialog(java.awt.Frame parent, boolean modal) {
+    public DepartmentJDialog1(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -35,26 +35,24 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tabs = new javax.swing.JTabbedPane();
-        tabEdit = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
-        txtDepname = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        lblDepName = new javax.swing.JLabel();
-        lblID = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         btnNew = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtDepName = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         btnFirst = new javax.swing.JButton();
         btnPrev = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
         btnLast = new javax.swing.JButton();
-        tabList = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDepart = new javax.swing.JTable();
 
@@ -65,96 +63,94 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("ID :");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        txtID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIDActionPerformed(evt);
-            }
-        });
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0, 20, 0));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Department Name :");
-
-        lblDepName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblDepName.setForeground(new java.awt.Color(255, 0, 0));
-
-        lblID.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblID.setForeground(new java.awt.Color(255, 0, 0));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDepname, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDepName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(130, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDepname, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblDepName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
+        btnNew.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         btnNew.setText("NEW");
-        btnNew.setMaximumSize(new java.awt.Dimension(120, 50));
-        btnNew.setMinimumSize(new java.awt.Dimension(120, 50));
-        btnNew.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnNew.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnNew.setPreferredSize(new java.awt.Dimension(80, 40));
         btnNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewActionPerformed(evt);
             }
         });
-        jPanel4.add(btnNew);
+        jPanel2.add(btnNew);
 
+        btnAdd.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         btnAdd.setText("ADD");
-        btnAdd.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnAdd.setPreferredSize(new java.awt.Dimension(80, 40));
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
-        jPanel4.add(btnAdd);
+        jPanel2.add(btnAdd);
 
+        btnUpdate.setFont(new java.awt.Font("Segoe UI Black", 1, 11)); // NOI18N
         btnUpdate.setText("UPDATE");
-        btnUpdate.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnUpdate.setPreferredSize(new java.awt.Dimension(80, 40));
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        jPanel4.add(btnUpdate);
+        jPanel2.add(btnUpdate);
 
+        btnDelete.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         btnDelete.setText("DELETE");
-        btnDelete.setPreferredSize(new java.awt.Dimension(100, 40));
+        btnDelete.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnDelete.setPreferredSize(new java.awt.Dimension(80, 40));
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        jPanel4.add(btnDelete);
+        jPanel2.add(btnDelete);
 
-        btnFirst.setText("First");
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setPreferredSize(new java.awt.Dimension(400, 89));
+        jPanel3.setLayout(new java.awt.BorderLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        jLabel1.setText("Department Name :");
+        jPanel3.add(jLabel1, java.awt.BorderLayout.LINE_START);
+
+        txtDepName.setPreferredSize(new java.awt.Dimension(64, 30));
+        txtDepName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDepNameActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txtDepName, java.awt.BorderLayout.PAGE_END);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setPreferredSize(new java.awt.Dimension(400, 89));
+        jPanel4.setLayout(new java.awt.BorderLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        jLabel2.setText("ID :");
+        jPanel4.add(jLabel2, java.awt.BorderLayout.LINE_START);
+
+        txtID.setPreferredSize(new java.awt.Dimension(64, 30));
+        txtID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIDActionPerformed(evt);
+            }
+        });
+        jPanel4.add(txtID, java.awt.BorderLayout.PAGE_END);
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new java.awt.GridLayout(1, 0, 20, 0));
+
+        btnFirst.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-first-24.png"))); // NOI18N
+        btnFirst.setPreferredSize(new java.awt.Dimension(80, 40));
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFirstActionPerformed(evt);
@@ -162,7 +158,9 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
         });
         jPanel5.add(btnFirst);
 
-        btnPrev.setText("Prev");
+        btnPrev.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnPrev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-previous-24.png"))); // NOI18N
+        btnPrev.setPreferredSize(new java.awt.Dimension(80, 40));
         btnPrev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrevActionPerformed(evt);
@@ -170,7 +168,9 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
         });
         jPanel5.add(btnPrev);
 
-        btnNext.setText("Next");
+        btnNext.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-next-24.png"))); // NOI18N
+        btnNext.setPreferredSize(new java.awt.Dimension(80, 40));
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -178,7 +178,9 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
         });
         jPanel5.add(btnNext);
 
-        btnLast.setText("Last");
+        btnLast.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-last-24.png"))); // NOI18N
+        btnLast.setPreferredSize(new java.awt.Dimension(80, 40));
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLastActionPerformed(evt);
@@ -186,31 +188,8 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
         });
         jPanel5.add(btnLast);
 
-        javax.swing.GroupLayout tabEditLayout = new javax.swing.GroupLayout(tabEdit);
-        tabEdit.setLayout(tabEditLayout);
-        tabEditLayout.setHorizontalGroup(
-            tabEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(tabEditLayout.createSequentialGroup()
-                .addGroup(tabEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
-                    .addGroup(tabEditLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        tabEditLayout.setVerticalGroup(
-            tabEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabEditLayout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 213, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
-        );
-
-        tabs.addTab("Edit", tabEdit);
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         tblDepart.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -220,7 +199,7 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
                 {null, null, null}
             },
             new String [] {
-                "ID", "DepName", "Employee"
+                "ID", "Department Name", "Total Employees"
             }
         ));
         tblDepart.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -230,64 +209,102 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
         });
         jScrollPane1.setViewportView(tblDepart);
 
-        javax.swing.GroupLayout tabListLayout = new javax.swing.GroupLayout(tabList);
-        tabList.setLayout(tabListLayout);
-        tabListLayout.setHorizontalGroup(
-            tabListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabListLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
-                .addContainerGap())
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
         );
-        tabListLayout.setVerticalGroup(
-            tabListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabListLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
-        tabs.addTab("List", tabList);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(523, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(113, 113, 113)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(72, 72, 72)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(220, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabs)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabs)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIDActionPerformed
-
-    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-        this.initialize();
-        txtID.requestFocus();
-    }//GEN-LAST:event_btnNewActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         this.initialize();
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
-    private void tblDepartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDepartMouseClicked
-        if(evt.getClickCount() == 1){
-            this.editEntity();
-        }
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
+        this.initialize();
         // TODO add your handling code here:
-    }//GEN-LAST:event_tblDepartMouseClicked
+    }//GEN-LAST:event_btnNewActionPerformed
+
+    private void txtDepNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDepNameActionPerformed
+
+    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIDActionPerformed
+
+    private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
+        this.moveFirst();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFirstActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-         if(isValidate()){
-             this.createEntity();
-         }
-        // TODO add your handling code here:
+        if(isValidate()){
+            this.createEntity();
+        }
+    // TODO add your handling code here:
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -299,11 +316,6 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
         this.deleteEntity();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
-        this.moveFirst();
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnFirstActionPerformed
 
     private void btnPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevActionPerformed
         this.movePrev();
@@ -319,6 +331,13 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
         this.moveLast();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLastActionPerformed
+
+    private void tblDepartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDepartMouseClicked
+        if(evt.getClickCount()==1){
+            this.editEntity();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblDepartMouseClicked
 
     /**
      * @param args the command line arguments
@@ -337,20 +356,21 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DepartmentJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DepartmentJDialog1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DepartmentJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DepartmentJDialog1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DepartmentJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DepartmentJDialog1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DepartmentJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DepartmentJDialog1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DepartmentJDialog dialog = new DepartmentJDialog(new javax.swing.JFrame(), true);
+                DepartmentJDialog1 dialog = new DepartmentJDialog1(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -373,17 +393,15 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblDepName;
-    private javax.swing.JLabel lblID;
-    private javax.swing.JPanel tabEdit;
-    private javax.swing.JPanel tabList;
-    private javax.swing.JTabbedPane tabs;
     private javax.swing.JTable tblDepart;
-    private javax.swing.JTextField txtDepname;
+    private javax.swing.JTextField txtDepName;
     private javax.swing.JTextField txtID;
     // End of variables declaration//GEN-END:variables
     DepartmentDAO dDAO = new DepartmentDAO();
@@ -391,14 +409,14 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
     public Department getEntityFromForm() {
         Department dep = new Department();
         dep.setDepID(txtID.getText());
-        dep.setDepName(txtDepname.getText());
+        dep.setDepName(txtDepName.getText());
         return dep;
     }
 
     @Override
     public void setEntityToForm(Department dep) {
         txtID.setText(dep.getDepID());
-        txtDepname.setText(dep.getDepName());
+        txtDepName.setText(dep.getDepName());
     }
 
     
@@ -500,7 +518,7 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
     public void editEntity() {
         Department dep = this.getEntityFromSelectedRow();
         this.setEntityToForm(dep);
-        tabs.setSelectedIndex(0);
+        
     }
 
     @Override
@@ -553,18 +571,14 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
     boolean isValidate(){
         Department dep = this.getEntityFromForm();
         if(dep.getDepID().isEmpty()){
-            lblID.setText("Vui lòng không được để trống ID");
-            lblDepName.setText("");
+            MsgBox.alert(this, "Vui lòng không được để trống ID");
             return false;
         }else 
         if(dep.getDepName().isEmpty()){
-            lblDepName.setText("Vui lòng không được để trống DepName");
-            lblID.setText("");
+            MsgBox.alert(this, "Vui lòng không được để trống DepName");
             return false;
         }
         else{
-            lblID.setText("");
-            lblDepName.setText("");
             return true;
         }
         
