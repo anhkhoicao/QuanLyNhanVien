@@ -34,8 +34,16 @@
             <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
-
-
-
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE180</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 </project>

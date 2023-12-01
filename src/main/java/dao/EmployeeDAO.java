@@ -59,7 +59,8 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
                 + "BaseSalary = ?, "
                 + "DepID = ?, "
                 + "PosID = ?, "
-                + "Images = ? WHERE Id = ?";
+                + "Images = ?"
+                + " WHERE Id = ?";
 
         XJdbc.update(sql, e.getFirstName(),
                 e.getLastName(),
@@ -146,6 +147,7 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
 //        Employee e =dao.selectByID("E003");
 //        System.out.println(e.getSex());
 //    } 
+
     public static void main(String[] args) {
         try {
             EmployeeDAO dao = new EmployeeDAO();
@@ -161,5 +163,18 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
     }
    
 
+
+//    public static void main(String[] args) {
+//        try {
+//            EmployeeDAO dao = new EmployeeDAO();
+//            Employee e = dao.selectByID("E003");
+//            e.setSex("Other");
+//            dao.update(e);
+//            Employee e1 = dao.selectByID("E003");
+//            System.out.println(e1.getSex());
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//    }
 }
 

@@ -100,6 +100,18 @@ public class DepartmentDAO extends EntityDAO<Department, String> {
         }
         return list;
     }
+        public int getTotalEmployees(String depID) {
+    String sql = "SELECT COUNT(*) AS TotalEmployees FROM Employee WHERE DepID = ?";
+    try {
+        ResultSet rs = XJdbc.query(sql, depID);
+        if (rs.next()) {
+            return rs.getInt("TotalEmployees");
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return 0;
+    }
     
     //hàm test để xem thử có kết nối đc với DB hay ko, vui lòng ko chỉnh sửa!!!!
 //    public static void main(String[] args) {
