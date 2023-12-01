@@ -555,7 +555,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
     public void openDepartmentDialog() {
         if (Auth.isLogin()) {
             if (Auth.isManager()) {
-                JDialog dialog = new DepartmentJDialog(this, true);
+                JDialog dialog = new DepartmentJDialog1(this, true);
                 openJDialog(dialog);
             } else {
                 MsgBox.alert(this, "You dont have permission to use this feature");
