@@ -45,7 +45,7 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tabs = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblTime = new javax.swing.JTable();
@@ -60,14 +60,14 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
         cboYearAttendance = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblAttendance = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
+        pnlSalaryDetail = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cboMonthSalary = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         cboYearSalary = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSalaryDetail = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
+        pnlReportDep = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblReportOnDepartment = new javax.swing.JTable();
 
@@ -134,7 +134,7 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
                 .addGap(9, 9, 9))
         );
 
-        jTabbedPane1.addTab("Attendance", jPanel1);
+        tabs.addTab("Attendance", jPanel1);
 
         jLabel3.setText("MONTH: ");
 
@@ -196,7 +196,7 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("WorkDay", jPanel2);
+        tabs.addTab("WorkDay", jPanel2);
 
         jLabel1.setText("MONTH:");
 
@@ -225,11 +225,11 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(tblSalaryDetail);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlSalaryDetailLayout = new javax.swing.GroupLayout(pnlSalaryDetail);
+        pnlSalaryDetail.setLayout(pnlSalaryDetailLayout);
+        pnlSalaryDetailLayout.setHorizontalGroup(
+            pnlSalaryDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSalaryDetailLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
@@ -241,11 +241,11 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        pnlSalaryDetailLayout.setVerticalGroup(
+            pnlSalaryDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlSalaryDetailLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlSalaryDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cboMonthSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
@@ -255,7 +255,7 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("SalaryDetail", jPanel3);
+        tabs.addTab("SalaryDetail", pnlSalaryDetail);
 
         tblReportOnDepartment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -270,28 +270,28 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
         ));
         jScrollPane2.setViewportView(tblReportOnDepartment);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlReportDepLayout = new javax.swing.GroupLayout(pnlReportDep);
+        pnlReportDep.setLayout(pnlReportDepLayout);
+        pnlReportDepLayout.setHorizontalGroup(
+            pnlReportDepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlReportDepLayout.setVerticalGroup(
+            pnlReportDepLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("ReportOnDepartment", jPanel4);
+        tabs.addTab("ReportOnDepartment", pnlReportDep);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(tabs)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(tabs, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -378,14 +378,14 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblManagerID;
+    private javax.swing.JPanel pnlReportDep;
+    private javax.swing.JPanel pnlSalaryDetail;
+    private javax.swing.JTabbedPane tabs;
     private javax.swing.JTable tblAttendance;
     private javax.swing.JTable tblReportOnDepartment;
     private javax.swing.JTable tblSalaryDetail;
@@ -408,6 +408,11 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
             jDateChooser1.setEnabled(false);
             btnCheck.setEnabled(false);
             lblManagerID.setText("Not a manager");
+        }
+        
+        if (Auth.isEmployee()) {
+            pnlSalaryDetail.setVisible(false);
+            pnlReportDep.setVisible(false);
         }
     }
 
@@ -539,5 +544,21 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
         } catch (Exception e) {
             MsgBox.alert(this, "Lỗi truy vấn dữ liệu!");
         }
+    }
+
+    public void selectAttendanceTab() {
+        tabs.setSelectedIndex(0);
+    }
+
+    public void selectWorkDayTab() {
+        tabs.setSelectedIndex(1);
+    }
+
+    public void selectSalaryDetailTab() {
+        tabs.setSelectedIndex(2);
+    }
+
+    public void selectReportOnDepartmentTab() {
+        tabs.setSelectedIndex(3);
     }
 }
