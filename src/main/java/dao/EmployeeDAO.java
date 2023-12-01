@@ -142,39 +142,9 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
         return selectBySql(sql, formattedKeyword, formattedKeyword, formattedKeyword, keyword + "%", formattedKeyword, formattedKeyword, keyword + "%", formattedKeyword);
     }
 
-//    public static void main(String[] args) {
-//        EmployeeDAO dao = new EmployeeDAO();
-//        Employee e =dao.selectByID("E003");
-//        System.out.println(e.getSex());
-//    } 
-
-    public static void main(String[] args) {
-        try {
-            EmployeeDAO dao = new EmployeeDAO();
-            Employee e = dao.selectByID("E003");
-            e.setSex("Other");
-            dao.update(e);
-            Employee e1 = dao.selectByID("E003");
-            System.out.println(e1.getSex());
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        
+    public void updatePassword(Employee e) {
+        String sql = "UPDATE Employee SET Password = ? WHERE Id = ?";
+        XJdbc.update(sql, e.getPassword(), e.getId());
     }
-   
-
-
-//    public static void main(String[] args) {
-//        try {
-//            EmployeeDAO dao = new EmployeeDAO();
-//            Employee e = dao.selectByID("E003");
-//            e.setSex("Other");
-//            dao.update(e);
-//            Employee e1 = dao.selectByID("E003");
-//            System.out.println(e1.getSex());
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//    }
 }
 

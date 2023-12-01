@@ -8,6 +8,7 @@ import dao.EmployeeDAO;
 import entity.Employee;
 import java.util.List;
 import utils.MsgBox;
+import utils.XMail;
 
 /**
  *
@@ -18,7 +19,7 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
     /**
      * Creates new form ForgotPasswordJDialog
      */
-    public ForgotPasswordJDialog(java.awt.Frame parent, boolean modal) {
+    public ForgotPasswordJDialog(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -168,7 +169,7 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ForgotPasswordJDialog dialog = new ForgotPasswordJDialog(new javax.swing.JFrame(), true);
+                ForgotPasswordJDialog dialog = new ForgotPasswordJDialog(new javax.swing.JDialog(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -196,22 +197,60 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     EmployeeDAO dao = new EmployeeDAO();
+    private String generatedCode;
+    private Employee employee;
+    
     
     
     private void sendCode() {
-        String getEmail = txtEmail.getText().trim();
+        String getEmail = txtEmail.getText();
         List<Employee> list = dao.selectAll();
-        for (Employee e : list) {
-            if (e.getEmail().equalsIgnoreCase(getEmail)) {
-                
-            } else {
-                MsgBox.alert(this, "Wrong email or email doesnt exist");
-            }
+        boolean emailFound = false;
+        
+        for (Employee emp : list) {
+            if (emp.getEmail().equalsIgnoreCase(getEmail)) {
+                try {
+                    generatedCode = XMail.generateCode(6);
+                    XMail.sendMail(getEmail, generatedCode);
+                    employee = emp;
+                    emailFound = true;
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+                break;
+            } 
+        }
+        if (emailFound) {
+            MsgBox.alert(this, "An email has been sent.Please check your email");
+        }
+        if (!emailFound) {
+            MsgBox.alert(this, "Wrong email or email doesn't exist");
         }
     }
 
     private void changePassword() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String enteredCode  = txtCode.getText();
+        if (enteredCode == null) {
+            MsgBox.alert(this, "Code is required to proceed.");
+            return;
+        }
+        
+        if (enteredCode.equals(generatedCode)) {
+            String newPassword = new String(txtNewPassword.getPassword());
+            
+            if (newPassword != null) {
+                employee.setPassword(newPassword);
+                dao.updatePassword(employee);
+                MsgBox.alert(this, "Password changed successfully.");
+                this.dispose();
+            } else {
+                MsgBox.alert(this, "Password change canceled.");
+            }
+        } else {
+            MsgBox.alert(this, "Incorrect code. Please check your email and try again.");
+        }
+        
+        
     }
 
     private void exit() {
@@ -221,4 +260,6 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
     private void initialize() {
         
     }
+    
+   
 }
