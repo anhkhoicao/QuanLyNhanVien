@@ -80,6 +80,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             }
         });
 
+        btnNEW.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-update-24 (2).png"))); // NOI18N
         btnNEW.setText("New");
         btnNEW.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,6 +89,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         });
         jPanel5.add(btnNEW);
 
+        btnADD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-add-24 (1).png"))); // NOI18N
         btnADD.setText("Add");
         btnADD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +98,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         });
         jPanel5.add(btnADD);
 
+        btnUPDATE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-update-24.png"))); // NOI18N
         btnUPDATE.setText("Update");
         btnUPDATE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +107,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         });
         jPanel5.add(btnUPDATE);
 
+        btnDELETE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-bin-24 (1).png"))); // NOI18N
         btnDELETE.setText("Delete");
         btnDELETE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,8 +116,8 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         });
         jPanel5.add(btnDELETE);
 
-        btnFIRST.setText("<|");
-        btnFIRST.setPreferredSize(new java.awt.Dimension(48, 23));
+        btnFIRST.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-first-24.png"))); // NOI18N
+        btnFIRST.setPreferredSize(new java.awt.Dimension(60, 31));
         btnFIRST.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFIRSTActionPerformed(evt);
@@ -121,8 +125,8 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         });
         jPanel4.add(btnFIRST);
 
-        btnNEXT.setText(">>");
-        btnNEXT.setPreferredSize(new java.awt.Dimension(48, 23));
+        btnNEXT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-next-24.png"))); // NOI18N
+        btnNEXT.setPreferredSize(new java.awt.Dimension(60, 31));
         btnNEXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNEXTActionPerformed(evt);
@@ -130,8 +134,8 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         });
         jPanel4.add(btnNEXT);
 
-        btnPRE.setText("<<");
-        btnPRE.setPreferredSize(new java.awt.Dimension(48, 23));
+        btnPRE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-previous-24.png"))); // NOI18N
+        btnPRE.setPreferredSize(new java.awt.Dimension(60, 31));
         btnPRE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPREActionPerformed(evt);
@@ -139,8 +143,8 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         });
         jPanel4.add(btnPRE);
 
-        btnLAST.setText(">|");
-        btnLAST.setPreferredSize(new java.awt.Dimension(48, 23));
+        btnLAST.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-last-24.png"))); // NOI18N
+        btnLAST.setPreferredSize(new java.awt.Dimension(60, 31));
         btnLAST.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLASTActionPerformed(evt);
@@ -190,7 +194,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(103, 103, 103)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(lblSEQ, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,7 +219,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
                                 .addGap(18, 18, 18)
                                 .addComponent(rdoFine, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtAMOUNT2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,25 +255,23 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             .addGroup(tabCapNhatLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(tabCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabCapNhatLayout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(tabCapNhatLayout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         tabCapNhatLayout.setVerticalGroup(
             tabCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabCapNhatLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(tabCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         tabs.addTab("Cập nhật", tabCapNhat);
@@ -293,7 +295,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,6 +307,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
 
         jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        btnTHOAT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-exit-24 (2).png"))); // NOI18N
         btnTHOAT.setText("Thoát");
         btnTHOAT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -351,7 +354,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         tabs.addTab("Danh Sách", tabDanhSach);
@@ -374,6 +377,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
     private void btnUPDATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUPDATEActionPerformed
         // TODO add your handling code here:
         this.updateEntity();
+        this.resetForm();
     }//GEN-LAST:event_btnUPDATEActionPerformed
 
     private void btnDELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDELETEActionPerformed
@@ -530,22 +534,29 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         String bonus = txtAMOUNT2.getText();
         BonusDouble = Double.parseDouble(bonus);
         if (rdoBonus.isSelected()) {
-            BonusDouble = BonusDouble * 1;
+            if (BonusDouble < 0) {
+                BonusDouble = BonusDouble * -1;
+            } else {
+                BonusDouble = BonusDouble * 1;
+            }
+
+           
         } else {
             BonusDouble = BonusDouble * -1;
+            
         }
 
         b.setSeq(Integer.parseInt(lblSEQ.getToolTipText()));
         b.setAmount(BonusDouble);
         b.setBonusDate((Date) jDateChooser1.getDate());
         b.setDesc(txtNOTE2.getText());
-        
+
         String empId;
         String bonusEmp = (String) cboEmpId.getSelectedItem();
         empId = String.valueOf(bonusEmp);
-        
+
         b.setEmployee(eDAO.selectByID(empId));
-        
+
 //        b.setEmployee(eDAO.selectByID(txtEMPID2.getText()));
         return b;
 
@@ -555,7 +566,6 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
     public void fillEntityListOnTable() {
         DefaultTableModel model = (DefaultTableModel) tblLIST.getModel();
         model.setRowCount(0);
-
 
         try {
             String Keyword = txtSEARCH.getText();
@@ -704,11 +714,11 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
 
     @Override
     public void setEntityToForm(Bonus e) {
-        
+
         cboEmpId.setSelectedItem(e.getEmployee().getId());
-        
+
         jDateChooser1.setDate(e.getBonusDate());
-        
+
         txtAMOUNT2.setText(Double.toString(e.getAmount()));
         if (e.getAmount() > 0) {
             rdoBonus.setSelected(true);
@@ -716,7 +726,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             rdoFine.setSelected(true);
         }
         txtNOTE2.setText(e.getDesc());
-        
+
         lblSEQ.setToolTipText(Integer.toString(e.getSeq()));
 
     }
