@@ -149,7 +149,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         jPanel5.setLayout(new java.awt.GridLayout(1, 0, 20, 0));
 
         btnFirst.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        btnFirst.setText("<<");
+        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-first-24.png"))); // NOI18N
         btnFirst.setPreferredSize(new java.awt.Dimension(80, 40));
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,7 +159,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         jPanel5.add(btnFirst);
 
         btnPrev.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        btnPrev.setText("<");
+        btnPrev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-previous-24.png"))); // NOI18N
         btnPrev.setPreferredSize(new java.awt.Dimension(80, 40));
         btnPrev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,7 +169,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         jPanel5.add(btnPrev);
 
         btnNext.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        btnNext.setText(">");
+        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-next-24.png"))); // NOI18N
         btnNext.setPreferredSize(new java.awt.Dimension(80, 40));
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,7 +179,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         jPanel5.add(btnNext);
 
         btnLast.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        btnLast.setText(">>");
+        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-last-24.png"))); // NOI18N
         btnLast.setPreferredSize(new java.awt.Dimension(80, 40));
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
