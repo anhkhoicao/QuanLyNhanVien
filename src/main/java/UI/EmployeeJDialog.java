@@ -73,6 +73,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         txtPhone = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        txtPass = new javax.swing.JPasswordField();
         jLabel14 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         rboNhanVien = new javax.swing.JRadioButton();
@@ -115,7 +117,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             }
         });
 
-        jPanel7.setLayout(new java.awt.GridLayout(10, 2, -160, 10));
+        jPanel7.setLayout(new java.awt.GridLayout(11, 2, -160, 10));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -204,6 +206,14 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             }
         });
         jPanel7.add(txtEmail);
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel16.setText("Password");
+        jPanel7.add(jLabel16);
+
+        txtPass.setText("jPasswordField1");
+        jPanel7.add(txtPass);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -733,6 +743,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         
         txtPhone.setText(e.getPhoneNumber());
         txtEmail.setText(e.getEmail());
+        txtPass.setText(e.getPassword());
         
         if(e.getRole().equalsIgnoreCase("Manager")){
             rboTruongPhong.setSelected(true);
@@ -752,7 +763,6 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         ImageIcon fitImage = XFile.getScaledIcon(imageicon, 150, 150);
         lblPics.setIcon(fitImage);
         
-        lblPass.setToolTipText(e.getPassword());
     }
     
     Employee getForm(){
@@ -771,6 +781,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         
         e.setPhoneNumber(txtPhone.getText());
         e.setEmail(txtEmail.getText());
+        e.setPassword(String.valueOf(txtPass.getPassword()));
         
         if(rboTruongPhong.isSelected()){
             e.setRole(String.valueOf(rboTruongPhong.getText()));
@@ -784,7 +795,6 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         e.setDepartment(ddao.selectByID(cboDep.getToolTipText()));
         e.setPosition(pdao.selectByID(cboPos.getToolTipText()));
         e.setImage("./src/main/resources/images/" + lblPics.getToolTipText());
-        e.setPassword(lblPass.getToolTipText());
         return e;
     }
     
@@ -976,6 +986,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1004,6 +1015,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtLastName;
+    private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
