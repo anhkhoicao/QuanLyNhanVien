@@ -221,6 +221,11 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtDepName">
               <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder/>
+                  </Border>
+                </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[64, 30]"/>
                 </Property>
@@ -263,6 +268,11 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtID">
               <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                    <LineBorder/>
+                  </Border>
+                </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[64, 30]"/>
                 </Property>
@@ -297,7 +307,7 @@
                   <Font name="Segoe UI Black" size="18" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icon24-48/icons8-first-24.png"/>
+                  <Image iconType="2" name="C:\Users\ACER\Desktop\FPT Polytechnic\&#x110;ang h&#x1ecd;c\D&#x1ef1; &#xe1;n 1\first-page-regular-24.png"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[80, 40]"/>
@@ -312,9 +322,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI Black" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icon24-48/icons8-previous-24.png"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="&lt;"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[80, 40]"/>
                 </Property>
@@ -328,9 +336,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI Black" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icon24-48/icons8-next-24.png"/>
-                </Property>
+                <Property name="text" type="java.lang.String" value="&gt;"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[80, 40]"/>
                 </Property>
@@ -345,7 +351,7 @@
                   <Font name="Segoe UI Black" size="18" style="1"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icon24-48/icons8-last-24.png"/>
+                  <Image iconType="2" name="C:\Users\ACER\Desktop\FPT Polytechnic\&#x110;ang h&#x1ecd;c\D&#x1ef1; &#xe1;n 1\last-page-regular-24.png"/>
                 </Property>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[80, 40]"/>
