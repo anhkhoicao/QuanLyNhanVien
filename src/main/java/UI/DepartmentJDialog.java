@@ -439,23 +439,41 @@ public class DepartmentJDialog extends javax.swing.JDialog implements CrudContro
 
     @Override
     public void createEntity() {
+        if(!Auth.isManager()){
+            MsgBox.alert(this, "Bạn không có quyền thêm mới");
+        }else {
         Department dep = this.getEntityFromForm();
         try {
         dDAO.insert(dep);
         this.resetForm();
         this.fillEntityListOnTable();
-            MsgBox.alert(jPanel3, "Thêm mới thành công");
+            MsgBox.alert(this, "Thêm mới thành công");
         } catch (Exception e) {
-            MsgBox.alert(jPanel3, "Thêm mới thất bại");
+            MsgBox.alert(this, "Thêm mới thất bại");
         }
+        }
+            
+        
     }
 
     @Override
     public void updateEntity() {
-        Department dep = this.getEntityFromForm();
-        dDAO.update(dep);
-        this.resetForm();
-        this.fillEntityListOnTable();
+        if(!Auth.isManager()){
+            MsgBox.alert(this, "Bạn không có quyền sửa");
+        }else {
+            Department dep = this.getEntityFromForm();
+           try {
+            dDAO.update(dep);
+            this.resetForm();
+            this.fillEntityListOnTable();
+            MsgBox.alert(this, "Cập nhật thành công");
+           } catch (Exception e) {
+               MsgBox.alert(this, "Cập nhật thất bại");
+            }
+        }
+        
+        
+        
         
     }
 
