@@ -72,6 +72,7 @@ UI\DepartmentJDialog1$9.class
 UI\Main2JFrame$5.class
 utils\IconUtil.class
 UI\TimeSheetJDialog3$3.class
+UI\LoginJDialog$6$1.class
 UI\BonusJDialog$4.class
 UI\ForgotPasswordJDialog$1.class
 UI\Main2JFrame$10.class
@@ -83,6 +84,7 @@ UI\LoginJDialog$4.class
 UI\TimeSheetJDialog3$4.class
 entity\Report.class
 UI\BonusJDialog$3.class
+UI\LoginJDialog$6.class
 entity\Employee.class
 utils\XDate.class
 UI\BonusJDialog$14.class
@@ -114,6 +116,7 @@ UI\TimeSheetJDialog3$6$1.class
 UI\AdvancePaymentJDialog$6.class
 UI\Main2JFrame$12.class
 UI\BonusJDialog$8.class
+utils\UserData.class
 UI\Main2JFrame$8.class
 UI\BonusJDialog$13.class
 UI\AdvancePaymentJDialog$1.class
@@ -131,7 +134,6 @@ dao\DepartmentDAO.class
 UI\DepartmentJDialog1$5.class
 UI\Main2JFrame$15.class
 UI\EmployeeJDialog$20.class
-UI\LoginJDialog$5$1.class
 utils\MsgBox.class
 UI\EmployeeJDialog$1.class
 dao\BonusDAO.class

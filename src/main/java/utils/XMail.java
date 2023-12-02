@@ -49,6 +49,7 @@ public class XMail {
             String defaultEmail = "mannvps34827@fpt.edu.vn";
             String defaultPassword = "ggytetocigdzskgw";
             Session s = Session.getInstance(p, new Authenticator() {
+                @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(defaultEmail, defaultPassword);
                 }
@@ -70,7 +71,7 @@ public class XMail {
         }
     }
 
-    public static void main(String[] args) {
-        sendMail("caube.vodoi5@gmail.com", "sadwasdw");
-    }
+//    public static void main(String[] args) {
+//        sendMail("caube.vodoi5@gmail.com", "sadwasdw");
+//    }
 }
