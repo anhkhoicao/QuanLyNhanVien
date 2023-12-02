@@ -14,6 +14,7 @@ C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\dao\Report1DAO.java
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\dao\ReportDAOImpl.java
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\UI\EmployeeJDialog.java
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\entity\Report1.java
+C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\utils\XMail.java
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\controller\MainController.java
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\dao\EntityDAO.java
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\dao\BonusDAO.java
@@ -23,6 +24,7 @@ C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\UI\ChangPasswordJDialog
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\utils\MsgBox.java
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\entity\AdvancePayment.java
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\dao\PositionDAO.java
+C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\UI\ForgotPasswordJDialog.java
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\utils\XJdbc.java
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\dao\EmployeeDAO.java
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\entity\TimeSheet.java
@@ -37,4 +39,3 @@ C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\dao\ReportDAO.java
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\entity\Employee.java
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\entity\Bonus.java
 C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\utils\CheckBoxEditor.java
-C:\Users\ACER\Desktop\DuAnMot\QuanLyNhanSu\src\main\java\UI\DepartmentJDialog.java

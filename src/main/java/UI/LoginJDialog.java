@@ -7,6 +7,7 @@ package UI;
 import dao.EmployeeDAO;
 import entity.Employee;
 import java.awt.event.KeyEvent;
+import javax.swing.JDialog;
 import utils.Auth;
 import utils.MsgBox;
 
@@ -46,6 +47,11 @@ public class LoginJDialog extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblForgotPass.setText("Forgot password ?");
+        lblForgotPass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblForgotPassMouseClicked(evt);
+            }
+        });
 
         txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -151,6 +157,12 @@ public class LoginJDialog extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txtPassKeyReleased
 
+    private void lblForgotPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblForgotPassMouseClicked
+        // TODO add your handling code here:
+        openForgotPasswordJDialog(this);
+        
+    }//GEN-LAST:event_lblForgotPassMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -218,5 +230,10 @@ public class LoginJDialog extends javax.swing.JDialog {
             Auth.user = emp;
             this.dispose();
         }
+    }
+
+    private void openForgotPasswordJDialog(JDialog parentDialog) {
+       JDialog dialog = new ForgotPasswordJDialog(parentDialog, true);
+       dialog.setVisible(true);
     }
 }

@@ -55,6 +55,8 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDepart = new javax.swing.JTable();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -213,15 +215,40 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         });
         jScrollPane1.setViewportView(tblDepart);
 
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
+        });
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSearch)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSearch)
+                    .addComponent(btnSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -255,7 +282,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -346,6 +373,19 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         // TODO add your handling code here:
     }//GEN-LAST:event_tblDepartMouseClicked
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        if(txtSearch.getText().trim().isEmpty()){
+            MsgBox.alert(this, "Vui lòng nhập thông tin muốn tìm");
+        }
+        this.Search();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        this.Search();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -397,6 +437,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnNext;
     private javax.swing.JButton btnPrev;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -410,6 +451,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
     private javax.swing.JTable tblDepart;
     private javax.swing.JTextField txtDepName;
     private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
     DepartmentDAO dDAO = new DepartmentDAO();
     @Override
@@ -590,5 +632,34 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         }
         
         }
+    
+    void FillTableSearch(){
+        DefaultTableModel model = (DefaultTableModel) tblDepart.getModel();
+        model.setRowCount(0);
+        try {
+            String keyword = txtSearch.getText();
+        List<Department> list = dDAO.selectByKeyWord(keyword);
+        list.forEach(dp ->
+        {
+            int totalEmployees = dDAO.getTotalEmployees(dp.getDepID());
+            Object [] row = {
+                dp.getDepID(),
+                dp.getDepName(),
+                totalEmployees
+            };
+            model.addRow(row);
+        }
+          );
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+    }
+    public void Search(){
+        this.FillTableSearch();
+        this.resetForm();
+        int row = -1;
+        
+    }
               
 }
