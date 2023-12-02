@@ -160,8 +160,9 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         });
         jPanel5.add(btnFirst);
 
-        btnPrev.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnPrev.setFont(new java.awt.Font("Segoe UI Emoji", 1, 20)); // NOI18N
         btnPrev.setText("<");
+        btnPrev.setMargin(new java.awt.Insets(5, 14, 3, 14));
         btnPrev.setPreferredSize(new java.awt.Dimension(80, 40));
         btnPrev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,8 +171,9 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         });
         jPanel5.add(btnPrev);
 
-        btnNext.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnNext.setFont(new java.awt.Font("Segoe UI Emoji", 1, 20)); // NOI18N
         btnNext.setText(">");
+        btnNext.setMargin(new java.awt.Insets(5, 14, 3, 14));
         btnNext.setPreferredSize(new java.awt.Dimension(80, 40));
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -286,6 +288,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
         this.initialize();
+        txtID.requestFocus();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNewActionPerformed
 
@@ -311,11 +314,13 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         this.updateEntity();
+        txtID.requestFocus();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         this.deleteEntity();
+        txtID.requestFocus();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteActionPerformed
 
