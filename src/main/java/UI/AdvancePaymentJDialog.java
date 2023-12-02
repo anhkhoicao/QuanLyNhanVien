@@ -440,9 +440,9 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         try {
             if (validateForm()) {
                  Employee employee = employeeDAO.selectByID( String.valueOf(cboEmpID.getSelectedItem()).trim());
-                java.sql.Date date = null;
+                 Date date = null;
                 try {
-                    date = java.sql.Date.valueOf(txtAdvDate.getDate().toString());
+                    date = txtAdvDate.getDate();
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
                 }
@@ -468,9 +468,9 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
             if (validateForm()) {
                 Employee employee = employeeDAO.selectByID(String.valueOf(cboEmpID.getSelectedItem()).trim());
                 AdvancePayment advancePayment = advancePaymentDAO.selectAll().get(index);
-                java.sql.Date date = null;
+                Date date = null;
                 try {
-                    date = java.sql.Date.valueOf(txtAdvDate.getDate().toString());
+                    date = txtAdvDate.getDate();
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
                 }
