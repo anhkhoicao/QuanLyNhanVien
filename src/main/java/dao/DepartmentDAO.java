@@ -112,6 +112,12 @@ public class DepartmentDAO extends EntityDAO<Department, String> {
     }
     return 0;
     }
+        
+    public List<Department> selectByKeyWord(String keyword){
+        String sql = "select * from Department where 1 = 1 and (ID like ? or DepName like ?)";
+        String formattedKeyword = "%" + keyword +"%";
+        return selectBySql(sql, formattedKeyword,formattedKeyword);
+    }
     
     //hàm test để xem thử có kết nối đc với DB hay ko, vui lòng ko chỉnh sửa!!!!
 //    public static void main(String[] args) {

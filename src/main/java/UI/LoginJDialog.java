@@ -7,8 +7,10 @@ package UI;
 import dao.EmployeeDAO;
 import entity.Employee;
 import java.awt.event.KeyEvent;
+import javax.swing.JDialog;
 import utils.Auth;
 import utils.MsgBox;
+import utils.UserData;
 
 /**
  *
@@ -41,11 +43,21 @@ public class LoginJDialog extends javax.swing.JDialog {
         txtUser = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
-        ckbRememberMe = new javax.swing.JCheckBox();
+        chkRememberMe = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         lblForgotPass.setText("Forgot password ?");
+        lblForgotPass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblForgotPassMouseClicked(evt);
+            }
+        });
 
         txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -74,7 +86,7 @@ public class LoginJDialog extends javax.swing.JDialog {
             }
         });
 
-        ckbRememberMe.setText("Remember me ?");
+        chkRememberMe.setText("Remember me ?");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,7 +102,7 @@ public class LoginJDialog extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ckbRememberMe)
+                                    .addComponent(chkRememberMe)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +134,7 @@ public class LoginJDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblForgotPass)
-                    .addComponent(ckbRememberMe))
+                    .addComponent(chkRememberMe))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
@@ -142,7 +154,7 @@ public class LoginJDialog extends javax.swing.JDialog {
 
     private void txtPassKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyReleased
         // TODO add your handling code here:
-         if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             try {
                 login();
             } catch (Exception e) {
@@ -150,6 +162,18 @@ public class LoginJDialog extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_txtPassKeyReleased
+
+    private void lblForgotPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblForgotPassMouseClicked
+        // TODO add your handling code here:
+        openForgotPasswordJDialog(this);
+
+    }//GEN-LAST:event_lblForgotPassMouseClicked
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        checkRemember();
+
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -195,7 +219,7 @@ public class LoginJDialog extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JCheckBox ckbRememberMe;
+    private javax.swing.JCheckBox chkRememberMe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -204,8 +228,9 @@ public class LoginJDialog extends javax.swing.JDialog {
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 
-     EmployeeDAO dao = new EmployeeDAO();
+    EmployeeDAO dao = new EmployeeDAO();
     
+
     private void login() {
         String username = txtUser.getText();
         String password = new String(txtPass.getPassword());
@@ -216,7 +241,53 @@ public class LoginJDialog extends javax.swing.JDialog {
             MsgBox.alert(this, "Sai tên đăng nhập hoặc mật khẩu");
         } else {
             Auth.user = emp;
+            UserData userData = new UserData(username, password, chkRememberMe.isSelected());
+            userData.saveUserData();
+            
             this.dispose();
         }
     }
+
+    private void openForgotPasswordJDialog(JDialog parentDialog) {
+        JDialog dialog = new ForgotPasswordJDialog(parentDialog, true);
+        dialog.setVisible(true);
+    }
+
+//    private void checkRemember() {
+//        UserData userData = UserData.loadUserData();
+//        if (userData != null) {
+//            if (userData.isRememberMe() == false) {
+//                txtUser.setText("");
+//                txtPass.setText("");
+//                chkRememberMe.setSelected(false);
+//            } else {
+//                txtUser.setText(userData.getUsername());
+//                txtPass.setText(userData.getPassword());
+//                chkRememberMe.setSelected(userData.isRememberMe());
+//            }
+//
+//        }
+//    }
+    private void checkRemember() {
+        UserData userData = UserData.loadUserData();
+
+        if (userData == null || !userData.isRememberMe()) {
+            clearFields();
+        } else {
+            setUserData(userData);
+        }
+    }
+
+    private void clearFields() {
+        txtUser.setText("");
+        txtPass.setText("");
+        chkRememberMe.setSelected(false);
+    }
+
+    private void setUserData(UserData userData) {
+        txtUser.setText(userData.getUsername());
+        txtPass.setText(userData.getPassword());
+        chkRememberMe.setSelected(userData.isRememberMe());
+    }
+
 }

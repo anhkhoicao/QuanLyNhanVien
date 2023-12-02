@@ -466,7 +466,12 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         openWelcomeDialog();
         openLoginDialog();
         startTimer();
-        setStatus("User: " + Auth.user.getFirstName() + " " + Auth.user.getLastName());
+        if (Auth.user == null) {
+            setStatus("...");
+
+        } else {
+            setStatus("User: " + Auth.user.getFirstName() + " " + Auth.user.getLastName());
+        }
 
     }
 
@@ -555,7 +560,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
     public void openDepartmentDialog() {
         if (Auth.isLogin()) {
             if (Auth.isManager()) {
-                JDialog dialog = new DepartmentJDialog(this, true);
+                JDialog dialog = new DepartmentJDialog1(this, true);
                 openJDialog(dialog);
             } else {
                 MsgBox.alert(this, "You dont have permission to use this feature");
@@ -655,7 +660,6 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         Auth.clear();
         setStatus("...");
         login();
-
     }
 
     @Override
@@ -664,7 +668,11 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
             MsgBox.alert(this, "Bạn đã đăng nhập");
         } else {
             openLoginDialog();
-            setStatus("User: " + Auth.user.getFirstName() + " " + Auth.user.getLastName());
+            if (Auth.user == null) {
+                setStatus("...");
+            } else {
+                setStatus("User: " + Auth.user.getFirstName() + " " + Auth.user.getLastName());
+            }
         }
 
     }
