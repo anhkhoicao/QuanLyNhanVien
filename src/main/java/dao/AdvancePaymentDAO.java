@@ -101,4 +101,23 @@ public class AdvancePaymentDAO extends EntityDAO<AdvancePayment, String> {
 //        AdvancePayment adv = dao.selectByID("5");
 //        System.out.println(adv.getEmployee().getFirstName());
 //    }
+    
+     public List<String> getAllEmpID(){
+        String sql = "select Id from Employee";
+        List<String> list = new ArrayList<>();
+        try {
+            ResultSet rs = null;
+            try {
+                rs = XJdbc.query(sql);
+                while (rs.next()) {
+                    list.add(rs.getString(1));
+                }
+            } finally {
+                rs.getStatement().getConnection().close();
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return list;
+    }
 }

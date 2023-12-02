@@ -9,8 +9,11 @@ import dao.EmployeeDAO;
 import entity.AdvancePayment;
 import entity.Employee;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import utils.MsgBox;
@@ -32,6 +35,7 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         setLocationRelativeTo(null);
         sdf.setLenient(false);
         fillTable(advancePaymentDAO.selectAll());
+        fillCombobox();
     }
 
     /**
@@ -56,10 +60,10 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         jLabel1 = new javax.swing.JLabel();
         btnSearch = new javax.swing.JButton();
         txtID = new javax.swing.JTextField();
-        txtAdvDate = new javax.swing.JTextField();
-        txtEmpID = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        txtAdvDate = new com.toedter.calendar.JDateChooser();
+        cboEmpID = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -84,21 +88,21 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         });
         jScrollPane1.setViewportView(tblPayment);
 
-        btnSave.setText("Lưu");
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-add-24 (1).png"))); // NOI18N
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
 
-        btnUpdate.setText("Cập nhật");
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-update-24 (1).png"))); // NOI18N
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
 
-        btnClear.setText("Làm mới");
+        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-update-24 (2).png"))); // NOI18N
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
@@ -114,7 +118,12 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("ID");
 
-        btnDelete.setText("Xóa");
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-bin-24.png"))); // NOI18N
+        btnDelete.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                btnDeleteItemStateChanged(evt);
+            }
+        });
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -135,7 +144,7 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("AdvancePayment");
 
-        btnSearch.setText("Tìm kiếm");
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-analyze-24.png"))); // NOI18N
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
@@ -164,82 +173,88 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtAdvAmout, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtAdvDate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnDelete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnUpdate, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGap(237, 237, 237)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAdvAmout, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(209, 209, 209)
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 2, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtAdvDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(42, 42, 42))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                                            .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(cboEmpID, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 31, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(78, 78, 78))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(51, 51, 51))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(btnSearch)
-                                        .addGap(243, 243, 243))))))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(282, 282, 282)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(157, 157, 157)
+                                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(199, 199, 199)
+                                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(248, 248, 248))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSearch))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(txtAdvAmout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(24, 24, 24)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtAdvDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSave)
-                            .addComponent(btnUpdate))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cboEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnClear)
-                            .addComponent(btnDelete))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(71, 71, 71)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(btnSearch)
-                        .addGap(30, 30, 30))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -252,18 +267,18 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
 
             txtID.setText(advancePayment.getId() + "");
             txtAdvAmout.setText(advancePayment.getAdvAmount() + "");
-            txtAdvDate.setText(advancePayment.getDateAdv() + "");
-            txtEmpID.setText(advancePayment.getEmployee().getId() + "");
+            txtAdvDate.setDate(advancePayment.getDateAdv());
+           cboEmpID.setSelectedItem(advancePayment.getEmployee().getId() + "");
         }
     }//GEN-LAST:event_tblPaymentMouseClicked
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         try {
             if (validateForm()) {
-                Employee employee = employeeDAO.selectByID(txtEmpID.getText().trim());
-                java.sql.Date date = null;
+                 Employee employee = employeeDAO.selectByID(String.valueOf(cboEmpID.getSelectedItem()).trim());
+                Date date = null;
                 try {
-                    date = java.sql.Date.valueOf(txtAdvDate.getText().trim());
+                    date = txtAdvDate.getDate();
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
                 }
@@ -283,30 +298,7 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        int index = tblPayment.getSelectedRow();
-        if (index != -1) {
-            if (validateForm()) {
-                Employee employee = employeeDAO.selectByID(txtEmpID.getText().trim());
-                AdvancePayment advancePayment = advancePaymentDAO.selectAll().get(index);
-                java.sql.Date date = null;
-                try {
-                    date = java.sql.Date.valueOf(txtAdvDate.getText().trim());
-                } catch (IllegalArgumentException e) {
-                    e.printStackTrace();
-                }
-
-                advancePayment.setAdvAmount(Double.valueOf(txtAdvAmout.getText().trim()));
-                advancePayment.setDateAdv(date);
-                advancePayment.setEmployee(employee);
-
-                advancePaymentDAO.update(advancePayment);
-                fillTable(advancePaymentDAO.selectAll());
-                resetForm();
-                JOptionPane.showMessageDialog(this, "Đã cập nhật thành công");
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng muốn cập nhật", "Lỗi", JOptionPane.ERROR_MESSAGE);
-        }
+       this.updateEntity();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
@@ -319,16 +311,8 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
     }//GEN-LAST:event_txtAdvAmoutActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        int index = tblPayment.getSelectedRow();
-        if (index != -1) {
-            AdvancePayment advancePayment = advancePaymentDAO.selectAll().get(index);
-            advancePaymentDAO.delete(advancePayment.getId() + "");
-            fillTable(advancePaymentDAO.selectAll());
-            JOptionPane.showMessageDialog(this, "Đã xóa thành công");
-            resetForm();
-        } else {
-            JOptionPane.showMessageDialog(this, "Vui lòng chọn dòng muốn cập nhật", "Lỗi", JOptionPane.ERROR_MESSAGE);
-        }
+    this.deleteEntity();
+
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
@@ -342,18 +326,12 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
     }//GEN-LAST:event_txtSearchKeyReleased
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        if (txtSearch.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Chưa nhập thông tin", "Lỗi", JOptionPane.ERROR_MESSAGE);
-        } else {
-            List<AdvancePayment> list = new ArrayList<>();
-            for (AdvancePayment i : advancePaymentDAO.selectByKeyWord(txtSearch.getText())) {
-                if (txtSearch.getText().trim().toLowerCase().equals(i.getEmployee().getId().toLowerCase())) {
-                    list.add(i);
-                }
-            }
-            fillTable(list);
-        }
+       this.searchEntity();
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnDeleteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnDeleteItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteItemStateChanged
 
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         // TODO add your handling code here:
@@ -407,6 +385,7 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> cboEmpID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -415,8 +394,7 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblPayment;
     private javax.swing.JTextField txtAdvAmout;
-    private javax.swing.JTextField txtAdvDate;
-    private javax.swing.JTextField txtEmpID;
+    private com.toedter.calendar.JDateChooser txtAdvDate;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
@@ -436,8 +414,8 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
     public void setEntityToForm(AdvancePayment entity) {
         txtID.setText(Integer.toString(entity.getId()));
         txtAdvAmout.setText(Double.toString(entity.getAdvAmount()));
-        txtAdvDate.setText(XDate.toString(entity.getDateAdv(), "yyyy-MM-dd"));
-        txtEmpID.setText(entity.getEmployee().getId());
+        txtAdvDate.setDate(Date.from(Instant.MIN));
+        cboEmpID.setSelectedItem(entity.getEmployee().getId());
     }
 
     @Override
@@ -461,10 +439,10 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
     public void createEntity() {
         try {
             if (validateForm()) {
-                Employee employee = employeeDAO.selectByID(txtEmpID.getText().trim());
+                 Employee employee = employeeDAO.selectByID( String.valueOf(cboEmpID.getSelectedItem()).trim());
                 java.sql.Date date = null;
                 try {
-                    date = java.sql.Date.valueOf(txtAdvDate.getText().trim());
+                    date = java.sql.Date.valueOf(txtAdvDate.getDate().toString());
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
                 }
@@ -488,11 +466,11 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         int index = tblPayment.getSelectedRow();
         if (index != -1) {
             if (validateForm()) {
-                Employee employee = employeeDAO.selectByID(txtEmpID.getText().trim());
+                Employee employee = employeeDAO.selectByID(String.valueOf(cboEmpID.getSelectedItem()).trim());
                 AdvancePayment advancePayment = advancePaymentDAO.selectAll().get(index);
                 java.sql.Date date = null;
                 try {
-                    date = java.sql.Date.valueOf(txtAdvDate.getText().trim());
+                    date = java.sql.Date.valueOf(txtAdvDate.getDate().toString());
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
                 }
@@ -534,8 +512,8 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
     public void resetForm() {
         txtID.setText("");
         txtAdvAmout.setText("");
-        txtAdvDate.setText("");
-        txtEmpID.setText("");
+        txtAdvDate.setDate(null);
+        cboEmpID.setSelectedItem(0);
         tblPayment.clearSelection();
     }
 
@@ -549,14 +527,14 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
     }
 
     public boolean validateForm() {
-        if (txtAdvAmout.getText().trim().isEmpty()
-                || txtAdvDate.getText().trim().isEmpty() || txtEmpID.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Không được để trống thông tin", "Lỗi", 2);
-            return false;
-        }
+//        if (txtAdvAmout.getText().trim().isEmpty()
+//                || txtAdvDate.getDate().toString().isEmpty() || txtEmpID.getToolTipText().trim().isEmpty()) {
+//            JOptionPane.showMessageDialog(this, "Không được để trống thông tin", "Lỗi", 2);
+//            return false;
+//        }
 
         try {
-            java.sql.Date date = java.sql.Date.valueOf(txtAdvDate.getText().trim());
+            Date date = txtAdvDate.getDate();
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(this, "Sai định dạng ngày", "Lỗi", 2);
             return false;
@@ -582,25 +560,27 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
             i.getId(), i.getAdvAmount(), i.getDateAdv(), i.getEmployee().getId()
         }));
     }
+     // fill mã nv lên ccbb
+    public void fillCombobox(){
+        DefaultComboBoxModel boxModel = (DefaultComboBoxModel) cboEmpID.getModel();
+        boxModel.removeAllElements();
+        new AdvancePaymentDAO().getAllEmpID().forEach(i->{
+            boxModel.addElement(i);
+        });
+    }
     
      private void searchEntity() {
-        List<AdvancePayment> list = new ArrayList<>();
-        for (AdvancePayment adv : advancePaymentDAO.selectByKeyWord(txtSearch.getText())) {
-            list.add(adv);
+       if (txtSearch.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Chưa nhập thông tin", "Lỗi", JOptionPane.ERROR_MESSAGE);
+        } else {
+            List<AdvancePayment> list = new ArrayList<>();
+            for (AdvancePayment i : advancePaymentDAO.selectByKeyWord(txtSearch.getText())) {
+                if (txtSearch.getText().trim().toLowerCase().equals(i.getEmployee().getId().toLowerCase())) {
+                    list.add(i);
+                }
+            }
+            fillTable(list);
         }
-        fillTable(list);
-
-//        if (txtSearch.getText().trim().isEmpty()) {
-//            JOptionPane.showMessageDialog(this, "Chưa nhập thông tin", "Lỗi", JOptionPane.ERROR_MESSAGE);
-//        } else {
-//            List<AdvancePayment> list = new ArrayList<>();
-//            for (AdvancePayment i : advancePaymentDAO.selectAll()) {
-//                if (txtSearch.getText().trim().toLowerCase().equals(i.getEmployee().getId().toLowerCase())) {
-//                    list.add(i);
-//                }
-//            }
-//            fillTable(list);
-//        }
     }
 
 }
