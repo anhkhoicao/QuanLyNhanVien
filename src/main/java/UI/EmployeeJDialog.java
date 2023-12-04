@@ -212,7 +212,11 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         jLabel16.setText("Password");
         jPanel7.add(jLabel16);
 
-        txtPass.setText("jPasswordField1");
+        txtPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPassActionPerformed(evt);
+            }
+        });
         jPanel7.add(txtPass);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -291,7 +295,9 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
         jPanel10.setLayout(new java.awt.GridLayout(1, 4, 20, 0));
 
-        btnFirst.setText("First");
+        btnFirst.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
+        btnFirst.setText("|<");
+        btnFirst.setMargin(new java.awt.Insets(5, 14, 3, 14));
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFirstActionPerformed(evt);
@@ -299,7 +305,9 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel10.add(btnFirst);
 
-        btnPrev.setText("Previous");
+        btnPrev.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
+        btnPrev.setText("<<");
+        btnPrev.setMargin(new java.awt.Insets(5, 14, 3, 14));
         btnPrev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrevActionPerformed(evt);
@@ -307,7 +315,9 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel10.add(btnPrev);
 
-        btnNext.setText("Next");
+        btnNext.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
+        btnNext.setText(">>");
+        btnNext.setMargin(new java.awt.Insets(5, 14, 3, 14));
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -315,7 +325,10 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel10.add(btnNext);
 
-        btnLast.setText("Last");
+        btnLast.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
+        btnLast.setText(">|");
+        btnLast.setToolTipText("");
+        btnLast.setMargin(new java.awt.Insets(5, 14, 3, 14));
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLastActionPerformed(evt);
@@ -371,13 +384,10 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -404,7 +414,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExit))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         tabs.addTab("CẬP NHẬT", jPanel2);
@@ -472,7 +482,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnExit1)
                 .addGap(21, 21, 21))
@@ -554,11 +564,15 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
     private void cboDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboDepActionPerformed
         // TODO add your handling code here:
-        
+        String depID =  ddao.getIDByName(cboDep.getSelectedItem().toString());
+        cboDep.setToolTipText(depID);
+       
     }//GEN-LAST:event_cboDepActionPerformed
 
     private void cboPosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPosActionPerformed
         // TODO add your handling code here:
+        String posID = pdao.getIDByName(cboPos.getSelectedItem().toString());
+        cboPos.setToolTipText(posID);
         
     }//GEN-LAST:event_cboPosActionPerformed
 
@@ -608,6 +622,10 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         this.Search();
     }//GEN-LAST:event_txtSearchKeyReleased
+
+    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPassActionPerformed
 
     /**
      * @param args the command line arguments

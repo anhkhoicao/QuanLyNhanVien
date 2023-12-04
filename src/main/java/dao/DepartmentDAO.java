@@ -119,10 +119,26 @@ public class DepartmentDAO extends EntityDAO<Department, String> {
         return selectBySql(sql, formattedKeyword,formattedKeyword);
     }
     
+    
+    public String getIDByName(String name) {
+        String sql = "select ID from Department where DepName = ?";
+        String id = null;
+        try {
+            ResultSet rs = XJdbc.query(sql, name);
+            if (rs.next()) {
+                id = rs.getString("ID");
+            }
+            rs.getStatement().getConnection().close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return id;
+    }
+    
     //hàm test để xem thử có kết nối đc với DB hay ko, vui lòng ko chỉnh sửa!!!!
-//    public static void main(String[] args) {
-//        DepartmentDAO dao = new DepartmentDAO();
-//        Department dep = dao.selectByID("D002");
-//        System.out.println(dep.getDepName());
-//    }
+    public static void main(String[] args) {
+        DepartmentDAO dao = new DepartmentDAO();
+        String id = dao.getIDByName("IT Department");
+        System.out.println(id);
+    }
 }

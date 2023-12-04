@@ -52,6 +52,7 @@ public class LoginJDialog extends javax.swing.JDialog {
             }
         });
 
+        lblForgotPass.setForeground(new java.awt.Color(0, 51, 255));
         lblForgotPass.setText("Forgot password ?");
         lblForgotPass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

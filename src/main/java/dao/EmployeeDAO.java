@@ -146,5 +146,20 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
         String sql = "UPDATE Employee SET Password = ? WHERE Id = ?";
         XJdbc.update(sql, e.getPassword(), e.getId());
     }
+    
+    public String getIDByName(String name) {
+        String sql = "select ID from Position where ID = ?";
+         String id = null;
+        try {
+            ResultSet rs = XJdbc.query(sql, name);
+            if (rs.next()) {
+                id = rs.getString("ID");
+            }
+            rs.getStatement().getConnection().close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return id;
+    }
 }
 
