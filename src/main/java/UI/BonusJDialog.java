@@ -219,7 +219,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
                                 .addGap(18, 18, 18)
                                 .addComponent(rdoFine, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtAMOUNT2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,8 +257,8 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
                 .addGroup(tabCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(tabCapNhatLayout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -540,10 +540,9 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
                 BonusDouble = BonusDouble * 1;
             }
 
-           
         } else {
             BonusDouble = BonusDouble * -1;
-            
+
         }
 
         b.setSeq(Integer.parseInt(lblSEQ.getToolTipText()));
@@ -613,27 +612,34 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
     @Override
     public void createEntity() {
         Bonus bonus = this.getEntityFromForm();
-        try {
+        if (isValidated() == false) {
             bDAO.insert(bonus);
             this.resetForm();
             this.fillEntityListOnTable();
             MsgBox.alert(this, "Thêm mới thành công!");
-        } catch (Exception e) {
+        } else {
             MsgBox.alert(this, "Thêm mới thất bại!");
         }
+//        try {
 
+//        } catch (Exception e) {
+//        }
     }
 
     @Override
     public void updateEntity() {
         Bonus bonus = this.getEntityFromForm();
-        try {
+        if (isValidated() == false) {
+//          try {
             bDAO.update(bonus);
             this.fillEntityListOnTable();
             MsgBox.alert(this, "Cập nhật thành công!");
-        } catch (Exception e) {
+        } else {
             MsgBox.alert(this, "Cập nhật thất bại!");
         }
+//        } catch (Exception e) {
+//            MsgBox.alert(this, "Cập nhật thất bại!");
+//        }  
 
     }
 
@@ -662,7 +668,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
     public void resetForm() {
         Bonus bonus = new Bonus();
         bonus.setAmount(0);
-
+        bonus.setBonusDate(new Date());
         bonus.setDesc("");
         bonus.setEmployee(eDAO.selectByID("E001"));
         this.setEntityToForm(bonus);
@@ -729,6 +735,22 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
 
         lblSEQ.setToolTipText(Integer.toString(e.getSeq()));
 
+    }
+
+    boolean isValidated() {
+        Bonus e = this.getEntityFromForm();
+        String bonusAmount = Double.toString(e.getAmount());
+
+        if (e.getBonusDate().equals(" ")) {
+            MsgBox.alert(this, "Không để trống Date!");
+        } else if (bonusAmount.equals("") && bonusAmount.equals(0.0)) {
+            MsgBox.alert(this, "Không để trống tên nhân viên!");
+        } else if (e.getDesc().equals(" ")) {
+            MsgBox.alert(this, "Không để trống số Note!");
+        } else {
+            return true;
+        }
+        return false;
     }
 
 }
