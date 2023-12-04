@@ -559,11 +559,15 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
     private void cboDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboDepActionPerformed
         // TODO add your handling code here:
-        
+        String depID =  ddao.getIDByName(cboDep.getSelectedItem().toString());
+        cboDep.setToolTipText(depID);
+       
     }//GEN-LAST:event_cboDepActionPerformed
 
     private void cboPosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPosActionPerformed
         // TODO add your handling code here:
+        String posID = pdao.getIDByName(cboPos.getSelectedItem().toString());
+        cboPos.setToolTipText(posID);
         
     }//GEN-LAST:event_cboPosActionPerformed
 
