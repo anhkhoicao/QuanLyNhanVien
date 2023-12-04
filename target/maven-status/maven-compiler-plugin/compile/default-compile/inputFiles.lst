@@ -1,44 +1,3 @@
-<<<<<<< HEAD
-A:\DUAN1\QuanLyNhanSu\src\main\java\UI\AdvancePaymentJDialog.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\utils\IconUtil.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\utils\XDate.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\UI\Main2JFrame.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\UI\BonusJDialog.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\dao\BonusDAO.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\entity\Report1.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\utils\CheckBoxEditor.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\dao\DepartmentDAO.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\dao\TimeSheetDAO.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\dao\EmployeeDAO.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\dao\Report1DAO.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\UI\WelcomeJDialog.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\utils\CheckBoxRenderer.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\dao\PositionDAO.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\entity\Position.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\utils\XJdbc.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\entity\Department.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\utils\XFile.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\entity\Bonus.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\entity\TimeSheet.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\UI\EmployeeJDialog.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\entity\AdvancePayment.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\dao\AdvancePaymentDAO.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\entity\Report.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\dao\User.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\utils\Auth.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\dao\EntityDAO.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\dao\ReportDAO.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\UI\ChangPasswordJDialog.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\UI\LoginJDialog.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\UI\DepartmentJDialog.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\UI\TimeSheetJDialog3.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\entity\Employee.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\dao\ReportDAOImpl.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\UI\CrudController.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\controller\MainController.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\utils\MsgBox.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\dao\Report1DAOImpl.java
-=======
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\UI\TimeSheetJDialog3.java
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\UI\ChangPasswordJDialog.java
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\entity\Department.java
@@ -61,6 +20,7 @@ C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\entity\Employee.java
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\UI\EmployeeJDialog.java
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\utils\XFile.java
+C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\UI\IntroduceJDialog.java
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\dao\ReportDAOImpl.java
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\utils\XMail.java
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\UI\WelcomeJDialog.java
@@ -81,4 +41,3 @@ C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\utils\XJdbc.java
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\dao\Report1DAOImpl.java
 C:\Users\caube\OneDrive\Desktop\Workspace\CodeJava\DuAnMot\QuanLyNhanSu\src\main\java\entity\AdvancePayment.java
->>>>>>> 51c0ed309e7dcb5e89d04c12cfcd293ed30bf6ea

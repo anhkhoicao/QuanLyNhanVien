@@ -5,6 +5,10 @@
 package UI;
 
 import controller.MainController;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -71,6 +75,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         mniHelp = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ManangePro");
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 0, 51), 1, true));
         jPanel1.setLayout(new java.awt.BorderLayout());
@@ -261,7 +266,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         mnuHelp.setText("Help");
 
         mniGuide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-analyze-24.png"))); // NOI18N
-        mniGuide.setText("Guide");
+        mniGuide.setText("Introduce");
         mniGuide.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mniGuideActionPerformed(evt);
@@ -647,12 +652,26 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
 
     @Override
     public void openGuide() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        JDialog dialog = new IntroduceJDialog(this, true);
+        openJDialog(dialog);
     }
 
     @Override
     public void openHelp() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            File htmlFile = new File("src/main/resources/TabUI/index.html");
+
+            // Check if the file exists before attempting to open it
+            if (htmlFile.exists()) {
+                Desktop.getDesktop().browse(htmlFile.toURI());
+            } else {
+                MsgBox.alert(this, "File not found: " + htmlFile.getAbsolutePath());
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Consider logging the exception or displaying a more detailed error message
+            MsgBox.alert(this, "Error opening the URL: " + e.getMessage());
+        }
+
     }
 
     @Override
