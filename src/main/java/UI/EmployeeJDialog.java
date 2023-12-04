@@ -291,7 +291,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
         jPanel10.setLayout(new java.awt.GridLayout(1, 4, 20, 0));
 
-        btnFirst.setText("First");
+        btnFirst.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
+        btnFirst.setText("|<");
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFirstActionPerformed(evt);
@@ -299,7 +300,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel10.add(btnFirst);
 
-        btnPrev.setText("Previous");
+        btnPrev.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
+        btnPrev.setText("<<");
         btnPrev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrevActionPerformed(evt);
@@ -307,7 +309,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel10.add(btnPrev);
 
-        btnNext.setText("Next");
+        btnNext.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
+        btnNext.setText(">>");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -315,7 +318,9 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel10.add(btnNext);
 
-        btnLast.setText("Last");
+        btnLast.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
+        btnLast.setText(">|");
+        btnLast.setToolTipText("");
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLastActionPerformed(evt);
@@ -404,7 +409,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExit))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         tabs.addTab("CẬP NHẬT", jPanel2);
@@ -472,7 +477,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnExit1)
                 .addGap(21, 21, 21))
