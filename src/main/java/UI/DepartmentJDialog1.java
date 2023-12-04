@@ -153,7 +153,6 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         jPanel5.setLayout(new java.awt.GridLayout(1, 0, 20, 0));
 
         btnFirst.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        btnFirst.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Desktop\\FPT Polytechnic\\Đang học\\Dự án 1\\first-page-regular-24.png")); // NOI18N
         btnFirst.setPreferredSize(new java.awt.Dimension(80, 40));
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,7 +184,6 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         jPanel5.add(btnNext);
 
         btnLast.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        btnLast.setIcon(new javax.swing.ImageIcon("C:\\Users\\ACER\\Desktop\\FPT Polytechnic\\Đang học\\Dự án 1\\last-page-regular-24.png")); // NOI18N
         btnLast.setPreferredSize(new java.awt.Dimension(80, 40));
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,6 +213,11 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         });
         jScrollPane1.setViewportView(tblDepart);
 
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSearchKeyReleased(evt);
@@ -385,6 +388,10 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         this.Search();
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchKeyReleased
+
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
 
     /**
      * @param args the command line arguments

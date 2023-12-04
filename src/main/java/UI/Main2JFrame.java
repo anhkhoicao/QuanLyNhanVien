@@ -287,7 +287,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 809, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(209, 209, 209)
+                .addGap(206, 206, 206)
                 .addComponent(lblMainImage)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
