@@ -19,6 +19,11 @@
         <exec.mainClass>com.ps34827.quanlynhansu.QuanLyNhanSu</exec.mainClass>
     </properties>
     
+    
+   
+    
+    
+    
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
         <dependency>
