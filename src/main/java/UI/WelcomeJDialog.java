@@ -4,9 +4,13 @@
  */
 package UI;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
+import javax.swing.UIManager;
+
 
 
 /**
@@ -41,27 +45,28 @@ public class WelcomeJDialog extends javax.swing.JDialog {
 
         jLabel1.setBackground(new java.awt.Color(255, 102, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cheems.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/welcome.gif"))); // NOI18N
 
+        pbgLoading.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        pbgLoading.setForeground(new java.awt.Color(0, 0, 0));
         pbgLoading.setStringPainted(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addComponent(pbgLoading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pbgLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pbgLoading, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -129,16 +134,25 @@ public class WelcomeJDialog extends javax.swing.JDialog {
 //                }
 //            }
 //        }).start();
-        new Timer(10, new ActionListener() {
+        new Timer(30, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int value = pbgLoading.getValue();
-                if(value < pbgLoading.getMaximum()) {
-                    pbgLoading.setValue( value + 1);
-                } else {
+               
+                if (value < pbgLoading.getMaximum()) {
+                    pbgLoading.setValue(value + 1);
+                     pbgLoading.setForeground(new Color(74, 122, 201));
+                    pbgLoading.setFont(new Font("Arial", 1, 22));
+                    UIManager.put("nimbusOrange", new Color(185, 148, 234));
+                    if (value >= 50) {
+                        pbgLoading.setForeground(new Color(101, 101, 101));
+                    }
+                }else{
                     WelcomeJDialog.this.dispose();
                 }
+                
             }
+            
         }).start();
         
     }

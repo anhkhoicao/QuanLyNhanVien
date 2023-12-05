@@ -2,10 +2,6 @@ UI\ChangPasswordJDialog$1.class
 UI\Main2JFrame$14.class
 UI\BonusJDialog$17.class
 UI\DepartmentJDialog1$1.class
-<<<<<<< HEAD
-=======
-UI\AdvancePaymentJDialog$12$1.class
->>>>>>> d2bfef4f9c1fb46bc754c83d0102b011f89694f7
 UI\TimeSheetJDialog3$1.class
 utils\XMail.class
 UI\BonusJDialog$6.class
@@ -37,7 +33,6 @@ UI\BonusJDialog$1.class
 UI\ForgotPasswordJDialog$4.class
 utils\XJdbc.class
 UI\Main2JFrame$9.class
-UI\EmployeeJDialog$22$1.class
 utils\XMail$1.class
 dao\ReportDAO.class
 UI\AdvancePaymentJDialog$10.class
@@ -75,7 +70,6 @@ UI\DepartmentJDialog1$9.class
 UI\Main2JFrame$5.class
 utils\IconUtil.class
 UI\TimeSheetJDialog3$3.class
-UI\LoginJDialog$6$1.class
 UI\BonusJDialog$4.class
 UI\ForgotPasswordJDialog$1.class
 UI\Main2JFrame$10.class
@@ -87,7 +81,6 @@ UI\LoginJDialog$4.class
 UI\TimeSheetJDialog3$4.class
 entity\Report.class
 UI\BonusJDialog$3.class
-UI\LoginJDialog$6.class
 entity\Employee.class
 UI\IntroduceJDialog$1.class
 utils\XDate.class
@@ -97,6 +90,7 @@ utils\CheckBoxEditor.class
 UI\DepartmentJDialog1$11.class
 UI\EmployeeJDialog$22.class
 UI\DepartmentJDialog1$4.class
+UI\EmployeeJDialog$23$1.class
 UI\EmployeeJDialog$2.class
 UI\ChangPasswordJDialog.class
 UI\Main2JFrame$17.class
@@ -142,10 +136,12 @@ UI\IntroduceJDialog.class
 UI\DepartmentJDialog1$5.class
 UI\Main2JFrame$15.class
 UI\EmployeeJDialog$20.class
+UI\LoginJDialog$5$1.class
 utils\MsgBox.class
 UI\EmployeeJDialog$1.class
 dao\BonusDAO.class
 UI\AdvancePaymentJDialog$13$1.class
+UI\EmployeeJDialog$23.class
 UI\EmployeeJDialog$4.class
 dao\Report1DAO.class
 UI\AdvancePaymentJDialog$9.class
