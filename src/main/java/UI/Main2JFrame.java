@@ -342,7 +342,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
 
     private void mniEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniEmpActionPerformed
         // TODO add your handling code here:
-        openEmployeeDialog();
+//        openEmployeeDialog();
     }//GEN-LAST:event_mniEmpActionPerformed
 
     private void mniDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniDepartmentActionPerformed
@@ -387,7 +387,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
 
     private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
         // TODO add your handling code here:
-        openEmployeeDialog();
+//        openEmployeeDialog();
     }//GEN-LAST:event_btnEmployeeActionPerformed
 
     private void btnReportSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportSalaryActionPerformed
@@ -416,7 +416,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Window".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -590,12 +590,12 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
 
     @Override
     public void openEmployeeDialog() {
-        if (Auth.isLogin()) {
-            JDialog dialog = new EmployeeJDialog(this, true);
-            openJDialog(dialog);
-        } else {
-            MsgBox.alert(this, "Please login to use the application");
-        }
+//        if (Auth.isLogin()) {
+//            JDialog dialog = new EmployeeJDialog(this, true);
+//            openJDialog(dialog);
+//        } else {
+//            MsgBox.alert(this, "Please login to use the application");
+//        }
     }
 
     @Override
