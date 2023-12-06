@@ -22,6 +22,7 @@ A:\DUAN1\QuanLyNhanSu\src\main\java\entity\Bonus.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\entity\TimeSheet.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\UI\EmployeeJDialog.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\entity\AdvancePayment.java
+A:\DUAN1\QuanLyNhanSu\src\main\java\controller\CrudController.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\dao\AdvancePaymentDAO.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\entity\Report.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\dao\User.java
@@ -36,7 +37,6 @@ A:\DUAN1\QuanLyNhanSu\src\main\java\UI\ForgotPasswordJDialog.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\UI\TimeSheetJDialog3.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\entity\Employee.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\dao\ReportDAOImpl.java
-A:\DUAN1\QuanLyNhanSu\src\main\java\UI\CrudController.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\controller\MainController.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\utils\MsgBox.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\dao\Report1DAOImpl.java

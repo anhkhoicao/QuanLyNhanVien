@@ -135,6 +135,11 @@ public class LoginJDialog extends javax.swing.JDialog {
         chkRememberMe.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         chkRememberMe.setForeground(new java.awt.Color(255, 255, 255));
         chkRememberMe.setText("Remember Password");
+        chkRememberMe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkRememberMeActionPerformed(evt);
+            }
+        });
         jPanel1.add(chkRememberMe, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -220,6 +225,10 @@ public class LoginJDialog extends javax.swing.JDialog {
         show.setEnabled(true);
         show.setEnabled(true);
     }//GEN-LAST:event_disableMouseClicked
+
+    private void chkRememberMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkRememberMeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkRememberMeActionPerformed
 
     /**
      * @param args the command line arguments

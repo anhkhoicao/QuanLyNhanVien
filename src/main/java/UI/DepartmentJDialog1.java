@@ -17,7 +17,7 @@ import utils.MsgBox;
  *
  * @author ACER
  */
-public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudController<Department>{
+public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudController<Department> {
 
     /**
      * Creates new form DepartmentJDialog
@@ -26,8 +26,8 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-         txtID.setBorder(BorderFactory.createCompoundBorder(txtID.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 0)));
-            txtDepName.setBorder(BorderFactory.createCompoundBorder(txtDepName.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 0)));
+        txtID.setBorder(BorderFactory.createCompoundBorder(txtID.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 0)));
+        txtDepName.setBorder(BorderFactory.createCompoundBorder(txtDepName.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 0)));
 
     }
 
@@ -330,10 +330,10 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
     }//GEN-LAST:event_btnFirstActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        if(isValidate()){
+        if (isValidate()) {
             this.createEntity();
         }
-    // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -364,14 +364,14 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
     }//GEN-LAST:event_btnLastActionPerformed
 
     private void tblDepartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDepartMouseClicked
-        if(evt.getClickCount()==1){
+        if (evt.getClickCount() == 1) {
             this.editEntity();
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_tblDepartMouseClicked
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        if(txtSearch.getText().trim().isEmpty()){
+        if (txtSearch.getText().trim().isEmpty()) {
             MsgBox.alert(this, "Vui lòng nhập thông tin muốn tìm");
         }
         this.Search();
@@ -457,6 +457,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
     DepartmentDAO dDAO = new DepartmentDAO();
+
     @Override
     public Department getEntityFromForm() {
         Department dep = new Department();
@@ -471,32 +472,29 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         txtDepName.setText(dep.getDepName());
     }
 
-    
-
-
     @Override
     public void fillEntityListOnTable() {
         DefaultTableModel model = (DefaultTableModel) tblDepart.getModel();
         model.setRowCount(0);
-        
+
         List<Department> dep = dDAO.selectAll();
-        dep.forEach(d ->
-                {
-                    int totalEmployees = dDAO.getTotalEmployees(d.getDepID());
-                    Object [] row = {
-                        d.getDepID(),
-                        d.getDepName(),
-                        totalEmployees
-                    };
-                    model.addRow(row);
-                }
+        dep.forEach(d
+                -> {
+            int totalEmployees = dDAO.getTotalEmployees(d.getDepID());
+            Object[] row = {
+                d.getDepID(),
+                d.getDepName(),
+                totalEmployees
+            };
+            model.addRow(row);
+        }
         );
     }
 
     @Override
     public Department getEntityFromSelectedRow() {
         int index = tblDepart.getSelectedRow();
-        String id = (String) tblDepart.getValueAt(index, 0 );
+        String id = (String) tblDepart.getValueAt(index, 0);
         Department dep = dDAO.selectByID(id);
         return dep;
     }
@@ -509,68 +507,63 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
 
     @Override
     public void createEntity() {
-        if(!Auth.isManager()){
+        if (!Auth.isManager()) {
             MsgBox.alert(this, "Bạn không có quyền thêm mới");
-        }else {
-        Department dep = this.getEntityFromForm();
-        try {
-        dDAO.insert(dep);
-        this.resetForm();
-        this.fillEntityListOnTable();
-            MsgBox.alert(this, "Thêm mới thành công");
-        } catch (Exception e) {
-            MsgBox.alert(this, "Thêm mới thất bại");
+        } else {
+            Department dep = this.getEntityFromForm();
+            try {
+                dDAO.insert(dep);
+                this.resetForm();
+                this.fillEntityListOnTable();
+                MsgBox.alert(this, "Thêm mới thành công");
+            } catch (Exception e) {
+                MsgBox.alert(this, "Thêm mới thất bại");
+            }
         }
-        }
-            
-        
+
     }
 
     @Override
     public void updateEntity() {
-        if(!Auth.isManager()){
+        if (!Auth.isManager()) {
             MsgBox.alert(this, "Bạn không có quyền sửa");
-        }else {
+        } else {
             Department dep = this.getEntityFromForm();
-           try {
-            dDAO.update(dep);
-            this.resetForm();
-            this.fillEntityListOnTable();
-            MsgBox.alert(this, "Cập nhật thành công");
-           } catch (Exception e) {
-               MsgBox.alert(this, "Cập nhật thất bại");
+            try {
+                dDAO.update(dep);
+                this.resetForm();
+                this.fillEntityListOnTable();
+                MsgBox.alert(this, "Cập nhật thành công");
+            } catch (Exception e) {
+                MsgBox.alert(this, "Cập nhật thất bại");
             }
         }
-        
-        
-        
-        
+
     }
 
     @Override
     public void deleteEntity() {
-        if(!Auth.isManager()){
+        if (!Auth.isManager()) {
             MsgBox.alert(this, "Bạn không có quyền xóa!");
-        }else
-        if(MsgBox.confirm(this, "Bạn muốn xóa phòng ban này?")){
+        } else if (MsgBox.confirm(this, "Bạn muốn xóa phòng ban này?")) {
             try {
-            Department dep = this.getEntityFromForm();
-            dDAO.delete(dep.getDepID());
-            this.resetForm();
-            this.fillEntityListOnTable();
+                Department dep = this.getEntityFromForm();
+                dDAO.delete(dep.getDepID());
+                this.resetForm();
+                this.fillEntityListOnTable();
                 MsgBox.alert(this, "Xóa thành công");
             } catch (Exception e) {
                 MsgBox.alert(this, "Xóa thất bại");
             }
         }
-        
+
     }
 
     @Override
     public void editEntity() {
         Department dep = this.getEntityFromSelectedRow();
         this.setEntityToForm(dep);
-        
+
     }
 
     @Override
@@ -594,75 +587,75 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
 
     @Override
     public void movePrev() {
-        int index = tblDepart.getSelectedRow()-1;
-        if(index >= 0){
+        int index = tblDepart.getSelectedRow() - 1;
+        if (index >= 0) {
             this.setSelectedRowIndex(index);
             this.editEntity();
-        }else{
-        MsgBox.alert(jPanel1, "Bạn đang ở hàng đầu tiên");
-    }
+        } else {
+            MsgBox.alert(jPanel1, "Bạn đang ở hàng đầu tiên");
+        }
     }
 
     @Override
     public void moveNext() {
-        int index = tblDepart.getSelectedRow()+1;
-        if(index < tblDepart.getRowCount()){
+        int index = tblDepart.getSelectedRow() + 1;
+        if (index < tblDepart.getRowCount()) {
             this.setSelectedRowIndex(index);
             this.editEntity();
-        }else{
-        MsgBox.alert(jPanel1, "Bạn đang ở dòng cuối cùng");
+        } else {
+            MsgBox.alert(jPanel1, "Bạn đang ở dòng cuối cùng");
         }
     }
 
     @Override
     public void moveLast() {
-        int index = tblDepart.getRowCount()-1;
+        int index = tblDepart.getRowCount() - 1;
         this.setSelectedRowIndex(index);
         this.editEntity();
     }
-    boolean isValidate(){
+
+    boolean isValidate() {
         Department dep = this.getEntityFromForm();
-        if(dep.getDepID().isEmpty()){
+        if (dep.getDepID().isEmpty()) {
             MsgBox.alert(this, "Vui lòng không được để trống ID");
             return false;
-        }else 
-        if(dep.getDepName().isEmpty()){
+        } else if (dep.getDepName().isEmpty()) {
             MsgBox.alert(this, "Vui lòng không được để trống DepName");
             return false;
-        }
-        else{
+        } else {
             return true;
         }
-        
-        }
-    
-    void FillTableSearch(){
+
+    }
+
+    void FillTableSearch() {
         DefaultTableModel model = (DefaultTableModel) tblDepart.getModel();
         model.setRowCount(0);
         try {
             String keyword = txtSearch.getText();
-        List<Department> list = dDAO.selectByKeyWord(keyword);
-        list.forEach(dp ->
-        {
-            int totalEmployees = dDAO.getTotalEmployees(dp.getDepID());
-            Object [] row = {
-                dp.getDepID(),
-                dp.getDepName(),
-                totalEmployees
-            };
-            model.addRow(row);
-        }
-          );
+            List<Department> list = dDAO.selectByKeyWord(keyword);
+            list.forEach(dp
+                    -> {
+                int totalEmployees = dDAO.getTotalEmployees(dp.getDepID());
+                Object[] row = {
+                    dp.getDepID(),
+                    dp.getDepName(),
+                    totalEmployees
+                };
+                model.addRow(row);
+            }
+            );
         } catch (Exception e) {
             System.out.println(e);
         }
-        
+
     }
-    public void Search(){
+
+    public void Search() {
         this.FillTableSearch();
         this.resetForm();
         int row = -1;
-        
+
     }
-              
+
 }

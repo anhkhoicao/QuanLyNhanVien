@@ -273,7 +273,7 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         kGradientPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 33, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/star-removebg-preview.png"))); // NOI18N
-        kGradientPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 420, 420));
+        kGradientPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 410, 420));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/star-removebg-preview.png"))); // NOI18N
         kGradientPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 420, 420));
