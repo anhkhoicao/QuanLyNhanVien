@@ -146,7 +146,10 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
         String sql = "UPDATE Employee SET Password = ? WHERE Id = ?";
         XJdbc.update(sql, e.getPassword(), e.getId());
     }
-    
+
+    Employee getById(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }   
     public String getIDByName(String name) {
         String sql = "select ID from Position where ID = ?";
          String id = null;

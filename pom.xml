@@ -5,12 +5,24 @@
     <artifactId>QuanLyNhanSu</artifactId>
     <version>1.0-WINTER</version>
     <packaging>jar</packaging>
+    <repositories>
+        <repository>
+            <id>unknown-jars-temp-repo</id>
+            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
+            <url>file:${project.basedir}/lib</url>
+        </repository>
+    </repositories>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
         <exec.mainClass>com.ps34827.quanlynhansu.QuanLyNhanSu</exec.mainClass>
     </properties>
+    
+    
+   
+    
+    
     
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
@@ -44,6 +56,11 @@
             <artifactId>mail</artifactId>
             <version>1.4.7</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>unknown.binary</groupId>
+            <artifactId>KGradientPanel</artifactId>
+            <version>SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
