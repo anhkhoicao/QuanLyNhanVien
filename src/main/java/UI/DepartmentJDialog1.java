@@ -4,6 +4,7 @@
  */
 package UI;
 
+import controller.CrudController;
 import dao.DepartmentDAO;
 import entity.Department;
 import java.util.List;
