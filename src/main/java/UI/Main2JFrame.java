@@ -387,7 +387,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
 
     private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
         // TODO add your handling code here:
-//        openEmployeeDialog();
+        openEmployeeDialog();
     }//GEN-LAST:event_btnEmployeeActionPerformed
 
     private void btnReportSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportSalaryActionPerformed
