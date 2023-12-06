@@ -101,7 +101,6 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
                 "ID", "Department Name", "Total Employees"
             }
         ));
-        tblDepart.setRowHeight(20);
         tblDepart.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblDepartMouseClicked(evt);
@@ -136,8 +135,11 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSearch)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+                .addContainerGap(72, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,9 +148,9 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearch)
                     .addComponent(btnSearch))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(426, 426, 426))
+                .addGap(432, 432, 432))
         );
 
         kGradientPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, 360));
@@ -233,7 +235,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         jPanel5.add(btnNext);
 
         btnLast.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        btnLast.setText("|>");
+        btnLast.setText(">|");
         btnLast.setPreferredSize(new java.awt.Dimension(80, 40));
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

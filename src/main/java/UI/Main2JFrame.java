@@ -54,6 +54,8 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         btnHelp = new javax.swing.JButton();
         lblMainImage = new javax.swing.JLabel();
         kGradientPanel1 = new keeptoo.KGradientPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuSystem = new javax.swing.JMenu();
         mniLogin = new javax.swing.JMenuItem();
@@ -170,7 +172,14 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         kGradientPanel1.setkEndColor(new java.awt.Color(102, 163, 232));
         kGradientPanel1.setkGradientFocus(15);
         kGradientPanel1.setkStartColor(new java.awt.Color(204, 102, 255));
-        jPanel2.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 840, 470));
+
+        jLabel1.setText("jLabel1");
+        kGradientPanel1.add(jLabel1);
+
+        jLabel2.setText("jLabel2");
+        kGradientPanel1.add(jLabel2);
+
+        jPanel2.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 830, 470));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 460));
 
@@ -437,6 +446,8 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnHelp;
     private javax.swing.JButton btnReportSalary;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
