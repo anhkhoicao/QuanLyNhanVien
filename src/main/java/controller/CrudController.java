@@ -1,4 +1,4 @@
-package UI;
+package controller;
 
 public interface CrudController<Entity> {
     /*

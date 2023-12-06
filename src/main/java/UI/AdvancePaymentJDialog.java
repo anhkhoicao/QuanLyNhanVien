@@ -4,6 +4,7 @@
  */
 package UI;
 
+import controller.CrudController;
 import dao.AdvancePaymentDAO;
 import dao.EmployeeDAO;
 import entity.AdvancePayment;
@@ -56,6 +57,7 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
     private void initComponents() {
 
         kGradientPanel1 = new keeptoo.KGradientPanel();
+        jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -75,8 +77,10 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         jLabel2 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -88,6 +92,8 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
             kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/star-removebg-preview.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -217,6 +223,7 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         });
         kGradientPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 120, -1));
 
+        cboEmpID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cboEmpID.setAlignmentX(1.0F);
         kGradientPanel2.add(cboEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 220, 30));
 
@@ -227,6 +234,7 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
 
         txtAdvDate.setBackground(java.awt.Color.white);
         txtAdvDate.setAlignmentX(1.0F);
+        txtAdvDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         kGradientPanel2.add(txtAdvDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 220, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -234,6 +242,7 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         jLabel3.setText("Ngày ứng");
         kGradientPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
+        txtAdvAmout.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtAdvAmout.setAlignmentX(1.0F);
         txtAdvAmout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,6 +258,7 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
 
         txtID.setEditable(false);
         txtID.setBackground(java.awt.Color.white);
+        txtID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtID.setAlignmentX(1.0F);
         txtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,11 +272,17 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         jLabel5.setText("ID");
         kGradientPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 33, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/background.gif"))); // NOI18N
-        kGradientPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, -10, 440, 490));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/star-removebg-preview.png"))); // NOI18N
+        kGradientPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 410, 420));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/background.gif"))); // NOI18N
-        kGradientPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 520, 520));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/star-removebg-preview.png"))); // NOI18N
+        kGradientPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 420, 420));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/star-removebg-preview.png"))); // NOI18N
+        kGradientPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 490, 540));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/star-removebg-preview.png"))); // NOI18N
+        kGradientPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, 420, 420));
 
         jPanel1.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 560));
 
@@ -414,12 +430,15 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> cboEmpID;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private keeptoo.KGradientPanel kGradientPanel1;

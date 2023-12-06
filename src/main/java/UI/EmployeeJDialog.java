@@ -21,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import utils.IconUtil;
 import utils.XFile;
+import utils.XMail;
 
 /**
  *
@@ -87,16 +88,16 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         lbl17 = new javax.swing.JLabel();
         cboPos = new javax.swing.JComboBox<>();
         jPanel10 = new javax.swing.JPanel();
+        lblPics = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        btnDelete = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnNew = new javax.swing.JButton();
         btnFirst = new javax.swing.JButton();
         btnPrev = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
         btnLast = new javax.swing.JButton();
-        lblPics = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        btnNew = new javax.swing.JButton();
-        btnAdd = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
@@ -110,28 +111,35 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("THÔNG TIN NHÂN VIÊN");
 
+        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnExit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/off.png"))); // NOI18N
         btnExit.setText("EXIT");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
+        jPanel2.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, -1, -1));
 
+        jPanel7.setBackground(new java.awt.Color(153, 153, 255));
         jPanel7.setLayout(new java.awt.GridLayout(11, 2, -160, 10));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("ID");
         jPanel7.add(jLabel2);
         jPanel7.add(txtID);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("First Name");
         jPanel7.add(jLabel3);
         jPanel7.add(txtFirstName);
 
-        lblPass.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblPass.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPass.setText("Last Name");
         jPanel7.add(lblPass);
@@ -143,10 +151,12 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel7.add(txtLastName);
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel6.setText("Sex");
         jPanel7.add(jLabel6);
+
+        jPanel6.setBackground(new java.awt.Color(153, 153, 255));
 
         buttonGroup1.add(rdoOther);
         rdoOther.setText("Other");
@@ -183,7 +193,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
         jPanel7.add(jPanel6);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("Phone");
         jPanel7.add(jLabel4);
@@ -195,7 +205,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel7.add(txtPhone);
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel13.setText("Email");
         jPanel7.add(jLabel13);
@@ -207,7 +217,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel7.add(txtEmail);
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel16.setText("Password");
         jPanel7.add(jLabel16);
@@ -219,11 +229,13 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel7.add(txtPass);
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel14.setText("Role");
         jLabel14.setMinimumSize(new java.awt.Dimension(28, 10));
         jPanel7.add(jLabel14);
+
+        jPanel8.setBackground(new java.awt.Color(153, 153, 255));
 
         buttonGroup2.add(rboNhanVien);
         rboNhanVien.setText("Employee");
@@ -255,7 +267,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
         jPanel7.add(jPanel8);
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel15.setText("BaseSalary");
         jPanel7.add(jLabel15);
@@ -267,7 +279,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel7.add(txtBaseSalary);
 
-        cbo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cbo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         cbo.setText("Department");
         jPanel7.add(cbo);
@@ -279,9 +291,11 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel7.add(cboDep);
 
-        lbl17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbl17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl17.setText("Position");
+        lbl17.setToolTipText("");
+        lbl17.setAlignmentX(0.5F);
         lbl17.setMaximumSize(new java.awt.Dimension(20, 20));
         lbl17.setMinimumSize(new java.awt.Dimension(20, 20));
         jPanel7.add(lbl17);
@@ -293,7 +307,62 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel7.add(cboPos);
 
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 460, 370));
+
         jPanel10.setLayout(new java.awt.GridLayout(1, 4, 20, 0));
+        jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 384, 265, -1));
+
+        lblPics.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPics.setText("ẢNH");
+        lblPics.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPicsMouseClicked(evt);
+            }
+        });
+        jPanel2.add(lblPics, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 146, 131));
+
+        jPanel5.setLayout(new java.awt.GridLayout(2, 2, 20, 20));
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 194, -1, -1));
+
+        btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/delete_32px.png"))); // NOI18N
+        btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 280, 110, -1));
+
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/create_32px.png"))); // NOI18N
+        btnUpdate.setText("UPDATE");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, -1));
+
+        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/save_32px.png"))); // NOI18N
+        btnAdd.setText("ADD");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, 110, -1));
+
+        btnNew.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/add.png"))); // NOI18N
+        btnNew.setText("NEW");
+        btnNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 110, -1));
 
         btnFirst.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
         btnFirst.setText("|<");
@@ -303,7 +372,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                 btnFirstActionPerformed(evt);
             }
         });
-        jPanel10.add(btnFirst);
+        jPanel2.add(btnFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 51, -1));
 
         btnPrev.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
         btnPrev.setText("<<");
@@ -313,7 +382,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                 btnPrevActionPerformed(evt);
             }
         });
-        jPanel10.add(btnPrev);
+        jPanel2.add(btnPrev, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 51, -1));
 
         btnNext.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
         btnNext.setText(">>");
@@ -323,7 +392,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                 btnNextActionPerformed(evt);
             }
         });
-        jPanel10.add(btnNext);
+        jPanel2.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, 51, -1));
 
         btnLast.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
         btnLast.setText(">|");
@@ -334,90 +403,11 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                 btnLastActionPerformed(evt);
             }
         });
-        jPanel10.add(btnLast);
-
-        lblPics.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPics.setText("ẢNH");
-        lblPics.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-        lblPics.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblPicsMouseClicked(evt);
-            }
-        });
-
-        jPanel5.setLayout(new java.awt.GridLayout(2, 2, 20, 20));
-
-        btnNew.setText("NEW");
-        btnNew.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewActionPerformed(evt);
-            }
-        });
-        jPanel5.add(btnNew);
-
-        btnAdd.setText("ADD");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
-        jPanel5.add(btnAdd);
-
-        btnUpdate.setText("UPDATE");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
-            }
-        });
-        jPanel5.add(btnUpdate);
-
-        btnDelete.setText("DELETE");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-        jPanel5.add(btnDelete);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnExit)
-                        .addGap(76, 76, 76))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblPics, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(67, Short.MAX_VALUE))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblPics, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExit))
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
+        jPanel2.add(btnLast, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 51, -1));
 
         tabs.addTab("CẬP NHẬT", jPanel2);
+
+        jPanel3.setBackground(new java.awt.Color(153, 153, 255));
 
         txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -430,6 +420,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             }
         });
 
+        btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/search_client_32px.png"))); // NOI18N
         btnSearch.setText("SEARCH");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -437,6 +429,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             }
         });
 
+        tblEmployees.setBackground(new java.awt.Color(153, 153, 255));
+        tblEmployees.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -455,6 +449,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tblEmployees);
 
+        btnExit1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnExit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/off.png"))); // NOI18N
         btnExit1.setText("EXIT");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -463,13 +459,13 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(88, Short.MAX_VALUE)
+                .addContainerGap(110, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
                         .addComponent(btnSearch)
-                        .addGap(57, 57, 57))
+                        .addGap(93, 93, 93))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(btnExit1)
                         .addGap(34, 34, 34))))
@@ -479,10 +475,10 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch))
+                    .addComponent(btnSearch)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnExit1)
                 .addGap(21, 21, 21))
@@ -494,19 +490,19 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tabs)
             .addGroup(layout.createSequentialGroup()
-                .addGap(193, 193, 193)
+                .addGap(261, 261, 261)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(tabs)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabs))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tabs, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -549,7 +545,10 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        this.Add();
+        if (this.isValidated()) {
+            this.Add();
+        }
+
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -564,21 +563,21 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
     private void cboDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboDepActionPerformed
         // TODO add your handling code here:
-        String depID =  ddao.getIDByName(cboDep.getSelectedItem().toString());
+        String depID = ddao.getIDByName(cboDep.getSelectedItem().toString());
         cboDep.setToolTipText(depID);
-       
+
     }//GEN-LAST:event_cboDepActionPerformed
 
     private void cboPosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPosActionPerformed
         // TODO add your handling code here:
         String posID = pdao.getIDByName(cboPos.getSelectedItem().toString());
         cboPos.setToolTipText(posID);
-        
+
     }//GEN-LAST:event_cboPosActionPerformed
 
     private void tblEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeesMouseClicked
         // TODO add your handling code here:
-        if(evt.getClickCount() == 1){
+        if (evt.getClickCount() == 1) {
             this.row = tblEmployees.getSelectedRow();
             this.edit();
         }
@@ -660,6 +659,30 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -679,15 +702,15 @@ public class EmployeeJDialog extends javax.swing.JDialog {
     EmployeeDAO edao = new EmployeeDAO();
     DepartmentDAO ddao = new DepartmentDAO();
     PositionDAO pdao = new PositionDAO();
-    
+
     int row = -1;
-    
-    void fillTable(){
+
+    void fillTable() {
         DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
         model.setRowCount(0);
         try {
             List<Employee> list = edao.selectAll();
-            for (Employee e : list){
+            for (Employee e : list) {
                 Object[] row = {
                     e.getId(),
                     e.getFirstName(),
@@ -704,14 +727,14 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             System.out.println(e);
         }
     }
-    
-        void fillTableSearch(){
+
+    void fillTableSearch() {
         DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
         model.setRowCount(0);
         try {
             String keyword = txtSearch.getText();
             List<Employee> list = edao.selectByKeyWord(keyword);
-            for (Employee e : list){
+            for (Employee e : list) {
                 Object[] row = {
                     e.getId(),
                     e.getFirstName(),
@@ -728,8 +751,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             System.out.println(e);
         }
     }
-    
-    void fillcboDepartment(){
+
+    void fillcboDepartment() {
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboDep.getModel();
         model.removeAllElements();
         List<String> list = ddao.getDepName();
@@ -737,8 +760,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             model.addElement(s);
         }
     }
-    
-    void fillcboPosition(){
+
+    void fillcboPosition() {
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboPos.getModel();
         model.removeAllElements();
         List<String> list = pdao.getPosName();
@@ -746,163 +769,161 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             model.addElement(s);
         }
     }
-    
-    void setForm(Employee e){
+
+    void setForm(Employee e) {
         txtID.setText(e.getId());
         txtFirstName.setText(e.getFirstName());
         txtLastName.setText(e.getLastName());
-        if(e.getSex().equalsIgnoreCase("Male")){
+        if (e.getSex().equalsIgnoreCase("Male")) {
             rdoMale.setSelected(true);
-        }else if(e.getSex().equalsIgnoreCase("Female")){
+        } else if (e.getSex().equalsIgnoreCase("Female")) {
             rdoFemale.setSelected(true);
-        }else{
+        } else {
             rdoOther.setSelected(true);
         }
-        
+
         txtPhone.setText(e.getPhoneNumber());
         txtEmail.setText(e.getEmail());
         txtPass.setText(e.getPassword());
-        
-        if(e.getRole().equalsIgnoreCase("Manager")){
+
+        if (e.getRole().equalsIgnoreCase("Manager")) {
             rboTruongPhong.setSelected(true);
-        }else if(e.getRole().equalsIgnoreCase("Accountant")){
+        } else if (e.getRole().equalsIgnoreCase("Accountant")) {
             rboKeToan.setSelected(true);
-        }else{
+        } else {
             rboNhanVien.setSelected(true);
         }
-        
+
         txtBaseSalary.setText(Double.toString(e.getBaseSalary()));
         cboDep.setSelectedItem(e.getDepartment().getDepName());
         cboPos.setSelectedItem(e.getPosition().getPosName());
         cboDep.setToolTipText(e.getDepartment().getDepID());
         cboPos.setToolTipText(e.getPosition().getPosID());
-        
+
         ImageIcon imageicon = new ImageIcon(e.getImage());
         ImageIcon fitImage = XFile.getScaledIcon(imageicon, 150, 150);
         lblPics.setIcon(fitImage);
-        
+
     }
-    
-    Employee getForm(){
+
+    Employee getForm() {
         Employee e = new Employee();
         e.setId(txtID.getText());
         e.setFirstName(txtFirstName.getText());
         e.setLastName(txtLastName.getText());
-        
-        if(rdoMale.isSelected()){
+
+        if (rdoMale.isSelected()) {
             e.setSex(String.valueOf(rdoMale.getText()));
-        }else if(rdoFemale.isSelected()){
+        } else if (rdoFemale.isSelected()) {
             e.setSex(String.valueOf(rdoFemale.getText()));
-        }else{
+        } else {
             e.setSex(String.valueOf(rdoOther.getText()));
         }
-        
+
         e.setPhoneNumber(txtPhone.getText());
         e.setEmail(txtEmail.getText());
         e.setPassword(String.valueOf(txtPass.getPassword()));
-        
-        if(rboTruongPhong.isSelected()){
+
+        if (rboTruongPhong.isSelected()) {
             e.setRole(String.valueOf(rboTruongPhong.getText()));
-        }else if(rboKeToan.isSelected()){
+        } else if (rboKeToan.isSelected()) {
             e.setRole(String.valueOf(rboKeToan.getText()));
-        }else{
+        } else {
             e.setRole(String.valueOf(rboNhanVien.getText()));
         }
-        
+
         e.setBaseSalary(Double.parseDouble(txtBaseSalary.getText()));
         e.setDepartment(ddao.selectByID(cboDep.getToolTipText()));
         e.setPosition(pdao.selectByID(cboPos.getToolTipText()));
         e.setImage("./src/main/resources/images/" + lblPics.getToolTipText());
         return e;
     }
-    
-    void Add(){
-        Employee e = this.getForm();
-            try {
-                edao.insert(e); // thêm mới
-                this.fillTable(); // đỗ lại bảng
-                this.clearForm(); // xóa trắng form
-                MsgBox.alert(this, "Thêm mới thành công!");
-            } 
-            catch (Exception ex) {
-                MsgBox.alert(this, "Thêm mới thất bại!");
-            }
-    }
-    
-    void Update(){
+
+    void Add() {
         Employee e = this.getForm();
         try {
-                edao.update(e); // cập nhật
-                this.fillTable(); // đổ lại bảng
-                MsgBox.alert(this, "Cập nhật thành công!");
-            } 
-            catch (Exception ex) {
-                //MsgBox.alert(this, "Cập nhật thất bại!");
-                System.out.println(ex);
-            }
-    }
-    
-    void Delete(){
-        if(!Auth.isManager()){
-            MsgBox.alert(this, "Bạn không có quyền xóa nhân viên!");
+            edao.insert(e); // thêm mới
+            this.fillTable(); // đỗ lại bảng
+            this.clearForm(); // xóa trắng form
+            MsgBox.alert(this, "Thêm mới thành công!");
+        } catch (Exception ex) {
+            MsgBox.alert(this, "Thêm mới thất bại!");
         }
-        else{
+    }
+
+    void Update() {
+        Employee e = this.getForm();
+        try {
+            edao.update(e); // cập nhật
+            this.fillTable(); // đổ lại bảng
+            MsgBox.alert(this, "Cập nhật thành công!");
+        } catch (Exception ex) {
+            //MsgBox.alert(this, "Cập nhật thất bại!");
+            System.out.println(ex);
+        }
+    }
+
+    void Delete() {
+        if (!Auth.isManager()) {
+            MsgBox.alert(this, "Bạn không có quyền xóa nhân viên!");
+        } else {
             String id = txtID.getText();
-            if(id.equals(Auth.user.getId())){
+            if (id.equals(Auth.user.getId())) {
                 MsgBox.alert(this, "Bạn không được xóa chính bạn!");
-            }
-            else if(MsgBox.confirm(this, "Bạn thực sự muốn xóa nhân viên này?")){
+            } else if (MsgBox.confirm(this, "Bạn thực sự muốn xóa nhân viên này?")) {
                 try {
                     edao.delete(id);
                     this.fillTable();
                     this.clearForm();
                     MsgBox.alert(this, "Xóa thành công!");
-                } 
-                catch (Exception e) {
+                } catch (Exception e) {
                     MsgBox.alert(this, "Xóa thất bại!");
                 }
             }
         }
     }
-    
-    void first(){
+
+    void first() {
         this.row = 0;
         this.edit();
     }
-    void prev(){
-        if(this.row > 0){
+
+    void prev() {
+        if (this.row > 0) {
             this.row--;
             this.edit();
         }
     }
-    void next(){
-        if(this.row < tblEmployees.getRowCount() - 1){
+
+    void next() {
+        if (this.row < tblEmployees.getRowCount() - 1) {
             this.row++;
             this.edit();
         }
     }
-    void last(){
+
+    void last() {
         this.row = tblEmployees.getRowCount() - 1;
         this.edit();
     }
-    
-    void clearForm(){
+
+    void clearForm() {
         Employee e = new Employee();
-        
-        e.setSex("Other");        
+
+        e.setSex("Other");
         e.setPhoneNumber("");
         e.setEmail("");
         e.setRole("Employee");
         e.setBaseSalary(0);
         e.setDepartment(ddao.selectByID("D001"));
         e.setPosition(pdao.selectByID("P003"));
-        
+
         this.setForm(e);
         this.row = -1;
         this.updateStatus();
     }
-    
-    void updateStatus(){
+
+    void updateStatus() {
         boolean edit = (this.row >= 0);
         boolean first = (this.row == 0);
         boolean last = (this.row == tblEmployees.getRowCount() - 1);
@@ -911,10 +932,10 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 //        btnAdd.setEnabled(!edit);
 //        btnUpdate.setEnabled(edit);
 //        btnDelete.setEnabled(edit);
-        
-        if(!Auth.isAccountant()){
+
+        if (!Auth.isAccountant()) {
             txtBaseSalary.setEditable(false);
-        }else{
+        } else {
             txtID.setEditable(false);
             txtFirstName.setEditable(false);
             txtLastName.setEditable(false);
@@ -930,33 +951,31 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             cboDep.setEnabled(false);
             cboPos.setEnabled(false);
         }
-        
-        if(Auth.isManager()){
+
+        if (Auth.isManager()) {
             txtID.setEditable(!edit);
             btnAdd.setEnabled(!edit);
             btnUpdate.setEnabled(edit);
             btnDelete.setEnabled(edit);
-        }else if(Auth.isAccountant()){
+        } else if (Auth.isAccountant()) {
             btnNew.setEnabled(!edit);
             btnAdd.setEnabled(!edit);
             btnUpdate.setEnabled(edit);
             btnDelete.setEnabled(!edit);
-        }else{
+        } else {
             btnNew.setEnabled(!edit);
             btnAdd.setEnabled(!edit);
             btnUpdate.setEnabled(!edit);
             btnDelete.setEnabled(!edit);
         }
-        
-        
-                
+
         // Trạng thái điều hướng
         btnFirst.setEnabled(edit && !first);
         btnPrev.setEnabled(edit && !first);
         btnNext.setEnabled(edit && !last);
         btnLast.setEnabled(edit && !last);
     }
-    
+
     void edit() {
         String id = (String) tblEmployees.getValueAt(this.row, 0);
         Employee e = edao.selectByID(id);
@@ -964,24 +983,31 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         tabs.setSelectedIndex(0);
         this.updateStatus();
     }
-    
-    boolean isValidated(){
+
+    private boolean isValidated() {
         Employee e = this.getForm();
-        if(e.getId().length() == 0){
-            MsgBox.alert(this, "Không để trống mã nhân viên!");
-        }
-        else if(e.getLastName().length() == 0){
-            MsgBox.alert(this, "Không để trống tên nhân viên!");
-        }
-        else if(e.getPhoneNumber().length() == 0){
-            MsgBox.alert(this, "Không để trống số điện thoại!");
-        }
-        else{
+
+        if (e.getId().isEmpty()) {
+            MsgBox.alert(this, "Do not leave employee ID blank!");
+        } else if (e.getLastName().isEmpty()) {
+            MsgBox.alert(this, "Do not leave last name blank!");
+        } else if (e.getPhoneNumber().isEmpty()) {
+            MsgBox.alert(this, "Do not leave phone number blank!");
+        } else if (e.getFirstName().isEmpty()) {
+            MsgBox.alert(this, "Do not leave first name blank!");
+        } else if (e.getEmail().isEmpty()) {
+            MsgBox.alert(this, "Do not leave email blank!");
+        } else if (!XMail.isValidEmail(e.getEmail())) {
+            MsgBox.alert(this, "Improperly formatted email!");
+        } else if (e.getPassword().isEmpty()) {
+            MsgBox.alert(this, "Do not leave password blank!");
+        } else {
             return true;
         }
+
         return false;
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
@@ -1040,18 +1066,18 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
     private void selectImage() {
         int option = fileImageChooser.showOpenDialog(this);
-        if(option == JFileChooser.APPROVE_OPTION){
+        if (option == JFileChooser.APPROVE_OPTION) {
             File file = fileImageChooser.getSelectedFile();
-            
+
             File folder = new File("./src/main/resources/images");
             File newFile = IconUtil.copyFileToStorageFolder(file, folder);
             IconUtil.setIconToLabel(newFile, lblPics);
-            
+
             lblPics.setToolTipText(newFile.getName());
         }
     }
-    
-    private void Search(){
+
+    private void Search() {
 //        List<Employee> list = new ArrayList<>();
 //        for (Employee emp : edao.selectByKeyWord(txtSearch.getText())) {
 //            list.add(emp);

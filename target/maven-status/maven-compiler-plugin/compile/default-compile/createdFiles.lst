@@ -11,7 +11,6 @@ UI\DepartmentJDialog1$7.class
 dao\Report1DAOImpl.class
 UI\AdvancePaymentJDialog$8.class
 UI\LoginJDialog$3.class
-UI\CrudController.class
 dao\User.class
 UI\AdvancePaymentJDialog$3.class
 UI\ForgotPasswordJDialog$4$1.class
@@ -95,6 +94,7 @@ UI\DepartmentJDialog1$4.class
 UI\EmployeeJDialog$23$1.class
 UI\EmployeeJDialog$2.class
 UI\ChangPasswordJDialog.class
+controller\CrudController.class
 UI\Main2JFrame$17.class
 UI\AdvancePaymentJDialog$5.class
 UI\BonusJDialog$9.class
