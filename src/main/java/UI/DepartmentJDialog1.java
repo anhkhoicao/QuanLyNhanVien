@@ -4,9 +4,11 @@
  */
 package UI;
 
+import controller.CrudController;
 import dao.DepartmentDAO;
 import entity.Department;
 import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.table.DefaultTableModel;
 import utils.Auth;
 import utils.MsgBox;
@@ -24,6 +26,9 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+         txtID.setBorder(BorderFactory.createCompoundBorder(txtID.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 0)));
+            txtDepName.setBorder(BorderFactory.createCompoundBorder(txtDepName.getBorder(), BorderFactory.createEmptyBorder(0, 10, 0, 0)));
+
     }
 
     /**
@@ -37,26 +42,28 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnNew = new javax.swing.JButton();
-        btnAdd = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txtDepName = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        txtID = new javax.swing.JTextField();
-        jPanel5 = new javax.swing.JPanel();
-        btnFirst = new javax.swing.JButton();
-        btnPrev = new javax.swing.JButton();
-        btnNext = new javax.swing.JButton();
-        btnLast = new javax.swing.JButton();
+        kGradientPanel2 = new keeptoo.KGradientPanel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDepart = new javax.swing.JTable();
         txtSearch = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnNew = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        btnFirst = new javax.swing.JButton();
+        btnPrev = new javax.swing.JButton();
+        btnNext = new javax.swing.JButton();
+        btnLast = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
+        txtDepName = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -65,136 +72,25 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.GridLayout(1, 0, 20, 0));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 18, -1, -1));
 
-        btnNew.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        btnNew.setText("NEW");
-        btnNew.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnNew.setPreferredSize(new java.awt.Dimension(80, 40));
-        btnNew.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnNew);
+        kGradientPanel2.setkEndColor(new java.awt.Color(204, 204, 255));
+        kGradientPanel2.setkGradientFocus(200);
+        kGradientPanel2.setkStartColor(new java.awt.Color(102, 102, 255));
+        kGradientPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnAdd.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        btnAdd.setText("ADD");
-        btnAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnAdd.setPreferredSize(new java.awt.Dimension(80, 40));
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnAdd);
+        jPanel6.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel6.setForeground(new java.awt.Color(153, 149, 236));
 
-        btnUpdate.setFont(new java.awt.Font("Segoe UI Black", 1, 11)); // NOI18N
-        btnUpdate.setText("UPDATE");
-        btnUpdate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnUpdate.setPreferredSize(new java.awt.Dimension(80, 40));
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnUpdate);
-
-        btnDelete.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
-        btnDelete.setText("DELETE");
-        btnDelete.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnDelete.setPreferredSize(new java.awt.Dimension(80, 40));
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnDelete);
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setPreferredSize(new java.awt.Dimension(400, 89));
-        jPanel3.setLayout(new java.awt.BorderLayout());
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jLabel1.setText("Department Name :");
-        jPanel3.add(jLabel1, java.awt.BorderLayout.LINE_START);
-
-        txtDepName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtDepName.setPreferredSize(new java.awt.Dimension(64, 30));
-        txtDepName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDepNameActionPerformed(evt);
-            }
-        });
-        jPanel3.add(txtDepName, java.awt.BorderLayout.PAGE_END);
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setPreferredSize(new java.awt.Dimension(400, 89));
-        jPanel4.setLayout(new java.awt.BorderLayout());
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jLabel2.setText("ID :");
-        jPanel4.add(jLabel2, java.awt.BorderLayout.LINE_START);
-
-        txtID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtID.setPreferredSize(new java.awt.Dimension(64, 30));
-        txtID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIDActionPerformed(evt);
-            }
-        });
-        jPanel4.add(txtID, java.awt.BorderLayout.PAGE_END);
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setLayout(new java.awt.GridLayout(1, 0, 20, 0));
-
-        btnFirst.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        btnFirst.setPreferredSize(new java.awt.Dimension(80, 40));
-        btnFirst.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFirstActionPerformed(evt);
-            }
-        });
-        jPanel5.add(btnFirst);
-
-        btnPrev.setFont(new java.awt.Font("Segoe UI Emoji", 1, 20)); // NOI18N
-        btnPrev.setText("<");
-        btnPrev.setMargin(new java.awt.Insets(5, 14, 3, 14));
-        btnPrev.setPreferredSize(new java.awt.Dimension(80, 40));
-        btnPrev.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrevActionPerformed(evt);
-            }
-        });
-        jPanel5.add(btnPrev);
-
-        btnNext.setFont(new java.awt.Font("Segoe UI Emoji", 1, 20)); // NOI18N
-        btnNext.setText(">");
-        btnNext.setMargin(new java.awt.Insets(5, 14, 3, 14));
-        btnNext.setPreferredSize(new java.awt.Dimension(80, 40));
-        btnNext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextActionPerformed(evt);
-            }
-        });
-        jPanel5.add(btnNext);
-
-        btnLast.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        btnLast.setPreferredSize(new java.awt.Dimension(80, 40));
-        btnLast.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLastActionPerformed(evt);
-            }
-        });
-        jPanel5.add(btnLast);
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
+        tblDepart.setAutoCreateRowSorter(true);
+        tblDepart.setBackground(new java.awt.Color(153, 149, 236));
+        tblDepart.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tblDepart.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -235,13 +131,16 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSearch)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,51 +150,146 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
                     .addComponent(txtSearch)
                     .addComponent(btnSearch))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(432, 432, 432))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(22, 22, 22)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(523, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(113, 113, 113)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(72, 72, 72)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(220, Short.MAX_VALUE)))
-        );
+        kGradientPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, 360));
+
+        btnDelete.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        btnDelete.setText("DELETE");
+        btnDelete.setBorder(null);
+        btnDelete.setPreferredSize(new java.awt.Dimension(80, 40));
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        kGradientPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, -1, -1));
+
+        btnUpdate.setFont(new java.awt.Font("Segoe UI Black", 1, 11)); // NOI18N
+        btnUpdate.setText("UPDATE");
+        btnUpdate.setBorder(null);
+        btnUpdate.setPreferredSize(new java.awt.Dimension(80, 40));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        kGradientPanel2.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, -1, -1));
+
+        btnAdd.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        btnAdd.setText("ADD");
+        btnAdd.setBorder(null);
+        btnAdd.setPreferredSize(new java.awt.Dimension(80, 40));
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+        kGradientPanel2.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, -1, -1));
+
+        btnNew.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
+        btnNew.setText("NEW");
+        btnNew.setBorder(null);
+        btnNew.setPreferredSize(new java.awt.Dimension(80, 40));
+        btnNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewActionPerformed(evt);
+            }
+        });
+        kGradientPanel2.add(btnNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+
+        jPanel5.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel5.setLayout(new java.awt.GridLayout(1, 0, 20, 0));
+
+        btnFirst.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnFirst.setText("<|");
+        btnFirst.setPreferredSize(new java.awt.Dimension(80, 40));
+        btnFirst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFirstActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnFirst);
+
+        btnPrev.setFont(new java.awt.Font("Segoe UI Emoji", 1, 20)); // NOI18N
+        btnPrev.setText("<");
+        btnPrev.setMargin(new java.awt.Insets(5, 14, 3, 14));
+        btnPrev.setPreferredSize(new java.awt.Dimension(80, 40));
+        btnPrev.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrevActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnPrev);
+
+        btnNext.setFont(new java.awt.Font("Segoe UI Emoji", 1, 20)); // NOI18N
+        btnNext.setText(">");
+        btnNext.setMargin(new java.awt.Insets(5, 14, 3, 14));
+        btnNext.setPreferredSize(new java.awt.Dimension(80, 40));
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnNext);
+
+        btnLast.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        btnLast.setText(">|");
+        btnLast.setPreferredSize(new java.awt.Dimension(80, 40));
+        btnLast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLastActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnLast);
+
+        kGradientPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 490, 350, 28));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("DEPARTMENT ");
+        kGradientPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 320, 59));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("ID ");
+        kGradientPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 50, 59));
+
+        txtID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtID.setBorder(null);
+        txtID.setMargin(new java.awt.Insets(2, 16, 2, 16));
+        txtID.setPreferredSize(new java.awt.Dimension(64, 30));
+        txtID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIDActionPerformed(evt);
+            }
+        });
+        kGradientPanel2.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 305, 40));
+
+        txtDepName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtDepName.setBorder(null);
+        txtDepName.setPreferredSize(new java.awt.Dimension(64, 30));
+        txtDepName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDepNameActionPerformed(evt);
+            }
+        });
+        kGradientPanel2.add(txtDepName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 305, 40));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Department Name :");
+        kGradientPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 209, 305, 50));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/star-removebg-preview.png"))); // NOI18N
+        kGradientPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, -40, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/star-removebg-preview.png"))); // NOI18N
+        kGradientPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
+
+        jPanel1.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 990, 560));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -448,13 +442,15 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JTable tblDepart;
     private javax.swing.JTextField txtDepName;
     private javax.swing.JTextField txtID;
@@ -603,7 +599,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
             this.setSelectedRowIndex(index);
             this.editEntity();
         }else{
-        MsgBox.alert(jPanel3, "Bạn đang ở hàng đầu tiên");
+        MsgBox.alert(jPanel1, "Bạn đang ở hàng đầu tiên");
     }
     }
 
@@ -614,7 +610,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
             this.setSelectedRowIndex(index);
             this.editEntity();
         }else{
-        MsgBox.alert(jPanel3, "Bạn đang ở dòng cuối cùng");
+        MsgBox.alert(jPanel1, "Bạn đang ở dòng cuối cùng");
         }
     }
 

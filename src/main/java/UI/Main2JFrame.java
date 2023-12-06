@@ -42,6 +42,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         lblStatus = new javax.swing.JLabel();
         lblTimer = new javax.swing.JLabel();
@@ -52,6 +53,9 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         btnReportSalary = new javax.swing.JButton();
         btnHelp = new javax.swing.JButton();
         lblMainImage = new javax.swing.JLabel();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuSystem = new javax.swing.JMenu();
         mniLogin = new javax.swing.JMenuItem();
@@ -76,7 +80,13 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ManangePro");
+        setBackground(new java.awt.Color(204, 204, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(99, 165, 239));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 0, 51), 1, true));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
@@ -90,8 +100,12 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         lblTimer.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         jPanel1.add(lblTimer, java.awt.BorderLayout.LINE_END);
 
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 406, 809, -1));
+
+        jToolBar1.setBackground(new java.awt.Color(189, 107, 255));
         jToolBar1.setRollover(true);
 
+        btnExit.setBackground(new java.awt.Color(189, 107, 255));
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-power-off-button-48.png"))); // NOI18N
         btnExit.setFocusable(false);
         btnExit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -103,6 +117,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         });
         jToolBar1.add(btnExit);
 
+        btnAttendance.setBackground(new java.awt.Color(189, 107, 255));
         btnAttendance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-attendance-48-1.png"))); // NOI18N
         btnAttendance.setFocusable(false);
         btnAttendance.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -114,6 +129,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         });
         jToolBar1.add(btnAttendance);
 
+        btnEmployee.setBackground(new java.awt.Color(189, 107, 255));
         btnEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-manager-48.png"))); // NOI18N
         btnEmployee.setFocusable(false);
         btnEmployee.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -125,6 +141,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         });
         jToolBar1.add(btnEmployee);
 
+        btnReportSalary.setBackground(new java.awt.Color(189, 107, 255));
         btnReportSalary.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-report-48.png"))); // NOI18N
         btnReportSalary.setFocusable(false);
         btnReportSalary.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -136,8 +153,8 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         });
         jToolBar1.add(btnReportSalary);
 
+        btnHelp.setBackground(new java.awt.Color(189, 107, 255));
         btnHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-help-48-1.png"))); // NOI18N
-        btnHelp.setFocusable(false);
         btnHelp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnHelp.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnHelp.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +164,24 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         });
         jToolBar1.add(btnHelp);
 
+        jPanel2.add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         lblMainImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clip-busy-day-at-the-office.png"))); // NOI18N
+        jPanel2.add(lblMainImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 380, 290));
+
+        kGradientPanel1.setkEndColor(new java.awt.Color(102, 163, 232));
+        kGradientPanel1.setkGradientFocus(15);
+        kGradientPanel1.setkStartColor(new java.awt.Color(204, 102, 255));
+
+        jLabel1.setText("jLabel1");
+        kGradientPanel1.add(jLabel1);
+
+        jLabel2.setText("jLabel2");
+        kGradientPanel1.add(jLabel2);
+
+        jPanel2.add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 830, 470));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 460));
 
         mnuSystem.setText("System");
 
@@ -282,31 +316,6 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 809, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(206, 206, 206)
-                .addComponent(lblMainImage)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblMainImage)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -437,11 +446,15 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnHelp;
     private javax.swing.JButton btnReportSalary;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JToolBar jToolBar1;
+    private keeptoo.KGradientPanel kGradientPanel1;
     private javax.swing.JLabel lblMainImage;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblTimer;

@@ -4,6 +4,7 @@
  */
 package UI;
 
+import controller.CrudController;
 import dao.BonusDAO;
 import dao.EmployeeDAO;
 import entity.Bonus;
@@ -364,51 +365,6 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnNEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNEWActionPerformed
-        // TODO add your handling code here:
-        this.resetForm();
-    }//GEN-LAST:event_btnNEWActionPerformed
-
-    private void btnADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnADDActionPerformed
-        // TODO add your handling code here:
-        this.createEntity();
-    }//GEN-LAST:event_btnADDActionPerformed
-
-    private void btnUPDATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUPDATEActionPerformed
-        // TODO add your handling code here:
-        this.updateEntity();
-        this.resetForm();
-    }//GEN-LAST:event_btnUPDATEActionPerformed
-
-    private void btnDELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDELETEActionPerformed
-        // TODO add your handling code here:
-        this.deleteEntity();
-    }//GEN-LAST:event_btnDELETEActionPerformed
-
-    private void btnFIRSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFIRSTActionPerformed
-        // TODO add your handling code here:
-        this.moveFirst();
-    }//GEN-LAST:event_btnFIRSTActionPerformed
-
-    private void btnNEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNEXTActionPerformed
-        // TODO add your handling code here:
-        this.moveNext();
-    }//GEN-LAST:event_btnNEXTActionPerformed
-
-    private void btnPREActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPREActionPerformed
-        // TODO add your handling code here:
-        this.movePrev();
-    }//GEN-LAST:event_btnPREActionPerformed
-
-    private void btnLASTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLASTActionPerformed
-        // TODO add your handling code here:
-        this.moveLast();
-    }//GEN-LAST:event_btnLASTActionPerformed
-
-    private void txtAMOUNT2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAMOUNT2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAMOUNT2ActionPerformed
-
     private void tblLISTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblLISTMouseClicked
         // TODO add your handling code here:
         if (evt.getClickCount() == 1) {
@@ -436,13 +392,58 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         initialize();
     }//GEN-LAST:event_formWindowOpened
 
+    private void cboEmpIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboEmpIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboEmpIdActionPerformed
+
     private void rdoBonusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoBonusActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rdoBonusActionPerformed
 
-    private void cboEmpIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboEmpIdActionPerformed
+    private void txtAMOUNT2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAMOUNT2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cboEmpIdActionPerformed
+    }//GEN-LAST:event_txtAMOUNT2ActionPerformed
+
+    private void btnLASTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLASTActionPerformed
+        // TODO add your handling code here:
+        this.moveLast();
+    }//GEN-LAST:event_btnLASTActionPerformed
+
+    private void btnPREActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPREActionPerformed
+        // TODO add your handling code here:
+        this.movePrev();
+    }//GEN-LAST:event_btnPREActionPerformed
+
+    private void btnNEXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNEXTActionPerformed
+        // TODO add your handling code here:
+        this.moveNext();
+    }//GEN-LAST:event_btnNEXTActionPerformed
+
+    private void btnFIRSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFIRSTActionPerformed
+        // TODO add your handling code here:
+        this.moveFirst();
+    }//GEN-LAST:event_btnFIRSTActionPerformed
+
+    private void btnDELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDELETEActionPerformed
+        // TODO add your handling code here:
+        this.deleteEntity();
+    }//GEN-LAST:event_btnDELETEActionPerformed
+
+    private void btnUPDATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUPDATEActionPerformed
+        // TODO add your handling code here:
+        this.updateEntity();
+        this.resetForm();
+    }//GEN-LAST:event_btnUPDATEActionPerformed
+
+    private void btnADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnADDActionPerformed
+        // TODO add your handling code here:
+        this.createEntity();
+    }//GEN-LAST:event_btnADDActionPerformed
+
+    private void btnNEWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNEWActionPerformed
+        // TODO add your handling code here:
+        this.resetForm();
+    }//GEN-LAST:event_btnNEWActionPerformed
 
     /**
      * @param args the command line arguments

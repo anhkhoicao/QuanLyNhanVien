@@ -87,10 +87,17 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         cboPos = new javax.swing.JComboBox<>();
         kGradientPanel2 = new keeptoo.KGradientPanel();
         jPanel10 = new javax.swing.JPanel();
+        lblPics = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        btnDelete = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnNew = new javax.swing.JButton();
         btnFirst = new javax.swing.JButton();
         btnPrev = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
         btnLast = new javax.swing.JButton();
+<<<<<<< HEAD
         lblPics = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btnNew = new javax.swing.JButton();
@@ -100,6 +107,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         kGradientPanel5 = new keeptoo.KGradientPanel();
+=======
+>>>>>>> 5cf7a7c3cfead377f0038a8319d4a2a5df062414
         jPanel3 = new javax.swing.JPanel();
         btnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -118,6 +127,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         jLabel1.setText("THÔNG TIN NHÂN VIÊN");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, -1, -1));
 
+<<<<<<< HEAD
         tabs.setBackground(new java.awt.Color(102, 102, 255));
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
@@ -125,20 +135,37 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
         jPanel7.setBackground(new java.awt.Color(102, 102, 255));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+=======
+        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnExit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/off.png"))); // NOI18N
+        btnExit.setText("EXIT");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, -1, -1));
+
+        jPanel7.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel7.setLayout(new java.awt.GridLayout(11, 2, -160, 10));
+>>>>>>> 5cf7a7c3cfead377f0038a8319d4a2a5df062414
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("ID");
         jPanel7.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 265, 22));
         jPanel7.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 0, 265, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("First Name");
         jPanel7.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, 265, 22));
         jPanel7.add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 32, 265, -1));
 
-        lblPass.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblPass.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblPass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPass.setText("Last Name");
         jPanel7.add(lblPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 64, 265, 22));
@@ -150,10 +177,20 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel7.add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 64, 265, -1));
 
+<<<<<<< HEAD
         jPanel6.setBackground(new java.awt.Color(102, 51, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rdoOther.setBackground(new java.awt.Color(102, 51, 255));
+=======
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel6.setText("Sex");
+        jPanel7.add(jLabel6);
+
+        jPanel6.setBackground(new java.awt.Color(153, 153, 255));
+
+>>>>>>> 5cf7a7c3cfead377f0038a8319d4a2a5df062414
         buttonGroup1.add(rdoOther);
         rdoOther.setText("Other");
         jPanel6.add(rdoOther, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 0, -1, -1));
@@ -180,7 +217,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         jLabel6.setText("Sex");
         jPanel7.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 96, 265, 22));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("Phone");
         jPanel7.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 128, 265, 22));
@@ -192,7 +229,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel7.add(txtPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 128, 265, -1));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel13.setText("Email");
         jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 265, 22));
@@ -204,7 +241,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel7.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 160, 265, -1));
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel16.setText("Password");
         jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 192, 265, 22));
@@ -236,13 +273,49 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
         jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 224, -1, 22));
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel14.setText("Role");
         jLabel14.setMinimumSize(new java.awt.Dimension(28, 10));
+<<<<<<< HEAD
         jPanel7.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 224, 265, 22));
+=======
+        jPanel7.add(jLabel14);
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jPanel8.setBackground(new java.awt.Color(153, 153, 255));
+
+        buttonGroup2.add(rboNhanVien);
+        rboNhanVien.setText("Employee");
+
+        buttonGroup2.add(rboKeToan);
+        rboKeToan.setText("Accountant");
+
+        buttonGroup2.add(rboTruongPhong);
+        rboTruongPhong.setText("Manager");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addComponent(rboTruongPhong)
+                .addGap(18, 18, 18)
+                .addComponent(rboKeToan)
+                .addGap(18, 18, 18)
+                .addComponent(rboNhanVien))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(rboTruongPhong)
+                .addComponent(rboKeToan)
+                .addComponent(rboNhanVien))
+        );
+
+        jPanel7.add(jPanel8);
+>>>>>>> 5cf7a7c3cfead377f0038a8319d4a2a5df062414
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel15.setText("BaseSalary");
         jPanel7.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 256, 265, 22));
@@ -254,7 +327,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel7.add(txtBaseSalary, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 256, 265, -1));
 
-        cbo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cbo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cbo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         cbo.setText("Department");
         jPanel7.add(cbo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 288, 265, 22));
@@ -266,9 +339,11 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel7.add(cboDep, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 288, 265, -1));
 
-        lbl17.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbl17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbl17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbl17.setText("Position");
+        lbl17.setToolTipText("");
+        lbl17.setAlignmentX(0.5F);
         lbl17.setMaximumSize(new java.awt.Dimension(20, 20));
         lbl17.setMinimumSize(new java.awt.Dimension(20, 20));
         jPanel7.add(lbl17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 265, 22));
@@ -280,6 +355,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel7.add(cboPos, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 320, 265, -1));
 
+<<<<<<< HEAD
         javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
         kGradientPanel2.setLayout(kGradientPanel2Layout);
         kGradientPanel2Layout.setHorizontalGroup(
@@ -296,7 +372,64 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 24, -1, -1));
 
         jPanel10.setBackground(new java.awt.Color(102, 51, 255));
+=======
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 460, 370));
+
+>>>>>>> 5cf7a7c3cfead377f0038a8319d4a2a5df062414
         jPanel10.setLayout(new java.awt.GridLayout(1, 4, 20, 0));
+        jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 384, 265, -1));
+
+        lblPics.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPics.setText("ẢNH");
+        lblPics.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPicsMouseClicked(evt);
+            }
+        });
+        jPanel2.add(lblPics, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 146, 131));
+
+        jPanel5.setLayout(new java.awt.GridLayout(2, 2, 20, 20));
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 194, -1, -1));
+
+        btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/delete_32px.png"))); // NOI18N
+        btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 280, 110, -1));
+
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/create_32px.png"))); // NOI18N
+        btnUpdate.setText("UPDATE");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, -1));
+
+        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/save_32px.png"))); // NOI18N
+        btnAdd.setText("ADD");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, 110, -1));
+
+        btnNew.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/add.png"))); // NOI18N
+        btnNew.setText("NEW");
+        btnNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnNew, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 110, -1));
 
         btnFirst.setBackground(new java.awt.Color(102, 102, 255));
         btnFirst.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
@@ -307,7 +440,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                 btnFirstActionPerformed(evt);
             }
         });
-        jPanel10.add(btnFirst);
+        jPanel2.add(btnFirst, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 51, -1));
 
         btnPrev.setBackground(new java.awt.Color(102, 102, 255));
         btnPrev.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
@@ -318,7 +451,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                 btnPrevActionPerformed(evt);
             }
         });
-        jPanel10.add(btnPrev);
+        jPanel2.add(btnPrev, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 51, -1));
 
         btnNext.setBackground(new java.awt.Color(102, 102, 255));
         btnNext.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
@@ -329,7 +462,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                 btnNextActionPerformed(evt);
             }
         });
-        jPanel10.add(btnNext);
+        jPanel2.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, 51, -1));
 
         btnLast.setBackground(new java.awt.Color(102, 102, 255));
         btnLast.setFont(new java.awt.Font("SimSun", 1, 16)); // NOI18N
@@ -341,6 +474,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
                 btnLastActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         jPanel10.add(btnLast);
 
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 265, -1));
@@ -418,15 +552,35 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             kGradientPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 450, Short.MAX_VALUE)
         );
+=======
+        jPanel2.add(btnLast, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 51, -1));
+>>>>>>> 5cf7a7c3cfead377f0038a8319d4a2a5df062414
 
         jPanel2.add(kGradientPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 450));
 
         tabs.addTab("CẬP NHẬT", jPanel2);
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 255));
+<<<<<<< HEAD
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnSearch.setBackground(new java.awt.Color(102, 102, 255));
+=======
+
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
+        });
+
+        btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/search_client_32px.png"))); // NOI18N
+>>>>>>> 5cf7a7c3cfead377f0038a8319d4a2a5df062414
         btnSearch.setText("SEARCH");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -435,7 +589,12 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jPanel3.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 22, -1, -1));
 
+<<<<<<< HEAD
         tblEmployees.setBackground(new java.awt.Color(51, 51, 255));
+=======
+        tblEmployees.setBackground(new java.awt.Color(153, 153, 255));
+        tblEmployees.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+>>>>>>> 5cf7a7c3cfead377f0038a8319d4a2a5df062414
         tblEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -454,6 +613,7 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tblEmployees);
 
+<<<<<<< HEAD
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 63, 720, 330));
 
         txtSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -477,6 +637,63 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
         kGradientPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(kGradientPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 520));
+=======
+        btnExit1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnExit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/off.png"))); // NOI18N
+        btnExit1.setText("EXIT");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(110, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnSearch)
+                        .addGap(93, 93, 93))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnExit1)
+                        .addGap(34, 34, 34))))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSearch)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnExit1)
+                .addGap(21, 21, 21))
+        );
+
+        tabs.addTab("DANH SÁCH", jPanel3);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tabs)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(261, 261, 261)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tabs, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+>>>>>>> 5cf7a7c3cfead377f0038a8319d4a2a5df062414
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
