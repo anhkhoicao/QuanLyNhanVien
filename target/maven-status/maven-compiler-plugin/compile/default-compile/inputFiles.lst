@@ -20,6 +20,7 @@ A:\DUAN1\QuanLyNhanSu\src\main\java\entity\Department.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\utils\XFile.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\entity\Bonus.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\entity\TimeSheet.java
+A:\DUAN1\QuanLyNhanSu\src\main\java\UI\EmployeeJDialog.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\entity\AdvancePayment.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\controller\CrudController.java
 A:\DUAN1\QuanLyNhanSu\src\main\java\dao\AdvancePaymentDAO.java
