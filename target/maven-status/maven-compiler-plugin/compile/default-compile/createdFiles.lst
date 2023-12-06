@@ -156,6 +156,7 @@ entity\Position.class
 entity\Report$Attendance.class
 dao\ReportDAOImpl.class
 UI\EmployeeJDialog$17.class
+utils\EmailValidator.class
 UI\AdvancePaymentJDialog$13.class
 UI\Main2JFrame.class
 UI\EmployeeJDialog$3.class

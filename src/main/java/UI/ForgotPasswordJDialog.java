@@ -23,7 +23,7 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        
+
     }
 
     /**
@@ -201,14 +201,12 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
     EmployeeDAO dao = new EmployeeDAO();
     private String generatedCode;
     private Employee employee;
-    
-    
-    
+
     private void sendCode() {
         String getEmail = txtEmail.getText();
         List<Employee> list = dao.selectAll();
         boolean emailFound = false;
-        
+
         for (Employee emp : list) {
             if (emp.getEmail().equalsIgnoreCase(getEmail)) {
                 try {
@@ -220,7 +218,7 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
                     System.out.println(e);
                 }
                 break;
-            } 
+            }
         }
         if (emailFound) {
             MsgBox.alert(this, "An email has been sent.Please check your email");
@@ -228,35 +226,45 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
         if (!emailFound) {
             MsgBox.alert(this, "Wrong email or email doesn't exist");
         }
+
     }
 
     private void changePassword() {
-        String enteredCode  = txtCode.getText();
-        if (enteredCode == null) {
+        String enteredCode = txtCode.getText();
+
+        if (enteredCode == null || enteredCode.isEmpty()) {
             MsgBox.alert(this, "Code is required to proceed.");
             return;
         }
-        
+
         if (enteredCode.equals(generatedCode)) {
-            String newPassword = new String(txtNewPassword.getPassword());
-            
-            if (newPassword != null) {
+            char[] newPasswordChars = txtNewPassword.getPassword();
+            String newPassword = new String(newPasswordChars);
+
+            char[] confirmPassChars = txtConfirmPassword.getPassword();
+            String confirmPass = new String(confirmPassChars);
+
+            if (newPassword.isEmpty()) {
+                MsgBox.alert(this, "Do not leave password blank!");
+                return;
+            }
+
+            if (!newPassword.equals(confirmPass)) {
+                MsgBox.alert(this, "New Passwords do not match");
+            } else {
                 employee.setPassword(newPassword);
                 dao.updatePassword(employee);
                 MsgBox.alert(this, "Password changed successfully.");
-                this.dispose();
-            } else {
-                MsgBox.alert(this, "Password change canceled.");
+                exit();
             }
+
         } else {
             MsgBox.alert(this, "Incorrect code. Please check your email and try again.");
         }
-        
-        
     }
 
     private void exit() {
         this.dispose();
     }
-    
+
 }
