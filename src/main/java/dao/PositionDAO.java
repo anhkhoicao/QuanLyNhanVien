@@ -101,10 +101,25 @@ public class PositionDAO extends EntityDAO<Position, String> {
         }
         return list;
     }
-//    public static void main(String[] args) {
-//        PositionDAO dao = new PositionDAO();
-//        Position pos = dao.selectByID("P001  ");
-//        System.out.println(pos.getPosName());
-//    }
+    
+    public String getIDByName(String name) {
+        String sql = "select ID from Position where PosName = ?";
+         String id = null;
+        try {
+            ResultSet rs = XJdbc.query(sql, name);
+            if (rs.next()) {
+                id = rs.getString("ID");
+            }
+            rs.getStatement().getConnection().close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return id;
+    }
+    public static void main(String[] args) {
+        PositionDAO dao = new PositionDAO();
+        String id = dao.getIDByName("Manager");
+        System.out.println(id);
+    }
 
 }

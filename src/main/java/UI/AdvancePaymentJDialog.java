@@ -8,6 +8,8 @@ import dao.AdvancePaymentDAO;
 import dao.EmployeeDAO;
 import entity.AdvancePayment;
 import entity.Employee;
+import java.awt.Color;
+import java.awt.Font;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -36,6 +38,12 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         sdf.setLenient(false);
         fillTable(advancePaymentDAO.selectAll());
         fillCombobox();
+            tblPayment.getTableHeader().setFont(new Font("Segoe UI",0,15) {
+               
+      }); tblPayment.getTableHeader().setBackground(new Color(230, 230, 230));
+            tblPayment.getTableHeader().setForeground(Color.black);
+          
+             tblPayment.setRowHeight(26,26);
     }
 
     /**
@@ -47,29 +55,53 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
+        kGradientPanel1 = new keeptoo.KGradientPanel();
+        jPanel1 = new javax.swing.JPanel();
+        kGradientPanel2 = new keeptoo.KGradientPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPayment = new javax.swing.JTable();
-        btnSave = new javax.swing.JButton();
+        txtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
-        txtAdvAmout = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        btnDelete = new javax.swing.JButton();
-        txtSearch = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        btnSearch = new javax.swing.JButton();
-        txtID = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtAdvDate = new com.toedter.calendar.JDateChooser();
+        btnSave = new javax.swing.JButton();
         cboEmpID = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        txtAdvDate = new com.toedter.calendar.JDateChooser();
+        jLabel3 = new javax.swing.JLabel();
+        txtAdvAmout = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
+        kGradientPanel1.setLayout(kGradientPanel1Layout);
+        kGradientPanel1Layout.setHorizontalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        kGradientPanel1Layout.setVerticalGroup(
+            kGradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Mã Nhân Viên");
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        kGradientPanel2.setkEndColor(new java.awt.Color(204, 204, 255));
+        kGradientPanel2.setkGradientFocus(200);
+        kGradientPanel2.setkStartColor(new java.awt.Color(102, 102, 255));
+        kGradientPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblPayment.setBackground(new java.awt.Color(153, 149, 236));
+        tblPayment.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        tblPayment.setForeground(new java.awt.Color(255, 255, 255));
         tblPayment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"", null, null, null},
@@ -81,6 +113,12 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
                 "ID", "Tiền ứng", "Ngày ứng", "Mã nhân viên"
             }
         ));
+        tblPayment.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tblPayment.setFocusable(false);
+        tblPayment.setGridColor(new java.awt.Color(255, 255, 255));
+        tblPayment.setRowHeight(40);
+        tblPayment.setSelectionBackground(new java.awt.Color(204, 204, 255));
+        tblPayment.setShowGrid(true);
         tblPayment.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblPaymentMouseClicked(evt);
@@ -88,48 +126,11 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         });
         jScrollPane1.setViewportView(tblPayment);
 
-        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-add-24 (1).png"))); // NOI18N
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
-            }
-        });
+        kGradientPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 520, 320));
 
-        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-update-24 (1).png"))); // NOI18N
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
-            }
-        });
-
-        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-update-24 (2).png"))); // NOI18N
-        btnClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClearActionPerformed(evt);
-            }
-        });
-
-        txtAdvAmout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAdvAmoutActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("ID");
-
-        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-bin-24.png"))); // NOI18N
-        btnDelete.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                btnDeleteItemStateChanged(evt);
-            }
-        });
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
+        txtSearch.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtSearch.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchActionPerformed(evt);
@@ -140,142 +141,178 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
                 txtSearchKeyReleased(evt);
             }
         });
+        kGradientPanel2.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 160, 40));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("AdvancePayment");
-
-        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-analyze-24.png"))); // NOI18N
+        btnSearch.setBackground(new java.awt.Color(153, 149, 236));
+        btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/search_client_32px.png"))); // NOI18N
+        btnSearch.setText("SEARCH");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
             }
         });
+        kGradientPanel2.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 440, 120, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("AdvancePayment");
+        kGradientPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 31, 270, 40));
+
+        btnDelete.setBackground(new java.awt.Color(153, 149, 236));
+        btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/delete_32px.png"))); // NOI18N
+        btnDelete.setText("DELETE");
+        btnDelete.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDelete.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                btnDeleteItemStateChanged(evt);
+            }
+        });
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        kGradientPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 110, 40));
+
+        btnUpdate.setBackground(new java.awt.Color(153, 149, 236));
+        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/create_32px.png"))); // NOI18N
+        btnUpdate.setText("UPDATE");
+        btnUpdate.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        kGradientPanel2.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 120, 40));
+
+        btnClear.setBackground(new java.awt.Color(153, 149, 236));
+        btnClear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnClear.setForeground(new java.awt.Color(255, 255, 255));
+        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/add.png"))); // NOI18N
+        btnClear.setText("NEW");
+        btnClear.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
+        kGradientPanel2.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 110, -1));
+
+        btnSave.setBackground(new java.awt.Color(153, 149, 236));
+        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/save_32px.png"))); // NOI18N
+        btnSave.setText("SAVE");
+        btnSave.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+        kGradientPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 120, -1));
+
+        cboEmpID.setAlignmentX(1.0F);
+        kGradientPanel2.add(cboEmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 220, 30));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Mã Nhân Viên");
+        kGradientPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
+
+        txtAdvDate.setBackground(java.awt.Color.white);
+        txtAdvDate.setAlignmentX(1.0F);
+        kGradientPanel2.add(txtAdvDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 220, 30));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Ngày ứng");
+        kGradientPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
+
+        txtAdvAmout.setAlignmentX(1.0F);
+        txtAdvAmout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAdvAmoutActionPerformed(evt);
+            }
+        });
+        kGradientPanel2.add(txtAdvAmout, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 220, 30));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Tiền ứng");
+        kGradientPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         txtID.setEditable(false);
+        txtID.setBackground(java.awt.Color.white);
+        txtID.setAlignmentX(1.0F);
         txtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIDActionPerformed(evt);
             }
         });
+        kGradientPanel2.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 220, 30));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Tiền ứng");
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("ID");
+        kGradientPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 33, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Ngày ứng");
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/background.gif"))); // NOI18N
+        kGradientPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, -10, 440, 490));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/background.gif"))); // NOI18N
+        kGradientPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 30, 520, 520));
+
+        jPanel1.add(kGradientPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 560));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(237, 237, 237)
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAdvAmout, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 2, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtAdvDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGap(42, 42, 42))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)))
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(btnClear, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                                            .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addComponent(cboEmpID, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 31, Short.MAX_VALUE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(78, 78, 78))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(157, 157, 157)
-                                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(199, 199, 199)
-                                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(248, 248, 248))))))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSearch))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtAdvAmout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtAdvDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cboEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnClear)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tblPaymentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPaymentMouseClicked
-        int index = tblPayment.getSelectedRow();
-        if (index != -1) {
-            AdvancePayment advancePayment = advancePaymentDAO.selectAll().get(index);
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        this.deleteEntity();
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
-            txtID.setText(advancePayment.getId() + "");
-            txtAdvAmout.setText(advancePayment.getAdvAmount() + "");
-            txtAdvDate.setDate(advancePayment.getDateAdv());
-           cboEmpID.setSelectedItem(advancePayment.getEmployee().getId() + "");
-        }
-    }//GEN-LAST:event_tblPaymentMouseClicked
+    private void btnDeleteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnDeleteItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteItemStateChanged
+
+    private void txtAdvAmoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAdvAmoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAdvAmoutActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        resetForm();
+        fillTable(advancePaymentDAO.selectAll());
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        this.updateEntity();
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         try {
             if (validateForm()) {
-                 Employee employee = employeeDAO.selectByID(String.valueOf(cboEmpID.getSelectedItem()).trim());
+                Employee employee = employeeDAO.selectByID(String.valueOf(cboEmpID.getSelectedItem()).trim());
                 Date date = null;
                 try {
                     date = txtAdvDate.getDate();
@@ -297,45 +334,35 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-       this.updateEntity();
-    }//GEN-LAST:event_btnUpdateActionPerformed
+    private void tblPaymentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPaymentMouseClicked
+        int index = tblPayment.getSelectedRow();
+        if (index != -1) {
+            AdvancePayment advancePayment = advancePaymentDAO.selectAll().get(index);
 
-    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        resetForm();
-        fillTable(advancePaymentDAO.selectAll());
-    }//GEN-LAST:event_btnClearActionPerformed
+            txtID.setText(advancePayment.getId() + "");
+            txtAdvAmout.setText(advancePayment.getAdvAmount() + "");
+            txtAdvDate.setDate(advancePayment.getDateAdv());
+            cboEmpID.setSelectedItem(advancePayment.getEmployee().getId() + "");
+        }
+    }//GEN-LAST:event_tblPaymentMouseClicked
 
-    private void txtAdvAmoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAdvAmoutActionPerformed
+    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAdvAmoutActionPerformed
+    }//GEN-LAST:event_txtIDActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-    this.deleteEntity();
-
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
-        // TODO add your handling code here:
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         this.searchEntity();
-    }//GEN-LAST:event_txtSearchActionPerformed
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         // TODO add your handling code here:
         this.searchEntity();
     }//GEN-LAST:event_txtSearchKeyReleased
 
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-       this.searchEntity();
-    }//GEN-LAST:event_btnSearchActionPerformed
-
-    private void btnDeleteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_btnDeleteItemStateChanged
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnDeleteItemStateChanged
-
-    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIDActionPerformed
+        this.searchEntity();
+    }//GEN-LAST:event_txtSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -391,7 +418,12 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private keeptoo.KGradientPanel kGradientPanel1;
+    private keeptoo.KGradientPanel kGradientPanel2;
     private javax.swing.JTable tblPayment;
     private javax.swing.JTextField txtAdvAmout;
     private com.toedter.calendar.JDateChooser txtAdvDate;
