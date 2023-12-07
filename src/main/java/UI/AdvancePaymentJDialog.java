@@ -620,18 +620,47 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         });
     }
     
-     private void searchEntity() {
-       if (txtSearch.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Chưa nhập thông tin", "Lỗi", JOptionPane.ERROR_MESSAGE);
-        } else {
-            List<AdvancePayment> list = new ArrayList<>();
-            for (AdvancePayment i : advancePaymentDAO.selectByKeyWord(txtSearch.getText())) {
-                if (txtSearch.getText().trim().toLowerCase().equals(i.getEmployee().getId().toLowerCase())) {
-                    list.add(i);
-                }
+//     private void searchEntity() {
+//     
+//            List<AdvancePayment> list = new ArrayList<>();
+//            for (AdvancePayment i : advancePaymentDAO.selectByKeyWord(txtSearch.getText())) {
+//                if (txtSearch.getText().trim().toLowerCase().equals(i.getEmployee().getId().toLowerCase())) {
+//                    list.add(i);
+//                }
+//            }
+//            fillTable(list);
+//        }
+    void fillTableSearch(){
+        DefaultTableModel model = (DefaultTableModel) tblPayment.getModel();
+        model.setRowCount(0);
+        try {
+            String keyword = txtSearch.getText();
+            List<AdvancePayment> list = dao.selectByKeyWord(keyword);
+            for (AdvancePayment adv : list){
+                Object[] row = {
+                    adv.getId(),
+                    adv.getAdvAmount(),
+                    adv.getDateAdv(),
+                    adv.getEmployee().getId(),
+                };
+                model.addRow(row);
             }
-            fillTable(list);
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
+    
+    
+    private void searchEntity(){
+//        List<Employee> list = new ArrayList<>();
+//        for (Employee emp : edao.selectByKeyWord(txtSearch.getText())) {
+//            list.add(emp);
+//        }
+//        fillTable();
+        this.fillTableSearch();
+        this.resetForm();
+       
+    }
+    
 
 }
