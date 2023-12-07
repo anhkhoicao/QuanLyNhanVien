@@ -221,7 +221,7 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
             }
         }
         if (emailFound) {
-            MsgBox.alert(this, "An email has been sent.Please check your email");
+            MsgBox.alert(this, "An email has been sent. Please check your email");
         }
         if (!emailFound) {
             MsgBox.alert(this, "Wrong email or email doesn't exist");

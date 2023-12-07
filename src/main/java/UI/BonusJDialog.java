@@ -612,19 +612,22 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
 
     @Override
     public void createEntity() {
-        Bonus bonus = this.getEntityFromForm();
-        if (isValidated()) {
-            bDAO.insert(bonus);
-            this.resetForm();
-            this.fillEntityListOnTable();
-            MsgBox.alert(this, "Thêm mới thành công!");
-        } else {
-            MsgBox.alert(this, "Thêm mới thất bại!");
-        }
-//        try {
 
-//        } catch (Exception e) {
-//        }
+        try {
+            Bonus bonus = this.getEntityFromForm();
+            if (isValidated()) {
+                bDAO.insert(bonus);
+                this.resetForm();
+                this.fillEntityListOnTable();
+                MsgBox.alert(this, "Thêm mới thành công!");
+            } else {
+                MsgBox.alert(this, "Thêm mới thất bại!");
+            }
+        } catch (Exception e) {
+            MsgBox.alert(this, "Thêm mới thất bại!");
+
+        }
+
     }
 
     @Override
@@ -741,11 +744,10 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
     boolean isValidated() {
         Bonus e = this.getEntityFromForm();
         String bonusAmount = Double.toString(e.getAmount());
-
         if (e.getBonusDate().equals("")) {
             MsgBox.alert(this, "Không để trống Date!");
-        } else if (bonusAmount.equals("") && bonusAmount.equals(0.0)) {
-            MsgBox.alert(this, "Không để trống tên nhân viên!");
+        } else if (bonusAmount.equals("") || bonusAmount.equals(0.0)) {
+            MsgBox.alert(this, "Không để trống amount!");
         } else if (e.getDesc().equals("")) {
             MsgBox.alert(this, "Không để trống số Note!");
         } else {
