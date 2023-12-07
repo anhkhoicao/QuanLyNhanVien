@@ -147,6 +147,7 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
         XJdbc.update(sql, e.getPassword(), e.getId());
     }
 
+<<<<<<< HEAD
 
 
 //    Employee getById(String string) {
@@ -155,6 +156,8 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
 //    }
  
 
+=======
+>>>>>>> c042cdd818e3abfaf04cd98d7fd0dab4b3925a13
     public String getIDByName(String name) {
         String sql = "select ID from Position where ID = ?";
          String id = null;
@@ -169,8 +172,11 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
         }
         return id;
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> c042cdd818e3abfaf04cd98d7fd0dab4b3925a13
     }
 }
 

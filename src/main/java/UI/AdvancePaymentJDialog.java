@@ -273,7 +273,7 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         kGradientPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 33, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/star-removebg-preview.png"))); // NOI18N
-        kGradientPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 420, 420));
+        kGradientPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 410, 420));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/star-removebg-preview.png"))); // NOI18N
         kGradientPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 420, 420));
@@ -620,18 +620,47 @@ public class AdvancePaymentJDialog extends javax.swing.JDialog implements CrudCo
         });
     }
     
-     private void searchEntity() {
-       if (txtSearch.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Chưa nhập thông tin", "Lỗi", JOptionPane.ERROR_MESSAGE);
-        } else {
-            List<AdvancePayment> list = new ArrayList<>();
-            for (AdvancePayment i : advancePaymentDAO.selectByKeyWord(txtSearch.getText())) {
-                if (txtSearch.getText().trim().toLowerCase().equals(i.getEmployee().getId().toLowerCase())) {
-                    list.add(i);
-                }
+//     private void searchEntity() {
+//     
+//            List<AdvancePayment> list = new ArrayList<>();
+//            for (AdvancePayment i : advancePaymentDAO.selectByKeyWord(txtSearch.getText())) {
+//                if (txtSearch.getText().trim().toLowerCase().equals(i.getEmployee().getId().toLowerCase())) {
+//                    list.add(i);
+//                }
+//            }
+//            fillTable(list);
+//        }
+    void fillTableSearch(){
+        DefaultTableModel model = (DefaultTableModel) tblPayment.getModel();
+        model.setRowCount(0);
+        try {
+            String keyword = txtSearch.getText();
+            List<AdvancePayment> list = dao.selectByKeyWord(keyword);
+            for (AdvancePayment adv : list){
+                Object[] row = {
+                    adv.getId(),
+                    adv.getAdvAmount(),
+                    adv.getDateAdv(),
+                    adv.getEmployee().getId(),
+                };
+                model.addRow(row);
             }
-            fillTable(list);
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
+    
+    
+    private void searchEntity(){
+//        List<Employee> list = new ArrayList<>();
+//        for (Employee emp : edao.selectByKeyWord(txtSearch.getText())) {
+//            list.add(emp);
+//        }
+//        fillTable();
+        this.fillTableSearch();
+        this.resetForm();
+       
+    }
+    
 
 }

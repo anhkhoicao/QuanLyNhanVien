@@ -48,7 +48,7 @@ public class LoginJDialog extends javax.swing.JDialog {
         disable = new javax.swing.JLabel();
         show = new javax.swing.JLabel();
         chkRememberMe = new javax.swing.JCheckBox();
-        jLabel11 = new javax.swing.JLabel();
+        lblForgotPassword = new javax.swing.JLabel();
         txtPass = new javax.swing.JPasswordField();
         jLabel12 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -100,7 +100,7 @@ public class LoginJDialog extends javax.swing.JDialog {
         jPanel1.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 240, 30));
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_user_20px_1.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_user_20px_1.png"))); // NOI18N
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 40, 39));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -113,7 +113,7 @@ public class LoginJDialog extends javax.swing.JDialog {
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 250, 30));
 
         disable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        disable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_invisible_20px_1.png"))); // NOI18N
+        disable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_invisible_20px_1.png"))); // NOI18N
         disable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         disable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -123,7 +123,7 @@ public class LoginJDialog extends javax.swing.JDialog {
         jPanel1.add(disable, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 30, 40));
 
         show.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        show.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8_eye_20px_1.png"))); // NOI18N
+        show.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_eye_20px_1.png"))); // NOI18N
         show.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         show.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -135,14 +135,24 @@ public class LoginJDialog extends javax.swing.JDialog {
         chkRememberMe.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         chkRememberMe.setForeground(new java.awt.Color(255, 255, 255));
         chkRememberMe.setText("Remember Password");
+        chkRememberMe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkRememberMeActionPerformed(evt);
+            }
+        });
         jPanel1.add(chkRememberMe, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel11.setText("Forget Password?");
-        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 110, 40));
+        lblForgotPassword.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        lblForgotPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblForgotPassword.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblForgotPassword.setText("Forget Password?");
+        lblForgotPassword.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblForgotPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblForgotPasswordMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lblForgotPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 110, 40));
 
         txtPass.setBackground(new java.awt.Color(156, 123, 247));
         txtPass.setFont(txtPass.getFont().deriveFont(txtPass.getFont().getSize()+2f));
@@ -221,6 +231,15 @@ public class LoginJDialog extends javax.swing.JDialog {
         show.setEnabled(true);
     }//GEN-LAST:event_disableMouseClicked
 
+    private void chkRememberMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkRememberMeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chkRememberMeActionPerformed
+
+    private void lblForgotPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblForgotPasswordMouseClicked
+        // TODO add your handling code here:
+        openForgotPasswordJDialog(this);
+    }//GEN-LAST:event_lblForgotPasswordMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -269,7 +288,6 @@ public class LoginJDialog extends javax.swing.JDialog {
     private javax.swing.JLabel disable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -278,6 +296,7 @@ public class LoginJDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblForgotPassword;
     private javax.swing.JLabel show;
     private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtUser;
