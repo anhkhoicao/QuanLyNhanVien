@@ -375,7 +375,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
 
     private void btnTHOATActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTHOATActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        exit();
     }//GEN-LAST:event_btnTHOATActionPerformed
 
     private void txtSEARCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSEARCHActionPerformed
@@ -613,7 +613,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
     @Override
     public void createEntity() {
         Bonus bonus = this.getEntityFromForm();
-        if (isValidated() == false) {
+        if (isValidated()) {
             bDAO.insert(bonus);
             this.resetForm();
             this.fillEntityListOnTable();
@@ -630,7 +630,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
     @Override
     public void updateEntity() {
         Bonus bonus = this.getEntityFromForm();
-        if (isValidated() == false) {
+        if (isValidated()) {
 //          try {
             bDAO.update(bonus);
             this.fillEntityListOnTable();
@@ -742,16 +742,20 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         Bonus e = this.getEntityFromForm();
         String bonusAmount = Double.toString(e.getAmount());
 
-        if (e.getBonusDate().equals(" ")) {
+        if (e.getBonusDate().equals("")) {
             MsgBox.alert(this, "Không để trống Date!");
         } else if (bonusAmount.equals("") && bonusAmount.equals(0.0)) {
             MsgBox.alert(this, "Không để trống tên nhân viên!");
-        } else if (e.getDesc().equals(" ")) {
+        } else if (e.getDesc().equals("")) {
             MsgBox.alert(this, "Không để trống số Note!");
         } else {
             return true;
         }
         return false;
+    }
+
+    private void exit() {
+        this.dispose();
     }
 
 }

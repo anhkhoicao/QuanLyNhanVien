@@ -21,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import utils.IconUtil;
 import utils.XFile;
+import utils.XMail;
 
 /**
  *
@@ -544,12 +545,18 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        this.Add();
+        if (this.isValidated()) {
+            this.Add();
+        }
+
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        this.Update();
+        if (isValidated()) {
+            this.Update();
+        }
+
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -559,21 +566,21 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
     private void cboDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboDepActionPerformed
         // TODO add your handling code here:
-        String depID =  ddao.getIDByName(cboDep.getSelectedItem().toString());
+        String depID = ddao.getIDByName(cboDep.getSelectedItem().toString());
         cboDep.setToolTipText(depID);
-       
+
     }//GEN-LAST:event_cboDepActionPerformed
 
     private void cboPosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPosActionPerformed
         // TODO add your handling code here:
         String posID = pdao.getIDByName(cboPos.getSelectedItem().toString());
         cboPos.setToolTipText(posID);
-        
+
     }//GEN-LAST:event_cboPosActionPerformed
 
     private void tblEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeesMouseClicked
         // TODO add your handling code here:
-        if(evt.getClickCount() == 1){
+        if (evt.getClickCount() == 1) {
             this.row = tblEmployees.getSelectedRow();
             this.edit();
         }
@@ -698,15 +705,15 @@ public class EmployeeJDialog extends javax.swing.JDialog {
     EmployeeDAO edao = new EmployeeDAO();
     DepartmentDAO ddao = new DepartmentDAO();
     PositionDAO pdao = new PositionDAO();
-    
+
     int row = -1;
-    
-    void fillTable(){
+
+    void fillTable() {
         DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
         model.setRowCount(0);
         try {
             List<Employee> list = edao.selectAll();
-            for (Employee e : list){
+            for (Employee e : list) {
                 Object[] row = {
                     e.getId(),
                     e.getFirstName(),
@@ -723,14 +730,14 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             System.out.println(e);
         }
     }
-    
-        void fillTableSearch(){
+
+    void fillTableSearch() {
         DefaultTableModel model = (DefaultTableModel) tblEmployees.getModel();
         model.setRowCount(0);
         try {
             String keyword = txtSearch.getText();
             List<Employee> list = edao.selectByKeyWord(keyword);
-            for (Employee e : list){
+            for (Employee e : list) {
                 Object[] row = {
                     e.getId(),
                     e.getFirstName(),
@@ -747,8 +754,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             System.out.println(e);
         }
     }
-    
-    void fillcboDepartment(){
+
+    void fillcboDepartment() {
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboDep.getModel();
         model.removeAllElements();
         List<String> list = ddao.getDepName();
@@ -756,8 +763,8 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             model.addElement(s);
         }
     }
-    
-    void fillcboPosition(){
+
+    void fillcboPosition() {
         DefaultComboBoxModel model = (DefaultComboBoxModel) cboPos.getModel();
         model.removeAllElements();
         List<String> list = pdao.getPosName();
@@ -765,163 +772,161 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             model.addElement(s);
         }
     }
-    
-    void setForm(Employee e){
+
+    void setForm(Employee e) {
         txtID.setText(e.getId());
         txtFirstName.setText(e.getFirstName());
         txtLastName.setText(e.getLastName());
-        if(e.getSex().equalsIgnoreCase("Male")){
+        if (e.getSex().equalsIgnoreCase("Male")) {
             rdoMale.setSelected(true);
-        }else if(e.getSex().equalsIgnoreCase("Female")){
+        } else if (e.getSex().equalsIgnoreCase("Female")) {
             rdoFemale.setSelected(true);
-        }else{
+        } else {
             rdoOther.setSelected(true);
         }
-        
+
         txtPhone.setText(e.getPhoneNumber());
         txtEmail.setText(e.getEmail());
         txtPass.setText(e.getPassword());
-        
-        if(e.getRole().equalsIgnoreCase("Manager")){
+
+        if (e.getRole().equalsIgnoreCase("Manager")) {
             rboTruongPhong.setSelected(true);
-        }else if(e.getRole().equalsIgnoreCase("Accountant")){
+        } else if (e.getRole().equalsIgnoreCase("Accountant")) {
             rboKeToan.setSelected(true);
-        }else{
+        } else {
             rboNhanVien.setSelected(true);
         }
-        
+
         txtBaseSalary.setText(Double.toString(e.getBaseSalary()));
         cboDep.setSelectedItem(e.getDepartment().getDepName());
         cboPos.setSelectedItem(e.getPosition().getPosName());
         cboDep.setToolTipText(e.getDepartment().getDepID());
         cboPos.setToolTipText(e.getPosition().getPosID());
-        
+
         ImageIcon imageicon = new ImageIcon(e.getImage());
         ImageIcon fitImage = XFile.getScaledIcon(imageicon, 150, 150);
         lblPics.setIcon(fitImage);
-        
+
     }
-    
-    Employee getForm(){
+
+    Employee getForm() {
         Employee e = new Employee();
         e.setId(txtID.getText());
         e.setFirstName(txtFirstName.getText());
         e.setLastName(txtLastName.getText());
-        
-        if(rdoMale.isSelected()){
+
+        if (rdoMale.isSelected()) {
             e.setSex(String.valueOf(rdoMale.getText()));
-        }else if(rdoFemale.isSelected()){
+        } else if (rdoFemale.isSelected()) {
             e.setSex(String.valueOf(rdoFemale.getText()));
-        }else{
+        } else {
             e.setSex(String.valueOf(rdoOther.getText()));
         }
-        
+
         e.setPhoneNumber(txtPhone.getText());
         e.setEmail(txtEmail.getText());
         e.setPassword(String.valueOf(txtPass.getPassword()));
-        
-        if(rboTruongPhong.isSelected()){
+
+        if (rboTruongPhong.isSelected()) {
             e.setRole(String.valueOf(rboTruongPhong.getText()));
-        }else if(rboKeToan.isSelected()){
+        } else if (rboKeToan.isSelected()) {
             e.setRole(String.valueOf(rboKeToan.getText()));
-        }else{
+        } else {
             e.setRole(String.valueOf(rboNhanVien.getText()));
         }
-        
+
         e.setBaseSalary(Double.parseDouble(txtBaseSalary.getText()));
         e.setDepartment(ddao.selectByID(cboDep.getToolTipText()));
         e.setPosition(pdao.selectByID(cboPos.getToolTipText()));
         e.setImage("./src/main/resources/images/" + lblPics.getToolTipText());
         return e;
     }
-    
-    void Add(){
-        Employee e = this.getForm();
-            try {
-                edao.insert(e); // thêm mới
-                this.fillTable(); // đỗ lại bảng
-                this.clearForm(); // xóa trắng form
-                MsgBox.alert(this, "Thêm mới thành công!");
-            } 
-            catch (Exception ex) {
-                MsgBox.alert(this, "Thêm mới thất bại!");
-            }
-    }
-    
-    void Update(){
+
+    void Add() {
         Employee e = this.getForm();
         try {
-                edao.update(e); // cập nhật
-                this.fillTable(); // đổ lại bảng
-                MsgBox.alert(this, "Cập nhật thành công!");
-            } 
-            catch (Exception ex) {
-                //MsgBox.alert(this, "Cập nhật thất bại!");
-                System.out.println(ex);
-            }
-    }
-    
-    void Delete(){
-        if(!Auth.isManager()){
-            MsgBox.alert(this, "Bạn không có quyền xóa nhân viên!");
+            edao.insert(e); // thêm mới
+            this.fillTable(); // đỗ lại bảng
+            this.clearForm(); // xóa trắng form
+            MsgBox.alert(this, "Thêm mới thành công!");
+        } catch (Exception ex) {
+            MsgBox.alert(this, "Thêm mới thất bại!");
         }
-        else{
+    }
+
+    void Update() {
+        Employee e = this.getForm();
+        try {
+            edao.update(e); // cập nhật
+            this.fillTable(); // đổ lại bảng
+            MsgBox.alert(this, "Cập nhật thành công!");
+        } catch (Exception ex) {
+            //MsgBox.alert(this, "Cập nhật thất bại!");
+            System.out.println(ex);
+        }
+    }
+
+    void Delete() {
+        if (!Auth.isManager()) {
+            MsgBox.alert(this, "Bạn không có quyền xóa nhân viên!");
+        } else {
             String id = txtID.getText();
-            if(id.equals(Auth.user.getId())){
+            if (id.equals(Auth.user.getId())) {
                 MsgBox.alert(this, "Bạn không được xóa chính bạn!");
-            }
-            else if(MsgBox.confirm(this, "Bạn thực sự muốn xóa nhân viên này?")){
+            } else if (MsgBox.confirm(this, "Bạn thực sự muốn xóa nhân viên này?")) {
                 try {
                     edao.delete(id);
                     this.fillTable();
                     this.clearForm();
                     MsgBox.alert(this, "Xóa thành công!");
-                } 
-                catch (Exception e) {
+                } catch (Exception e) {
                     MsgBox.alert(this, "Xóa thất bại!");
                 }
             }
         }
     }
-    
-    void first(){
+
+    void first() {
         this.row = 0;
         this.edit();
     }
-    void prev(){
-        if(this.row > 0){
+
+    void prev() {
+        if (this.row > 0) {
             this.row--;
             this.edit();
         }
     }
-    void next(){
-        if(this.row < tblEmployees.getRowCount() - 1){
+
+    void next() {
+        if (this.row < tblEmployees.getRowCount() - 1) {
             this.row++;
             this.edit();
         }
     }
-    void last(){
+
+    void last() {
         this.row = tblEmployees.getRowCount() - 1;
         this.edit();
     }
-    
-    void clearForm(){
+
+    void clearForm() {
         Employee e = new Employee();
-        
-        e.setSex("Other");        
+
+        e.setSex("Other");
         e.setPhoneNumber("");
         e.setEmail("");
         e.setRole("Employee");
         e.setBaseSalary(0);
         e.setDepartment(ddao.selectByID("D001"));
         e.setPosition(pdao.selectByID("P003"));
-        
+
         this.setForm(e);
         this.row = -1;
         this.updateStatus();
     }
-    
-    void updateStatus(){
+
+    void updateStatus() {
         boolean edit = (this.row >= 0);
         boolean first = (this.row == 0);
         boolean last = (this.row == tblEmployees.getRowCount() - 1);
@@ -930,10 +935,10 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 //        btnAdd.setEnabled(!edit);
 //        btnUpdate.setEnabled(edit);
 //        btnDelete.setEnabled(edit);
-        
-        if(!Auth.isAccountant()){
+
+        if (!Auth.isAccountant()) {
             txtBaseSalary.setEditable(false);
-        }else{
+        } else {
             txtID.setEditable(false);
             txtFirstName.setEditable(false);
             txtLastName.setEditable(false);
@@ -949,33 +954,31 @@ public class EmployeeJDialog extends javax.swing.JDialog {
             cboDep.setEnabled(false);
             cboPos.setEnabled(false);
         }
-        
-        if(Auth.isManager()){
+
+        if (Auth.isManager()) {
             txtID.setEditable(!edit);
             btnAdd.setEnabled(!edit);
             btnUpdate.setEnabled(edit);
             btnDelete.setEnabled(edit);
-        }else if(Auth.isAccountant()){
+        } else if (Auth.isAccountant()) {
             btnNew.setEnabled(!edit);
             btnAdd.setEnabled(!edit);
             btnUpdate.setEnabled(edit);
             btnDelete.setEnabled(!edit);
-        }else{
+        } else {
             btnNew.setEnabled(!edit);
             btnAdd.setEnabled(!edit);
             btnUpdate.setEnabled(!edit);
             btnDelete.setEnabled(!edit);
         }
-        
-        
-                
+
         // Trạng thái điều hướng
         btnFirst.setEnabled(edit && !first);
         btnPrev.setEnabled(edit && !first);
         btnNext.setEnabled(edit && !last);
         btnLast.setEnabled(edit && !last);
     }
-    
+
     void edit() {
         String id = (String) tblEmployees.getValueAt(this.row, 0);
         Employee e = edao.selectByID(id);
@@ -983,24 +986,31 @@ public class EmployeeJDialog extends javax.swing.JDialog {
         tabs.setSelectedIndex(0);
         this.updateStatus();
     }
-    
-    boolean isValidated(){
+
+    private boolean isValidated() {
         Employee e = this.getForm();
-        if(e.getId().length() == 0){
-            MsgBox.alert(this, "Không để trống mã nhân viên!");
-        }
-        else if(e.getLastName().length() == 0){
-            MsgBox.alert(this, "Không để trống tên nhân viên!");
-        }
-        else if(e.getPhoneNumber().length() == 0){
-            MsgBox.alert(this, "Không để trống số điện thoại!");
-        }
-        else{
+
+        if (e.getId().isEmpty()) {
+            MsgBox.alert(this, "Do not leave employee ID blank!");
+        } else if (e.getLastName().isEmpty()) {
+            MsgBox.alert(this, "Do not leave last name blank!");
+        } else if (e.getPhoneNumber().isEmpty()) {
+            MsgBox.alert(this, "Do not leave phone number blank!");
+        } else if (e.getFirstName().isEmpty()) {
+            MsgBox.alert(this, "Do not leave first name blank!");
+        } else if (e.getEmail().isEmpty()) {
+            MsgBox.alert(this, "Do not leave email blank!");
+        } else if (!XMail.isValidEmail(e.getEmail())) {
+            MsgBox.alert(this, "Improperly formatted email!");
+        } else if (e.getPassword().isEmpty()) {
+            MsgBox.alert(this, "Do not leave password blank!");
+        } else {
             return true;
         }
+
         return false;
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
@@ -1059,18 +1069,18 @@ public class EmployeeJDialog extends javax.swing.JDialog {
 
     private void selectImage() {
         int option = fileImageChooser.showOpenDialog(this);
-        if(option == JFileChooser.APPROVE_OPTION){
+        if (option == JFileChooser.APPROVE_OPTION) {
             File file = fileImageChooser.getSelectedFile();
-            
+
             File folder = new File("./src/main/resources/images");
             File newFile = IconUtil.copyFileToStorageFolder(file, folder);
             IconUtil.setIconToLabel(newFile, lblPics);
-            
+
             lblPics.setToolTipText(newFile.getName());
         }
     }
-    
-    private void Search(){
+
+    private void Search() {
 //        List<Employee> list = new ArrayList<>();
 //        for (Employee emp : edao.selectByKeyWord(txtSearch.getText())) {
 //            list.add(emp);
