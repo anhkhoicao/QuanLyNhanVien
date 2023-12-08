@@ -147,36 +147,5 @@ public class EmployeeDAO extends EntityDAO<Employee, String> {
         XJdbc.update(sql, e.getPassword(), e.getId());
     }
 
-<<<<<<< HEAD
-
-
-//    Employee getById(String string) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//
-//    }
- 
-
-=======
->>>>>>> c042cdd818e3abfaf04cd98d7fd0dab4b3925a13
-    public String getIDByName(String name) {
-        String sql = "select ID from Position where ID = ?";
-         String id = null;
-        try {
-            ResultSet rs = XJdbc.query(sql, name);
-            if (rs.next()) {
-                id = rs.getString("ID");
-            }
-            rs.getStatement().getConnection().close();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return id;
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> c042cdd818e3abfaf04cd98d7fd0dab4b3925a13
-    }
 }
 
