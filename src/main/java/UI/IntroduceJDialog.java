@@ -34,6 +34,7 @@ public class IntroduceJDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jLabel1.setForeground(new java.awt.Color(102, 102, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/folks-team-analyzes-graphs-and-diagrams.png"))); // NOI18N
 

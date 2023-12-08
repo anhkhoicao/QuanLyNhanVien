@@ -81,6 +81,11 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             }
         });
 
+        tabCapNhat.setBackground(new java.awt.Color(153, 153, 255));
+
+        jPanel5.setBackground(new java.awt.Color(153, 153, 255));
+
+        btnNEW.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnNEW.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-update-24 (2).png"))); // NOI18N
         btnNEW.setText("New");
         btnNEW.addActionListener(new java.awt.event.ActionListener() {
@@ -90,6 +95,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         });
         jPanel5.add(btnNEW);
 
+        btnADD.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnADD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-add-24 (1).png"))); // NOI18N
         btnADD.setText("Add");
         btnADD.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +105,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         });
         jPanel5.add(btnADD);
 
+        btnUPDATE.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnUPDATE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-update-24.png"))); // NOI18N
         btnUPDATE.setText("Update");
         btnUPDATE.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +115,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         });
         jPanel5.add(btnUPDATE);
 
+        btnDELETE.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnDELETE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-bin-24 (1).png"))); // NOI18N
         btnDELETE.setText("Delete");
         btnDELETE.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +124,8 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             }
         });
         jPanel5.add(btnDELETE);
+
+        jPanel4.setBackground(new java.awt.Color(153, 153, 255));
 
         btnFIRST.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-first-24.png"))); // NOI18N
         btnFIRST.setPreferredSize(new java.awt.Dimension(60, 31));
@@ -153,14 +163,23 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         });
         jPanel4.add(btnLAST);
 
+        jPanel3.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel3.setForeground(new java.awt.Color(255, 255, 255));
+
         txtNOTE2.setColumns(20);
         txtNOTE2.setRows(5);
         jScrollPane3.setViewportView(txtNOTE2);
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Date :");
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Note :");
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Amount :");
 
         txtAMOUNT2.addActionListener(new java.awt.event.ActionListener() {
@@ -169,9 +188,14 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             }
         });
 
+        lblSEQ.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblSEQ.setForeground(new java.awt.Color(255, 255, 255));
         lblSEQ.setText("Employee ID :");
 
+        rdoBonus.setBackground(new java.awt.Color(153, 153, 255));
         buttonGroup1.add(rdoBonus);
+        rdoBonus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        rdoBonus.setForeground(new java.awt.Color(255, 255, 255));
         rdoBonus.setText("Bonus");
         rdoBonus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,9 +203,14 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             }
         });
 
+        rdoFine.setBackground(new java.awt.Color(153, 153, 255));
         buttonGroup1.add(rdoFine);
+        rdoFine.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        rdoFine.setForeground(new java.awt.Color(255, 255, 255));
         rdoFine.setText("Fine");
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Option");
 
         cboEmpId.addActionListener(new java.awt.event.ActionListener() {
@@ -196,23 +225,24 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(103, 103, 103)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblSEQ, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cboEmpId, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(lblSEQ, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(cboEmpId, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jScrollPane3)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -266,9 +296,9 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         tabCapNhatLayout.setVerticalGroup(
             tabCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabCapNhatLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(tabCapNhatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -277,6 +307,11 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
 
         tabs.addTab("Cập nhật", tabCapNhat);
 
+        tabDanhSach.setBackground(new java.awt.Color(153, 153, 255));
+
+        jPanel7.setBackground(new java.awt.Color(153, 153, 255));
+
+        tblLIST.setBackground(new java.awt.Color(153, 153, 255));
         tblLIST.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -306,9 +341,11 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        jPanel8.setBackground(new java.awt.Color(153, 153, 255));
         jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
-        btnTHOAT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-exit-24 (2).png"))); // NOI18N
+        btnTHOAT.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnTHOAT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/off.png"))); // NOI18N
         btnTHOAT.setText("Thoát");
         btnTHOAT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -316,6 +353,8 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             }
         });
         jPanel8.add(btnTHOAT);
+
+        jPanel6.setBackground(new java.awt.Color(153, 153, 255));
 
         txtSEARCH.setPreferredSize(new java.awt.Dimension(450, 22));
         txtSEARCH.addActionListener(new java.awt.event.ActionListener() {
@@ -355,7 +394,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         tabs.addTab("Danh Sách", tabDanhSach);

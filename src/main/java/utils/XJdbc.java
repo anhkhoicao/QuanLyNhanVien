@@ -13,7 +13,7 @@ public class XJdbc {
     private static String dburl = "jdbc:sqlserver://localhost:1433;database=ChamCong;encrypt=true;trustServerCertificate=true";
     private static String username = "sa";
 
-    private static String password = "sa123456";
+    private static String password = "123";
 
 
     private static Connection connection;
