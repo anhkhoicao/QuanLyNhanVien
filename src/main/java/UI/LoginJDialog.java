@@ -62,13 +62,13 @@ public class LoginJDialog extends javax.swing.JDialog {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(156, 123, 247));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(153, 153, 255));
         btnLogin.setText("Login");
-        btnLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnLogin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -93,7 +93,7 @@ public class LoginJDialog extends javax.swing.JDialog {
         jLabel6.setText("Username");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 341, -1));
 
-        txtUser.setBackground(new java.awt.Color(156, 123, 247));
+        txtUser.setBackground(new java.awt.Color(153, 153, 255));
         txtUser.setFont(txtUser.getFont().deriveFont(txtUser.getFont().getSize()+2f));
         txtUser.setForeground(new java.awt.Color(255, 255, 255));
         txtUser.setBorder(null);
@@ -132,6 +132,7 @@ public class LoginJDialog extends javax.swing.JDialog {
         });
         jPanel1.add(show, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 50, 40));
 
+        chkRememberMe.setBackground(new java.awt.Color(153, 153, 255));
         chkRememberMe.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         chkRememberMe.setForeground(new java.awt.Color(255, 255, 255));
         chkRememberMe.setText("Remember Password");
@@ -154,7 +155,7 @@ public class LoginJDialog extends javax.swing.JDialog {
         });
         jPanel1.add(lblForgotPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 110, 40));
 
-        txtPass.setBackground(new java.awt.Color(156, 123, 247));
+        txtPass.setBackground(new java.awt.Color(153, 153, 255));
         txtPass.setFont(txtPass.getFont().deriveFont(txtPass.getFont().getSize()+2f));
         txtPass.setForeground(new java.awt.Color(255, 255, 255));
         txtPass.setBorder(null);
