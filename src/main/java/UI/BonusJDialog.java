@@ -98,6 +98,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         btnADD.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnADD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-add-24 (1).png"))); // NOI18N
         btnADD.setText("Add");
+        btnADD.setEnabled(false);
         btnADD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnADDActionPerformed(evt);
@@ -108,6 +109,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         btnUPDATE.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnUPDATE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-update-24.png"))); // NOI18N
         btnUPDATE.setText("Update");
+        btnUPDATE.setEnabled(false);
         btnUPDATE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUPDATEActionPerformed(evt);
@@ -118,6 +120,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         btnDELETE.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnDELETE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-bin-24 (1).png"))); // NOI18N
         btnDELETE.setText("Delete");
+        btnDELETE.setEnabled(false);
         btnDELETE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDELETEActionPerformed(evt);
@@ -128,6 +131,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         jPanel4.setBackground(new java.awt.Color(153, 153, 255));
 
         btnFIRST.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-first-24.png"))); // NOI18N
+        btnFIRST.setEnabled(false);
         btnFIRST.setPreferredSize(new java.awt.Dimension(60, 31));
         btnFIRST.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +141,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         jPanel4.add(btnFIRST);
 
         btnNEXT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-next-24.png"))); // NOI18N
+        btnNEXT.setEnabled(false);
         btnNEXT.setPreferredSize(new java.awt.Dimension(60, 31));
         btnNEXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,6 +151,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         jPanel4.add(btnNEXT);
 
         btnPRE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-previous-24.png"))); // NOI18N
+        btnPRE.setEnabled(false);
         btnPRE.setPreferredSize(new java.awt.Dimension(60, 31));
         btnPRE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,6 +161,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         jPanel4.add(btnPRE);
 
         btnLAST.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-last-24.png"))); // NOI18N
+        btnLAST.setEnabled(false);
         btnLAST.setPreferredSize(new java.awt.Dimension(60, 31));
         btnLAST.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,6 +175,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
 
         txtNOTE2.setColumns(20);
         txtNOTE2.setRows(5);
+        txtNOTE2.setEnabled(false);
         jScrollPane3.setViewportView(txtNOTE2);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -182,6 +190,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Amount :");
 
+        txtAMOUNT2.setEnabled(false);
         txtAMOUNT2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAMOUNT2ActionPerformed(evt);
@@ -192,11 +201,14 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         lblSEQ.setForeground(new java.awt.Color(255, 255, 255));
         lblSEQ.setText("Employee ID :");
 
+        jDateChooser1.setEnabled(false);
+
         rdoBonus.setBackground(new java.awt.Color(153, 153, 255));
         buttonGroup1.add(rdoBonus);
         rdoBonus.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         rdoBonus.setForeground(new java.awt.Color(255, 255, 255));
         rdoBonus.setText("Bonus");
+        rdoBonus.setEnabled(false);
         rdoBonus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdoBonusActionPerformed(evt);
@@ -208,11 +220,13 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         rdoFine.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         rdoFine.setForeground(new java.awt.Color(255, 255, 255));
         rdoFine.setText("Fine");
+        rdoFine.setEnabled(false);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Option");
 
+        cboEmpId.setEnabled(false);
         cboEmpId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboEmpIdActionPerformed(evt);
@@ -581,7 +595,11 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             }
 
         } else {
-            BonusDouble = BonusDouble * -1;
+            if (BonusDouble < 0) {
+                BonusDouble = BonusDouble * 1;
+            } else {
+                BonusDouble = BonusDouble * -1;
+            }
 
         }
 
@@ -646,6 +664,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
     public void initialize() {
         fillEntityListOnTable();
         fillComboBoxEmpId();
+
 //        resetForm();
     }
 
@@ -662,6 +681,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
             } else {
                 MsgBox.alert(this, "Thêm mới thất bại!");
             }
+//            this.UpdateStatusNew();
         } catch (Exception e) {
             MsgBox.alert(this, "Thêm mới thất bại!");
 
@@ -680,6 +700,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         } else {
             MsgBox.alert(this, "Cập nhật thất bại!");
         }
+//        this.UpdateStatusNew();
 //        } catch (Exception e) {
 //            MsgBox.alert(this, "Cập nhật thất bại!");
 //        }  
@@ -697,6 +718,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         } catch (Exception e) {
             MsgBox.alert(this, "Xóa thất bại!");
         }
+//        this.UpdateStatusNew();
 
     }
 
@@ -715,6 +737,7 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
         bonus.setDesc("");
         bonus.setEmployee(eDAO.selectByID("E001"));
         this.setEntityToForm(bonus);
+        this.UpdateStatus();
     }
 
     @Override
@@ -782,17 +805,90 @@ public class BonusJDialog extends javax.swing.JDialog implements CrudController<
 
     boolean isValidated() {
         Bonus e = this.getEntityFromForm();
-        String bonusAmount = Double.toString(e.getAmount());
-        if (e.getBonusDate().equals("")) {
-            MsgBox.alert(this, "Không để trống Date!");
-        } else if (bonusAmount.equals("") || bonusAmount.equals(0.0)) {
-            MsgBox.alert(this, "Không để trống amount!");
-        } else if (e.getDesc().equals("")) {
+//        String bonusAmount = Double.toString(e.getAmount());
+//        String bonusAmount = txtAMOUNT2.getText();
+        if (e.getBonusDate() == null) {
+            MsgBox.alert(this, "Date không hợp lệ!");
+        } else if (e.getAmount() == 0.0) {
+            MsgBox.alert(this, "Amount không hợp lệ!");
+        } else if (e.getDesc().trim().isEmpty()) {
             MsgBox.alert(this, "Không để trống số Note!");
         } else {
             return true;
         }
         return false;
+    }
+//boolean isValidated() {
+//    Bonus e = this.getEntityFromForm();
+//    String bonusAmount = Double.toString(e.getAmount());
+//    if (e.getBonusDate() == null) {
+//        MsgBox.alert(this, "Không để trống Date!");
+//    } else if (bonusAmount.trim().isEmpty()) {
+//        MsgBox.alert(this, "Amount không được để trống!");
+//    } else {
+//        // Kiểm tra chuỗi có chứa ký tự không hợp lệ hay không
+//        boolean isValidAmount = isValidNumber(bonusAmount);
+//        
+//        if (isValidAmount) {
+//            double amount = Double.parseDouble(bonusAmount);
+//            if (amount == 0.0) {
+//                MsgBox.alert(this, "Amount không hợp lệ!");
+//            } else if (e.getDesc().trim().isEmpty()) {
+//                MsgBox.alert(this, "Không để trống số Note!");
+//            } else {
+//                return true;
+//            }
+//        } else {
+//            MsgBox.alert(this, "Amount không hợp lệ!");
+//        }
+//    }
+//    return false;
+//}
+
+boolean isValidNumber(String number) {
+    try {
+        Double.parseDouble(number);
+        return true;
+    } catch (NumberFormatException e) {
+        return false;
+    }
+}
+    void UpdateStatus() {
+        cboEmpId.setEnabled(true);
+        txtAMOUNT2.setEnabled(true);
+        txtNOTE2.setEnabled(true);
+        jDateChooser1.setEnabled(true);
+        rdoBonus.setEnabled(true);
+        rdoFine.setEnabled(true);
+
+        btnNEW.setEnabled(true);
+        btnADD.setEnabled(true);
+        btnDELETE.setEnabled(true);
+        btnUPDATE.setEnabled(true);
+        btnFIRST.setEnabled(true);
+        btnNEXT.setEnabled(true);
+        btnPRE.setEnabled(true);
+        btnLAST.setEnabled(true);
+
+    }
+
+    void UpdateStatusNew() {
+        cboEmpId.setEnabled(false);
+        txtAMOUNT2.setEnabled(false);
+        txtNOTE2.setEnabled(false);
+        jDateChooser1.setEnabled(false);
+        rdoBonus.setEnabled(false);
+        rdoFine.setEnabled(false);
+
+        btnNEW.setEnabled(true);
+        btnADD.setEnabled(false);
+        btnDELETE.setEnabled(false);
+        btnUPDATE.setEnabled(false);
+        btnFIRST.setEnabled(false);
+        btnNEXT.setEnabled(false);
+        btnPRE.setEnabled(false);
+        btnLAST.setEnabled(false);
+
     }
 
     private void exit() {
