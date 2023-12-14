@@ -73,12 +73,26 @@ public class XFile {
 //        URL url = XIcon.class.getResource(filename);
 //        return XFile.loadIcon(url);
 //    }
-    
-    public static ImageIcon getScaledIcon(ImageIcon icon, int width, int height){
+
+    public static ImageIcon getScaledIcon(ImageIcon icon, int width, int height) {
         Image image = icon.getImage();
-        Image newimg = image.getScaledInstance(width, height,  Image.SCALE_SMOOTH);
+        Image newimg = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         return new ImageIcon(newimg);
     }
-    
-    
+
+    public static Image getAppIcon() {
+        // Đường dẫn tương đối trong ứng dụng
+        String iconPath = "./src/main/resources/images/app_icon.ico";
+
+        // Lấy URL của tài nguyên sử dụng ClassLoader
+        URL url = XFile.class.getResource(iconPath);
+
+        if (url != null) {
+            return new ImageIcon(url).getImage();
+        } else {
+            System.out.println("Không thể tìm thấy biểu tượng ứng dụng.");
+            return null;
+        }
+    }
+
 }
