@@ -82,7 +82,7 @@ public class XFile {
 
     public static Image getAppIcon() {
         // Đường dẫn tương đối trong ứng dụng
-        String iconPath = "./src/main/resources/images/app_icon.ico";
+        String iconPath = "/src/main/resources/images/user_app_icon.png";
 
         // Lấy URL của tài nguyên sử dụng ClassLoader
         URL url = XFile.class.getResource(iconPath);

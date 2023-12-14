@@ -674,15 +674,13 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
     public void openHelp() {
         try {
             File htmlFile = new File("src/main/resources/TabUI/index.html");
-
-            // Check if the file exists before attempting to open it
             if (htmlFile.exists()) {
                 Desktop.getDesktop().browse(htmlFile.toURI());
             } else {
                 MsgBox.alert(this, "File not found: " + htmlFile.getAbsolutePath());
             }
         } catch (IOException e) {
-            e.printStackTrace(); // Consider logging the exception or displaying a more detailed error message
+            e.printStackTrace(); 
             MsgBox.alert(this, "Error opening the URL: " + e.getMessage());
         }
 
