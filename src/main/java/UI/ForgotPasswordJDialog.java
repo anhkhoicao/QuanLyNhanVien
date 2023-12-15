@@ -23,7 +23,7 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-        
+
     }
 
     /**
@@ -49,25 +49,31 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
         btnCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 102, 255));
 
         jPanel1.setLayout(new java.awt.GridLayout(4, 2, -80, 8));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setText("Email:");
         jPanel1.add(jLabel1);
         jPanel1.add(txtEmail);
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Code:");
         jPanel1.add(jLabel2);
         jPanel1.add(txtCode);
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("New Password:");
         jPanel1.add(jLabel3);
         jPanel1.add(txtNewPassword);
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Confrim Password:");
         jPanel1.add(jLabel4);
         jPanel1.add(txtConfirmPassword);
 
+        btnSendCode.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSendCode.setText("SEND");
         btnSendCode.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSendCode.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +82,7 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
             }
         });
 
+        btnConfirm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnConfirm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-check-24.png"))); // NOI18N
         btnConfirm.setText("Confirm");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -84,6 +91,7 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
             }
         });
 
+        btnCancel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/icons8-cancel-24.png"))); // NOI18N
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +110,7 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnConfirm))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSendCode)
@@ -126,11 +134,6 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSendCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendCodeActionPerformed
-        // TODO add your handling code here:
-        sendCode();
-    }//GEN-LAST:event_btnSendCodeActionPerformed
-
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
         changePassword();
@@ -140,6 +143,11 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         exit();
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnSendCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendCodeActionPerformed
+        // TODO add your handling code here:
+        sendCode();
+    }//GEN-LAST:event_btnSendCodeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,14 +209,12 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
     EmployeeDAO dao = new EmployeeDAO();
     private String generatedCode;
     private Employee employee;
-    
-    
-    
+
     private void sendCode() {
         String getEmail = txtEmail.getText();
         List<Employee> list = dao.selectAll();
         boolean emailFound = false;
-        
+
         for (Employee emp : list) {
             if (emp.getEmail().equalsIgnoreCase(getEmail)) {
                 try {
@@ -220,43 +226,53 @@ public class ForgotPasswordJDialog extends javax.swing.JDialog {
                     System.out.println(e);
                 }
                 break;
-            } 
+            }
         }
         if (emailFound) {
-            MsgBox.alert(this, "An email has been sent.Please check your email");
+            MsgBox.alert(this, "An email has been sent. Please check your email");
         }
         if (!emailFound) {
             MsgBox.alert(this, "Wrong email or email doesn't exist");
         }
+
     }
 
     private void changePassword() {
-        String enteredCode  = txtCode.getText();
-        if (enteredCode == null) {
+        String enteredCode = txtCode.getText();
+
+        if (enteredCode == null || enteredCode.isEmpty()) {
             MsgBox.alert(this, "Code is required to proceed.");
             return;
         }
-        
+
         if (enteredCode.equals(generatedCode)) {
-            String newPassword = new String(txtNewPassword.getPassword());
-            
-            if (newPassword != null) {
+            char[] newPasswordChars = txtNewPassword.getPassword();
+            String newPassword = new String(newPasswordChars);
+
+            char[] confirmPassChars = txtConfirmPassword.getPassword();
+            String confirmPass = new String(confirmPassChars);
+
+            if (newPassword.isEmpty()) {
+                MsgBox.alert(this, "Do not leave password blank!");
+                return;
+            }
+
+            if (!newPassword.equals(confirmPass)) {
+                MsgBox.alert(this, "New Passwords do not match");
+            } else {
                 employee.setPassword(newPassword);
                 dao.updatePassword(employee);
                 MsgBox.alert(this, "Password changed successfully.");
-                this.dispose();
-            } else {
-                MsgBox.alert(this, "Password change canceled.");
+                exit();
             }
+
         } else {
             MsgBox.alert(this, "Incorrect code. Please check your email and try again.");
         }
-        
-        
     }
 
     private void exit() {
         this.dispose();
     }
-    
+
 }

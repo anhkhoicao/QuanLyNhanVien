@@ -204,7 +204,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         jPanel5.setLayout(new java.awt.GridLayout(1, 0, 20, 0));
 
         btnFirst.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        btnFirst.setText("<|");
+        btnFirst.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/first.png"))); // NOI18N
         btnFirst.setPreferredSize(new java.awt.Dimension(80, 40));
         btnFirst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,7 +236,7 @@ public class DepartmentJDialog1 extends javax.swing.JDialog implements CrudContr
         jPanel5.add(btnNext);
 
         btnLast.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        btnLast.setText(">|");
+        btnLast.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon24-48/last.png"))); // NOI18N
         btnLast.setPreferredSize(new java.awt.Dimension(80, 40));
         btnLast.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

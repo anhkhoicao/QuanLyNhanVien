@@ -17,6 +17,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import utils.Auth;
 import utils.MsgBox;
 import utils.XDate;
+import utils.XFile;
 
 /**
  *
@@ -79,7 +80,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         mniHelp = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("ManangePro");
+        setTitle("ManagePro");
         setBackground(new java.awt.Color(204, 204, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -490,7 +491,7 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
         } else {
             setStatus("User: " + Auth.user.getFirstName() + " " + Auth.user.getLastName());
         }
-
+        setIconImage(XFile.getAppIcon());
     }
 
     @Override
@@ -673,15 +674,13 @@ public class Main2JFrame extends javax.swing.JFrame implements MainController {
     public void openHelp() {
         try {
             File htmlFile = new File("src/main/resources/TabUI/index.html");
-
-            // Check if the file exists before attempting to open it
             if (htmlFile.exists()) {
                 Desktop.getDesktop().browse(htmlFile.toURI());
             } else {
                 MsgBox.alert(this, "File not found: " + htmlFile.getAbsolutePath());
             }
         } catch (IOException e) {
-            e.printStackTrace(); // Consider logging the exception or displaying a more detailed error message
+            e.printStackTrace(); 
             MsgBox.alert(this, "Error opening the URL: " + e.getMessage());
         }
 

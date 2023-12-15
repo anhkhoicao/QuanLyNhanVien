@@ -6,6 +6,8 @@ package utils;
 
 import java.util.Properties;
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -68,6 +70,25 @@ public class XMail {
         } catch (MessagingException e) {
             System.out.println(e);
         }
+    }
+
+    
+    
+    
+    public static boolean isValidEmail(String email) {// Phương thức kiểm tra định dạng email
+        
+        
+        // Biểu thức chính quy để kiểm tra định dạng email
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+
+        // Tạo đối tượng Pattern
+        Pattern pattern = Pattern.compile(emailRegex);
+
+        // Tạo đối tượng Matcher
+        Matcher matcher = pattern.matcher(email);
+
+        // Kiểm tra xem email có đúng định dạng hay không
+        return matcher.matches();
     }
 
 //    public static void main(String[] args) {

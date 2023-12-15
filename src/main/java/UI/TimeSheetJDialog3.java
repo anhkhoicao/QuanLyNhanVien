@@ -73,6 +73,9 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+
+        tblTime.setBackground(new java.awt.Color(153, 153, 255));
         tblTime.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -86,17 +89,25 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
         ));
         jScrollPane5.setViewportView(tblTime);
 
+        btnCheck.setBackground(new java.awt.Color(153, 153, 255));
+        btnCheck.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCheck.setForeground(new java.awt.Color(255, 255, 255));
         btnCheck.setText("Attendance check");
+        btnCheck.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCheckActionPerformed(evt);
             }
         });
 
+        jLabel6.setBackground(new java.awt.Color(153, 153, 255));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Manager:");
 
+        lblManagerID.setBackground(new java.awt.Color(153, 153, 255));
         lblManagerID.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblManagerID.setForeground(new java.awt.Color(255, 0, 51));
+        lblManagerID.setForeground(new java.awt.Color(255, 255, 255));
         lblManagerID.setText("E001");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -128,7 +139,7 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
                         .addComponent(jLabel6)
                         .addComponent(lblManagerID)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCheck)
                 .addGap(9, 9, 9))
@@ -136,6 +147,11 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
 
         tabs.addTab("Attendance", jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(153, 153, 255));
+
+        jLabel3.setBackground(new java.awt.Color(153, 153, 255));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("MONTH: ");
 
         cboMonthAttendance.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
@@ -145,6 +161,9 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
             }
         });
 
+        jLabel4.setBackground(new java.awt.Color(153, 153, 255));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("YEAR:");
 
         cboYearAttendance.addActionListener(new java.awt.event.ActionListener() {
@@ -153,6 +172,8 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
             }
         });
 
+        tblAttendance.setBackground(new java.awt.Color(153, 153, 255));
+        tblAttendance.setForeground(new java.awt.Color(255, 255, 255));
         tblAttendance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -198,6 +219,10 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
 
         tabs.addTab("WorkDay", jPanel2);
 
+        pnlSalaryDetail.setBackground(new java.awt.Color(153, 153, 255));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("MONTH:");
 
         cboMonthSalary.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
@@ -207,6 +232,8 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("YEAR:");
 
         cboYearSalary.addActionListener(new java.awt.event.ActionListener() {
@@ -215,6 +242,8 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
             }
         });
 
+        tblSalaryDetail.setBackground(new java.awt.Color(153, 153, 255));
+        tblSalaryDetail.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tblSalaryDetail.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -257,6 +286,7 @@ public class TimeSheetJDialog3 extends javax.swing.JDialog {
 
         tabs.addTab("SalaryDetail", pnlSalaryDetail);
 
+        tblReportOnDepartment.setBackground(new java.awt.Color(153, 153, 255));
         tblReportOnDepartment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
